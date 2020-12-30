@@ -1,6 +1,6 @@
-# Vue + Firebase Authentication
+# Dynamic map of the ecosystem Mail.ru Group
 
-![Vue-Firebase-Authentication](https://webomnizz.com/wp-content/uploads/2020/11/vue-firebase-authentication.jpg)
+![](https://ambassador.mail.ru/img/bussiness-mrg.png)
 
 ## Project setup
 ```
