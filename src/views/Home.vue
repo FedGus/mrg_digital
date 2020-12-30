@@ -2,15 +2,15 @@
   <div class="home">
     <div class="first_orbit">
       <!-- первая орбита -->
-      <div class="product item-1-1"><img src="@/assets/delivery.png" /></div>
+      <div class="product item-1-1"><img class="non-block" src="@/assets/delivery.png" /><img class="non-block" src="@/assets/samokat.png" /><img src="@/assets/kuhnia.png" /></div>
       <div class="product item-1-2"><img src="@/assets/city_mobil.png" /></div>
-      <div class="product item-1-3"><img src="@/assets/youla.png" /></div>
+      <div class="product item-1-3"><img src="@/assets/youla.png" /><img src="@/assets/worki.png" /></div>
       <div class="product item-1-4"><img src="@/assets/Esforce.png" /></div>
       <div class="product item-1-5"><img src="@/assets/biz.svg" /></div>
-      <div class="product item-1-6"><img src="@/assets/geekbrains.png" /></div>
+      <div class="product item-1-6"><img src="@/assets/geekbrains.png" /><img src="@/assets/Skillbox.png" /><img src="@/assets/skillfactory.png" /></div>
       <div class="product item-1-7"><img src="@/assets/aliexpress.png" /></div>
       <div class="product item-1-8">
-        <img src="@/assets/mediaproektyi.png" />
+        <img src="@/assets/mediaproektyi.png" /><img src="@/assets/poisk.png" />
       </div>
       <div class="product item-1-9"><img src="@/assets/ICQNew.png" /></div>
       <div class="product item-1-10"><img src="@/assets/boom.png" /></div>
@@ -27,10 +27,10 @@
       <div class="sector sector-1-10 sector-end"></div>
       <!-- вторая орбита -->
       <div class="second_orbit">
-        <div class="product item-2-1"><img src="@/assets/marusya.png" /></div>
+        <div class="product item-2-1"><img class="non-block" src="@/assets/marusya.png" /><img class="non-block" src="@/assets/vision.png" /><img src="@/assets/predict.png" /></div>
         <div class="product item-2-2"><img src="@/assets/tarantool.png" /></div>
         <div class="product item-2-3"><img src="@/assets/mytarget.png" /></div>
-        <div class="product item-2-4"><img src="@/assets/MCS.png" /></div>
+        <div class="product item-2-4"><img src="@/assets/MCS.png" /><img src="@/assets/cloud.png" /></div>
         <div class="product item-2-5"><img src="@/assets/vkpay.png" /></div>
         <!-- секторы второй орбиты -->
         <div class="sector sector-2-1"></div>
@@ -55,9 +55,16 @@
 export default {
   name: "Home",
 };
+window.addEventListener('mousemove', function(e) {
+  let bg = document.querySelector('.home');
+    let x = e.clientX / window.innerWidth;
+    let y = e.clientY / window.innerHeight;  
+    bg.style.transform = 'translate(-' + x * 20 + 'px, -' + y * 20 + 'px)';
+});
 </script>
 <style lang="scss">
 $icon_width: 4vw;
+$icon_height: 2vw;
 
 $diameter_first_orbit: 20vw;
 $diameter_second_orbit: 11vw;
@@ -69,6 +76,7 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 
 .home {
   position: relative;
+  transition: all 0.1s ease;
 }
 
 /*
@@ -111,19 +119,27 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 }
 
 img {
-  width: $icon_width;
+  max-width: $icon_width;
+  max-height: $icon_height;
+  display: block;
+  margin-bottom: 0.5vw;
   transition: 1s;
 }
 
+.non-block {
+  display: inline-block;
+  margin-right: 1vw;
+}
+
 img:hover {
-  width: 5vw;
+  max-height: 5vw;
   transition: 1s;
 }
 
 .product {
   position: absolute;
-  left: calc(50% - 2vw);
-  top: calc(50% - 2vw);
+  left: calc(50% - 1.5vw);
+  top: calc(50% - 1vw);
 }
 
 /*
