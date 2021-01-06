@@ -1,65 +1,119 @@
 <template>
-  <div class="home">
-    <div class="first_orbit">
-      <!-- первая орбита -->
-      <div class="product item-1-1"><img class="non-block" src="@/assets/delivery.png" /><img class="non-block" src="@/assets/samokat.png" /><img src="@/assets/kuhnia.png" /></div>
-      <div class="product item-1-2"><img src="@/assets/city_mobil.png" /></div>
-      <div class="product item-1-3"><img src="@/assets/youla.png" /><img src="@/assets/worki.png" /></div>
-      <div class="product item-1-4"><img src="@/assets/Esforce.png" /></div>
-      <div class="product item-1-5"><img src="@/assets/biz.svg" /></div>
-      <div class="product item-1-6"><img src="@/assets/geekbrains.png" /><img src="@/assets/Skillbox.png" /><img src="@/assets/skillfactory.png" /></div>
-      <div class="product item-1-7"><img src="@/assets/aliexpress.png" /></div>
-      <div class="product item-1-8">
-        <img src="@/assets/mediaproektyi.png" /><img src="@/assets/poisk.png" />
-      </div>
-      <div class="product item-1-9"><img src="@/assets/ICQNew.png" /></div>
-      <div class="product item-1-10"><img src="@/assets/boom.png" /></div>
-      <!-- секторы первой орбиты -->
-      <div class="sector sector-1-1"></div>
-      <div class="sector sector-1-2"></div>
-      <div class="sector sector-1-3"></div>
-      <div class="sector sector-1-4"></div>
-      <div class="sector sector-1-5"></div>
-      <div class="sector sector-1-6"></div>
-      <div class="sector sector-1-7"></div>
-      <div class="sector sector-1-8"></div>
-      <div class="sector sector-1-9 sector-end"></div>
-      <div class="sector sector-1-10 sector-end"></div>
-      <!-- вторая орбита -->
-      <div class="second_orbit">
-        <div class="product item-2-1"><img class="non-block" src="@/assets/marusya.png" /><img class="non-block" src="@/assets/vision.png" /><img src="@/assets/predict.png" /></div>
-        <div class="product item-2-2"><img src="@/assets/tarantool.png" /></div>
-        <div class="product item-2-3"><img src="@/assets/mytarget.png" /></div>
-        <div class="product item-2-4"><img src="@/assets/MCS.png" /><img src="@/assets/cloud.png" /></div>
-        <div class="product item-2-5"><img src="@/assets/vkpay.png" /></div>
-        <!-- секторы второй орбиты -->
-        <div class="sector sector-2-1"></div>
-        <div class="sector sector-2-2"></div>
-        <div class="sector sector-2-3"></div>
-        <div class="sector sector-2-4"></div>
-        <div class="sector sector-2-5"></div>
-        <div class="third_orbit">
-          <!-- третья орбита -->
-          <div class="product item-3-1"><img src="@/assets/vk.png" /></div>
-          <div class="product item-3-2"><img src="@/assets/ok.png" /></div>
-          <div class="product item-3-3"><img src="@/assets/mail.png" /></div>
-          <div class="product item-3-4"><img src="@/assets/mygames.png" /></div>
+  <div>
+    <transition name="modal">
+      <modal v-if="showModal" @close="showModal = false"></modal>
+    </transition>
+    <div class="home">
+      <div class="first_orbit">
+        <!-- первая орбита -->
+        <div class="product item-1-1">
+          <img class="non-block" src="@/assets/delivery.png" /><img
+            class="non-block"
+            src="@/assets/samokat.png"
+          /><img src="@/assets/kuhnia.png" />
+        </div>
+        <div class="product item-1-2">
+          <img src="@/assets/city_mobil.png" />
+        </div>
+        <div class="product item-1-3">
+          <img src="@/assets/youla.png" /><img src="@/assets/worki.png" />
+        </div>
+        <div class="product item-1-4"><img src="@/assets/Esforce.png" /></div>
+        <div class="product item-1-5"><img src="@/assets/biz.svg" /></div>
+        <div class="product item-1-6">
+          <img src="@/assets/geekbrains.png" /><img
+            src="@/assets/Skillbox.png"
+          /><img src="@/assets/skillfactory.png" />
+        </div>
+        <div class="product item-1-7">
+          <img src="@/assets/aliexpress.png" />
+        </div>
+        <div class="product item-1-8">
+          <img src="@/assets/mediaproektyi.png" /><img
+            src="@/assets/poisk.png"
+          />
+        </div>
+        <div class="product item-1-9"><img src="@/assets/ICQNew.png" /></div>
+        <div class="product item-1-10"><img src="@/assets/boom.png" /></div>
+        <!-- секторы первой орбиты -->
+        <div class="sector sector-1-1"></div>
+        <div class="sector sector-1-2"></div>
+        <div class="sector sector-1-3"></div>
+        <div class="sector sector-1-4"></div>
+        <div class="sector sector-1-5"></div>
+        <div class="sector sector-1-6"></div>
+        <div class="sector sector-1-7"></div>
+        <div class="sector sector-1-8"></div>
+        <div class="sector sector-1-9 sector-end"></div>
+        <div class="sector sector-1-10 sector-end"></div>
+        <!-- вторая орбита -->
+        <div class="second_orbit">
+          <div class="product item-2-1">
+            <img class="non-block" src="@/assets/marusya.png" /><img
+              class="non-block"
+              src="@/assets/vision.png"
+            /><img src="@/assets/predict.png" />
+          </div>
+          <div class="product item-2-2">
+            <img src="@/assets/tarantool.png" @click="showModal = true" />
+          </div>
+          <div class="product item-2-3">
+            <img src="@/assets/mytarget.png" @click="showModal = true" />
+          </div>
+          <div class="product item-2-4">
+            <img src="@/assets/MCS.png" @click="showModal = true" /><img
+              src="@/assets/cloud.png"
+              @click="showModal = true"
+            />
+          </div>
+          <div class="product item-2-5">
+            <img src="@/assets/vkpay.png" @click="showModal = true" />
+          </div>
+          <!-- секторы второй орбиты -->
+          <div class="sector sector-2-1"></div>
+          <div class="sector sector-2-2"></div>
+          <div class="sector sector-2-3"></div>
+          <div class="sector sector-2-4"></div>
+          <div class="sector sector-2-5"></div>
+          <div class="third_orbit">
+            <!-- третья орбита -->
+            <div class="product item-3-1">
+              <img src="@/assets/vk.png" @click="showModal = true" />
+            </div>
+            <div class="product item-3-2">
+              <img src="@/assets/ok.png" @click="showModal = true" />
+            </div>
+            <div class="product item-3-3">
+              <img src="@/assets/mail.png" @click="showModal = true" />
+            </div>
+            <div class="product item-3-4">
+              <img src="@/assets/mygames.png" @click="showModal = true" />
+            </div>
+          </div>
         </div>
       </div>
+      <router-link class="nav-link" to="/login">Login</router-link>
     </div>
-    <router-link class="nav-link" to="/login">Login</router-link>
   </div>
 </template>
 
 <script>
+import modal from "@/views/Modal.vue";
 export default {
   name: "Home",
+  components: {
+    modal,
+  },
+  data() {
+    return { showModal: false };
+  },
 };
-window.addEventListener('mousemove', function(e) {
-  let bg = document.querySelector('.home');
-    let x = e.clientX / window.innerWidth;
-    let y = e.clientY / window.innerHeight;  
-    bg.style.transform = 'translate(-' + x * 20 + 'px, -' + y * 20 + 'px)';
+
+window.addEventListener("mousemove", function (e) {
+  let bg = document.querySelector(".home");
+  let x = e.clientX / window.innerWidth;
+  let y = e.clientY / window.innerHeight;
+  bg.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
 });
 </script>
 <style lang="scss">
@@ -132,8 +186,10 @@ img {
 }
 
 img:hover {
-  max-height: 5vw;
+  max-height: 3.5vw;
+  max-width: 4vw;
   transition: 1s;
+  cursor: pointer;
 }
 
 .product {
