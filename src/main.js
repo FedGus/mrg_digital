@@ -1,20 +1,32 @@
-import { createApp } from "vue";
-import firebase from 'firebase';
+import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
+
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+
+import { firestorePlugin } from 'vuefire'
+Vue.use(firestorePlugin)
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyBWE2pSG1BHKXGgkaCBVwow1ME5Fqx7P78",
-  authDomain: "digital-ring.firebaseapp.com",
-  projectId: "digital-ring",
-  storageBucket: "digital-ring.appspot.com",
-  messagingSenderId: "348388961869",
-  appId: "1:348388961869:web:b443ff551585180bb8f604"
+  apiKey: "AIzaSyDFRSlCFW_LBPVyQq9rDb5HUZJqVppfEfg",
+  authDomain: "digital-3a85a.firebaseapp.com",
+  databaseURL: "https://digital-3a85a.firebaseio.com",
+  projectId: "digital-3a85a",
+  storageBucket: "digital-3a85a.appspot.com",
+  messagingSenderId: "821648971317",
+  appId: "1:821648971317:web:ae08135bee10a4587d037c"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig); 
+export const db = firebase.firestore()
 
-createApp(App)
-  .use(router)
-  .mount("#app");
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

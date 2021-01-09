@@ -1,6 +1,4 @@
-# Dynamic map of the ecosystem Mail.ru Group
-
-![](https://ambassador.mail.ru/img/bussiness-mrg.png)
+# digital
 
 ## Project setup
 ```

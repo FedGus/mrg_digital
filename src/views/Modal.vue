@@ -3,16 +3,16 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header"> default header </slot>
+          <slot name="header"> Название продукта </slot>
         </div>
 
         <div class="modal-body">
-          <slot name="body"> default body </slot>
+          <slot name="body"> Описание продукта, его история и интересные факты. Возможно, даже картинки </slot>
         </div>
 
         <div class="modal-footer">
           <slot name="footer">
-            default footer
+            Какое-то дополнение
             <button class="modal-default-button" @click="$emit('close')">
               OK
             </button>
