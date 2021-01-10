@@ -3,20 +3,19 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header"> Название продукта </slot>
+          <slot name="header"></slot>
+          <slot name="logo-header"></slot>
         </div>
 
         <div class="modal-body">
-          <slot name="body"> Описание продукта, его история и интересные факты. Возможно, даже картинки </slot>
+          <slot name="body"></slot>
         </div>
 
         <div class="modal-footer">
-          <slot name="footer">
-            Какое-то дополнение
-            <button class="modal-default-button" @click="$emit('close')">
-              OK
-            </button>
-          </slot>
+          <slot name="footer"> </slot>
+          <button class="modal-default-button btn" @click="$emit('close')">
+            OK
+          </button>
         </div>
       </div>
     </div>
@@ -46,19 +45,36 @@ export default {};
 }
 
 .modal-container {
-  width: 300px;
+  width: 45vw;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
 
+@media screen and (max-width: 420px) {
+  .modal-container {
+    width: 80vw;
+    font-size: 75%;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .btn {
+    font-size: 75%;
+  }
+}
+
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
+  color: #333333;
+}
+
+.logo-header {
+  float: right;
 }
 
 .modal-body {

@@ -1,7 +1,12 @@
 <template>
   <div>
     <transition name="modal">
-      <modal v-if="showModal" @close="showModal = false"></modal>
+      <modal v-if="showModal" @close="showModal = false">
+        <h3 slot="header">{{ name }}</h3>
+        <img slot="logo-header" :src="`/static/${image}`" />
+        <p slot="body">{{ description }}</p>
+        <a slot="footer" :href="site">Официальный сайт</a>
+      </modal>
     </transition>
     <div class="home">
       <div class="first_orbit">
@@ -103,8 +108,9 @@
             <div v-for="(product, idx) in products" :key="idx">
               <div :class="`product item-3-${idx + 1}`">
                 <img
-                  :src="product.image"
-                  @click="showModal = true"
+                  class="image-product"
+                  :src="`/static/${product.image}`"
+                  @click="productInfo(product)"
                 />
               </div>
             </div>
@@ -126,30 +132,43 @@ export default {
     modal,
   },
   data() {
-    return { showModal: false, products: [] };
+    return {
+      showModal: false,
+      products: [],
+      name: "",
+      image: "",
+      description: "",
+      site: "",
+    };
   },
   firestore() {
     return {
       products: db.collection("products"),
     };
   },
-  methods: {},
+  methods: {
+    productInfo(item) {
+      this.showModal = true;
+      this.name = item.name;
+      this.image = item.image;
+      this.description = item.description;
+      this.site = item.site;
+    },
+  },
 };
-
-window.addEventListener("mousemove", function (e) {
-  let bg = document.querySelector(".home");
-  let x = e.clientX / window.innerWidth;
-  let y = e.clientY / window.innerHeight;
-  bg.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
-});
 </script>
 <style lang="scss">
 $icon_width: 4vw;
 $icon_height: 2vw;
 
-$diameter_first_orbit: 20vw;
-$diameter_second_orbit: 11vw;
-$diameter_third_orbit: 4vw;
+$diameter_first_orbit: 50vw; //диаметр первой (внешней) орбиты
+$diameter_second_orbit: 30vw; //диаметр второй орбиты
+$diameter_third_orbit: 15vw; //диаметр третьей орбиты (ядро)
+
+$diameter_first_products: $diameter_first_orbit / 2.5;
+$diameter_second_products: $diameter_second_orbit / 2.75;
+$diameter_third_products: $diameter_third_orbit / 3.5;
+
 
 $number_of_products_first_orbit: 10; //кол-во продуктов на первой орбите
 $number_of_products_second_orbit: 5; //кол-во продуктов на второй орбите
@@ -165,8 +184,8 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 */
 
 .first_orbit {
-  width: 50vw;
-  height: 50vw;
+  width: $diameter_first_orbit;
+  height: $diameter_first_orbit;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
@@ -175,8 +194,8 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
   box-shadow: 0px 0px 40px #e4e4e4;
 }
 .second_orbit {
-  width: 30vw;
-  height: 30vw;
+  width: $diameter_second_orbit;
+  height: $diameter_second_orbit;
   position: relative;
   top: calc(25% - 1.5vw);
   z-index: 200;
@@ -188,8 +207,8 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 }
 
 .third_orbit {
-  width: 15vw;
-  height: 15vw;
+  width: $diameter_third_orbit;
+  height: $diameter_third_orbit;
   position: relative;
   top: calc(25%);
   z-index: 300;
@@ -212,7 +231,7 @@ img {
   margin-right: 1vw;
 }
 
-img:hover {
+.image-product:hover {
   max-height: 3.5vw;
   max-width: 4vw;
   transition: 1s;
@@ -318,14 +337,14 @@ img:hover {
   @keyframes myOrbit-1-#{$i} {
     from {
       transform: rotate((360deg / $number_of_products_first_orbit) * $i)
-        translateX($diameter_first_orbit)
+        translateX($diameter_first_products)
         rotate(-(360deg / $number_of_products_first_orbit) * $i);
     }
     to {
       transform: rotate(
           360deg + ((360deg / $number_of_products_first_orbit) * $i)
         )
-        translateX($diameter_first_orbit)
+        translateX($diameter_first_products)
         rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
     }
   }
@@ -339,14 +358,14 @@ img:hover {
   @keyframes myOrbit-2-#{$i} {
     from {
       transform: rotate((360deg / $number_of_products_second_orbit) * $i)
-        translateX($diameter_second_orbit)
+        translateX($diameter_second_products)
         rotate(-(360deg / $number_of_products_second_orbit) * $i);
     }
     to {
       transform: rotate(
           360deg + ((360deg / $number_of_products_second_orbit) * $i)
         )
-        translateX($diameter_second_orbit)
+        translateX($diameter_second_products)
         rotate(-360deg - ((360deg / $number_of_products_second_orbit) * $i));
     }
   }
@@ -359,14 +378,14 @@ img:hover {
   @keyframes myOrbit-3-#{$i} {
     from {
       transform: rotate((360deg / $number_of_products_third_orbit) * $i)
-        translateX($diameter_third_orbit)
+        translateX($diameter_third_products)
         rotate(-(360deg / $number_of_products_third_orbit) * $i);
     }
     to {
       transform: rotate(
           360deg + ((360deg / $number_of_products_third_orbit) * $i)
         )
-        translateX($diameter_third_orbit)
+        translateX($diameter_third_products)
         rotate(-360deg - ((360deg / $number_of_products_third_orbit) * $i));
     }
   }
