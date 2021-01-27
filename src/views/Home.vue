@@ -1,62 +1,144 @@
 <template>
   <div>
+    <!-- меню -->
+    <header>
+      <img class="logo" src="@/assets/logo.svg" alt="" />
+      <nav>
+        <ul>
+          <li>
+            <router-link class="nav-link" to="/login"
+              >Стать зрителем</router-link
+            >
+          </li>
+          <li>
+            <router-link class="nav-link" to="/login"
+              >Личный кабинет</router-link
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- заголовок -->
+    <section class="present">
+      <h1>Цифровой ринг</h1>
+      <h5>Командное онлайн шоу-игра от амбассадоров Mail.ru Group</h5>
+      <div><img id="glove-1" src="@/assets/boxing_glove_1.svg" /></div>
+      <div><img id="glove-2" src="@/assets/boxing_glove_2.svg" /></div>
+      <div id="arrow">
+        <h5>Кликни!</h5>
+        <img src="@/assets/arrow.svg" />
+      </div>
+    </section>
+    <!-- модальное окно -->
     <transition name="modal">
       <modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">{{ name }}</h3>
-        <img slot="logo-header" :src="`/static/${image}`" />
+        <img
+          class="product-logo"
+          slot="logo-header"
+          :src="`/static/${image}`"
+        />
         <p slot="body">{{ description }}</p>
         <a slot="footer" :href="site">Официальный сайт</a>
       </modal>
     </transition>
+    <!-- секция с кругом -->
     <div class="home">
       <div class="first_orbit">
         <!-- первая орбита -->
         <div class="product item-1-1">
           <img
-            class="non-block"
+            class="non-block product-logo"
             src="@/assets/delivery.png"
             @click="showModal = true"
           /><img
-            class="non-block"
+            class="non-block product-logo"
             src="@/assets/samokat.png"
             @click="showModal = true"
-          /><img src="@/assets/kuhnia.png" @click="showModal = true" />
+          /><img
+            src="@/assets/kuhnia.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-2">
-          <img src="@/assets/city_mobil.png" @click="showModal = true" />
+          <img
+            src="@/assets/city_mobil.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-3">
-          <img src="@/assets/youla.png" @click="showModal = true" /><img
+          <img
+            src="@/assets/youla.png"
+            @click="showModal = true"
+            class="product-logo"
+          /><img
             src="@/assets/worki.png"
             @click="showModal = true"
+            class="product-logo"
           />
         </div>
         <div class="product item-1-4">
-          <img src="@/assets/Esforce.png" @click="showModal = true" />
+          <img
+            src="@/assets/Esforce.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-5">
-          <img src="@/assets/biz.svg" @click="showModal = true" />
+          <img
+            src="@/assets/biz.svg"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-6">
-          <img src="@/assets/geekbrains.png" @click="showModal = true" /><img
+          <img
+            src="@/assets/geekbrains.png"
+            @click="showModal = true"
+            class="product-logo"
+          /><img
             src="@/assets/Skillbox.png"
             @click="showModal = true"
-          /><img src="@/assets/skillfactory.png" @click="showModal = true" />
+            class="product-logo"
+          /><img
+            src="@/assets/skillfactory.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-7">
-          <img src="@/assets/aliexpress.png" @click="showModal = true" />
+          <img
+            src="@/assets/aliexpress.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-8">
-          <img src="@/assets/mediaproektyi.png" @click="showModal = true" /><img
+          <img
+            src="@/assets/mediaproektyi.png"
+            @click="showModal = true"
+            class="product-logo"
+          /><img
             src="@/assets/poisk.png"
             @click="showModal = true"
+            class="product-logo"
           />
         </div>
         <div class="product item-1-9">
-          <img src="@/assets/ICQNew.png" @click="showModal = true" />
+          <img
+            src="@/assets/ICQNew.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <div class="product item-1-10">
-          <img src="@/assets/boom.png" @click="showModal = true" />
+          <img
+            src="@/assets/boom.png"
+            @click="showModal = true"
+            class="product-logo"
+          />
         </div>
         <!-- секторы первой орбиты -->
         <div class="sector sector-1-1"></div>
@@ -73,29 +155,50 @@
         <div class="second_orbit">
           <div class="product item-2-1">
             <img
-              class="non-block"
+              class="non-block product-logo"
               src="@/assets/marusya.png"
               @click="showModal = true"
             /><img
-              class="non-block"
+              class="non-block product-logo"
               src="@/assets/vision.png"
               @click="showModal = true"
-            /><img src="@/assets/predict.png" @click="showModal = true" />
+            /><img
+              src="@/assets/predict.png"
+              @click="showModal = true"
+              class="product-logo"
+            />
           </div>
           <div class="product item-2-2">
-            <img src="@/assets/tarantool.png" @click="showModal = true" />
+            <img
+              src="@/assets/tarantool.png"
+              @click="showModal = true"
+              class="product-logo"
+            />
           </div>
           <div class="product item-2-3">
-            <img src="@/assets/mytarget.png" @click="showModal = true" />
+            <img
+              src="@/assets/mytarget.png"
+              @click="showModal = true"
+              class="product-logo"
+            />
           </div>
           <div class="product item-2-4">
-            <img src="@/assets/MCS.png" @click="showModal = true" /><img
+            <img
+              src="@/assets/MCS.png"
+              @click="showModal = true"
+              class="product-logo"
+            /><img
               src="@/assets/cloud.png"
               @click="showModal = true"
+              class="product-logo"
             />
           </div>
           <div class="product item-2-5">
-            <img src="@/assets/vkpay.png" @click="showModal = true" />
+            <img
+              src="@/assets/vkpay.png"
+              @click="showModal = true"
+              class="product-logo"
+            />
           </div>
           <!-- секторы второй орбиты -->
           <div class="sector sector-2-1"></div>
@@ -108,7 +211,7 @@
             <div v-for="(product, idx) in products" :key="idx">
               <div :class="`product item-3-${idx + 1}`">
                 <img
-                  class="image-product"
+                  class="image-product product-logo"
                   :src="`/static/${product.image}`"
                   @click="productInfo(product)"
                 />
@@ -117,8 +220,59 @@
           </div>
         </div>
       </div>
-      <router-link class="nav-link" to="/login">Login</router-link>
     </div>
+    <!-- секция с описанием игры -->
+    <section class="clarification">
+      <span>* Партнерства</span>
+      <div><img id="glove-3" src="@/assets/boxing_glove_3.svg" /></div>
+    </section>
+    <section class="about">
+      <div class="description">
+        <h2>Стань зрителем и поддержи любимую команду</h2>
+        <p>
+          Игра проходит в ВК трансляции. Становись нашим зрителем, следи за
+          новостями в группе ВКонтакте и получи возможность тоже выиграть призы
+          от Mail.ru Group.
+        </p>
+        <a href="" class="link">СТАТЬ ЗРИТЕЛЕМ</a>
+        <div class="announce-date">
+          <h5>Следующий раунд</h5>
+          <b>22</b>
+          <span>марта</span>
+        </div>
+      </div>
+    </section>
+    <section class="rating">
+      <h2>Рейтинг команд</h2>
+      <ul class="rating-list">
+      <li v-for="(university, idx) in universities" :key="idx">
+        <div class="command-card">
+        <p>{{ university.id }}</p>
+        <p>{{ university.command }}</p>
+        <p>{{ university.points }}</p>
+        </div>
+        <div class="command-card">
+        <span></span>
+        <span>{{ university.name }}</span>
+        <span></span>
+        </div>
+      </li>
+      </ul>
+      <div class="rounds"><h2>1/5 </h2><span> раундов</span></div>
+    </section>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a href="">АМБАССАДОРЫ MRG</a>
+          </li>
+          <li>
+            <a href="">ВКОНТАКТЕ</a>
+          </li>
+        </ul>
+      </nav>
+      <img class="logo" src="@/assets/logo.svg" alt="" />
+    </footer>
   </div>
 </template>
 
@@ -135,6 +289,32 @@ export default {
     return {
       showModal: false,
       products: [],
+      universities: [
+        {
+          id: 1,
+          command: "Команда Крестовоздвиженских",
+          name: "Универстиет ИТМО",
+          points: 32,
+        },
+        {
+          id: 2,
+          command: "Фиксики",
+          name: "Московский Политех",
+          points: 30,
+        },
+        {
+          id: 3,
+          command: "Цветуёчки",
+          name: "КФУ",
+          points: 29,
+        },
+        {
+          id: 4,
+          command: "Лучшие на свете юристы",
+          name: "Московский Городской",
+          points: 28,
+        }
+      ],
       name: "",
       image: "",
       description: "",
@@ -156,8 +336,20 @@ export default {
     },
   },
 };
+
+window.addEventListener("mousemove", function (e) {
+  let arrow = document.querySelector("#arrow");
+  let glove1 = document.querySelector("#glove-1");
+  let glove2 = document.querySelector("#glove-2");
+  let x = e.clientX / window.innerWidth;
+  let y = e.clientY / window.innerHeight;
+  arrow.style.transform = "translate(" + x * 10 + "px, -" + y * 10 + "px)";
+  glove1.style.transform = "translate(" + x * 20 + "px, " + y * 20 + "px)";
+  glove2.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
+});
 </script>
 <style lang="scss">
+@import "@/styles/colors.scss";
 $icon_width: 4vw;
 $icon_height: 2vw;
 
@@ -169,7 +361,6 @@ $diameter_first_products: $diameter_first_orbit / 2.5; //диаметр вращ
 $diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
 $diameter_third_products: $diameter_third_orbit / 3.5; //диаметр вращения продуктов третьей орбиты (ядро)
 
-
 $number_of_products_first_orbit: 10; //кол-во продуктов на первой орбите
 $number_of_products_second_orbit: 5; //кол-во продуктов на второй орбите
 $number_of_products_third_orbit: 4; //кол-во продуктов на третьей орбите
@@ -177,8 +368,96 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 .home {
   position: relative;
   transition: all 0.1s ease;
+  background: linear-gradient(to top, $white 60%, $primary_red 40%);
+}
+.present {
+  height: 500px;
+  background: $primary_red;
 }
 
+#glove-1 {
+  position: absolute;
+  left: 1200px;
+  top: 300px;
+}
+
+#glove-2 {
+  position: absolute;
+  left: 1300px;
+  top: 230px;
+}
+
+#arrow {
+  color: $white;
+  position: absolute;
+  z-index: 1000;
+  top: 600px;
+  left: 300px;
+  img {
+    display: block;
+  }
+}
+
+.announce-date {
+  background: $primary_red;
+  color: $white;
+  height: 350px;
+  width: 350px;
+  padding: 30px 30px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  right: 10vw;
+}
+
+.description {
+  width: 50vw;
+}
+.clarification {
+  height: 150px;
+  span {
+    float: right;
+  }
+}
+b {
+  font-size: 200px;
+  font-weight: normal;
+}
+
+.about {
+  height: 750px;
+  background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
+  position: relative;
+}
+
+.command-card{
+  width: 30vw;
+  display: grid;
+  grid-template-columns: 0.25fr 3.5fr 0.25fr;
+  p {
+    margin: 0;
+  }
+}
+
+.rating-list {
+  columns: 2;
+}
+li{
+  list-style: none;
+  padding: 0 20px 0 0;
+}
+
+li:nth-child(-n+3) {
+  color: $primary_red;
+}
+
+.rounds {
+  text-align: right;
+  height: 200px;
+  h2 {
+    display: inline;
+  }
+}
 /*
   стили орбит
 */
@@ -218,7 +497,7 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
   box-shadow: 0px 0px 40px #e4e4e4;
 }
 
-img {
+.product-logo {
   max-width: $icon_width;
   max-height: $icon_height;
   display: block;

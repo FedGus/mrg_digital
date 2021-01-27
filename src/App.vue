@@ -7,6 +7,11 @@
 <style lang="scss">
 @import "~@/assets/fonts/ProximaNova/stylesheet.css";
 @import "~@/assets/fonts/Prata/stylesheet.css";
+@import "@/styles/colors.scss";
+* {
+  margin: 0;
+  padding: 0;
+}
 
 #app {
   font-family: 'Proxima Nova Rg', Helvetica, Arial, sans-serif;
@@ -16,28 +21,31 @@
   color: #2c3e50;
 }
 
-h3 {
+h1, h3 {
   font-family: 'Prata', Helvetica, Arial, sans-serif;
 }
 
-#nav {
-  padding: 30px;
+h1 {
+  color: $white;
+  font-size: 132px;
+  padding: 50px 0
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+h2 {
+  font-size: 64px;
+  padding: 50px 0
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+h5 {
+  color: $white;
+  font-size: 30px;
 }
 
 .btn {
     font-family: 'Proxima Nova Rg';
     font-size: 17px;
     font-weight: bold;
-    background: #fc2c38;
+    background: $primary_red;
     border-radius: 8px;
     color: #FFFFFF;
     box-sizing: border-box;
@@ -56,5 +64,50 @@ h3 {
 
 p {
   text-align: left;
+  font-size: 30px;
+}
+
+header, footer {
+  background: $primary_red;
+  height: 90px;
+  padding: 0 10vw ;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 170px;
+}
+
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: $white;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
+  li {
+  display: inline-block;
+  }
+}
+
+section {
+  text-align: left;
+  padding: 0 10vw;
+}
+
+.link {
+  color: $black;
+  font-size: 25px;
+  text-decoration: none; 
+  border-bottom: 4px solid $primary_red; 
+}
+.link:hover {
+  text-decoration: none;
 }
 </style>
