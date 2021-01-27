@@ -165,9 +165,9 @@ $diameter_first_orbit: 50vw; //диаметр первой (внешней) ор
 $diameter_second_orbit: 30vw; //диаметр второй орбиты
 $diameter_third_orbit: 15vw; //диаметр третьей орбиты (ядро)
 
-$diameter_first_products: $diameter_first_orbit / 2.5;
-$diameter_second_products: $diameter_second_orbit / 2.75;
-$diameter_third_products: $diameter_third_orbit / 3.5;
+$diameter_first_products: $diameter_first_orbit / 2.5; //диаметр вращения продуктов первой (внешней) орбиты
+$diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
+$diameter_third_products: $diameter_third_orbit / 3.5; //диаметр вращения продуктов третьей орбиты (ядро)
 
 
 $number_of_products_first_orbit: 10; //кол-во продуктов на первой орбите
