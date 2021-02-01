@@ -6,14 +6,10 @@
       <nav>
         <ul>
           <li>
-            <router-link class="nav-link" to="/login"
-              >Стать зрителем</router-link
-            >
+            <a href="">Стать зрителем</a>
           </li>
           <li>
-            <router-link class="nav-link" to="/login"
-              >Личный кабинет</router-link
-            >
+            <a href="">Личный кабинет</a>
           </li>
         </ul>
       </nav>
@@ -44,7 +40,7 @@
     </transition>
     <!-- секция с кругом -->
     <div class="home">
-      <div class="first_orbit">
+      <div class="first_orbit first_orbit_mobile">
         <!-- первая орбита -->
         <div class="product item-1-1">
           <img
@@ -152,7 +148,7 @@
         <div class="sector sector-1-9 sector-end"></div>
         <div class="sector sector-1-10 sector-end"></div>
         <!-- вторая орбита -->
-        <div class="second_orbit">
+        <div class="second_orbit second_orbit_mobile">
           <div class="product item-2-1">
             <img
               class="non-block product-logo"
@@ -206,7 +202,7 @@
           <div class="sector sector-2-3"></div>
           <div class="sector sector-2-4"></div>
           <div class="sector sector-2-5"></div>
-          <div class="third_orbit">
+          <div class="third_orbit third_orbit_mobile">
             <!-- третья орбита -->
             <div v-for="(product, idx) in products" :key="idx">
               <div :class="`product item-3-${idx + 1}`">
@@ -245,20 +241,23 @@
     <section class="rating">
       <h2>Рейтинг команд</h2>
       <ul class="rating-list">
-      <li v-for="(university, idx) in universities" :key="idx">
-        <div class="command-card">
-        <p>{{ university.id }}</p>
-        <p>{{ university.command }}</p>
-        <p>{{ university.points }}</p>
-        </div>
-        <div class="command-card">
-        <span></span>
-        <span>{{ university.name }}</span>
-        <span></span>
-        </div>
-      </li>
+        <li v-for="(university, idx) in universities" :key="idx">
+          <div class="command-card">
+            <p>{{ university.id }}</p>
+            <p>{{ university.command }}</p>
+            <p>{{ university.points }}</p>
+          </div>
+          <div class="command-card">
+            <span></span>
+            <span>{{ university.name }}</span>
+            <span></span>
+          </div>
+        </li>
       </ul>
-      <div class="rounds"><h2>1/5 </h2><span> раундов</span></div>
+      <div class="rounds">
+        <h2>1/5</h2>
+        <span> раундов</span>
+      </div>
     </section>
     <footer>
       <nav>
@@ -313,7 +312,7 @@ export default {
           command: "Лучшие на свете юристы",
           name: "Московский Городской",
           points: 28,
-        }
+        },
       ],
       name: "",
       image: "",
@@ -371,39 +370,44 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
   background: linear-gradient(to top, $white 60%, $primary_red 40%);
 }
 .present {
-  height: 500px;
+  height: 30vw;
   background: $primary_red;
 }
 
 #glove-1 {
   position: absolute;
-  left: 1200px;
-  top: 300px;
+  width: 7vw;
+  left: 70vw;
+  top: 25vw;
 }
 
 #glove-2 {
   position: absolute;
-  left: 1300px;
-  top: 230px;
+  width: 7vw;
+  left: 80vw;
+  top: 20vw;
+}
+
+#glove-3 {
+  width: 5vw;
 }
 
 #arrow {
   color: $white;
   position: absolute;
   z-index: 1000;
-  top: 600px;
-  left: 300px;
+  top: 40vw;
+  left: 10vw;
   img {
     display: block;
+    width: 7vw;
   }
 }
 
 .announce-date {
   background: $primary_red;
   color: $white;
-  height: 350px;
-  width: 350px;
-  padding: 30px 30px;
+  padding: 3vw 3vw;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -414,23 +418,24 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 150px;
+  height: 15vw;
   span {
     float: right;
   }
 }
 b {
-  font-size: 200px;
+  font-size: 10vw;
   font-weight: normal;
 }
 
 .about {
-  height: 750px;
+  height: 50vw;
+  max-height: 700px;
   background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
   position: relative;
 }
 
-.command-card{
+.command-card {
   width: 30vw;
   display: grid;
   grid-template-columns: 0.25fr 3.5fr 0.25fr;
@@ -442,22 +447,109 @@ b {
 .rating-list {
   columns: 2;
 }
-li{
+li {
   list-style: none;
-  padding: 0 20px 0 0;
+  padding: 0 2vw 0 0;
 }
 
-li:nth-child(-n+3) {
+li:nth-child(-n + 3) {
   color: $primary_red;
 }
 
 .rounds {
   text-align: right;
-  height: 200px;
+  height: 20vw;
   h2 {
     display: inline;
   }
 }
+
+@media screen and (max-device-width: 420px) {
+  header,
+  footer {
+    height: 50px;
+  }
+  h1 {
+    font-size: 38px;
+    padding-top: 30px;
+    width: 60vw;
+  }
+  h2 {
+    font-size: 24px;
+    padding: 20px 0;
+  }
+  h5 {
+    font-size: 14px;
+  }
+  .present {
+    height: 250px;
+  }
+  #glove-1 {
+    width: 32px;
+    left: 230px;
+    top: 130px;
+  }
+  #glove-2 {
+    width: 32px;
+    left: 290px;
+    top: 110px;
+  }
+  #glove-3 {
+    width: 32px;
+  }
+  #arrow {
+    top: 250px;
+    left: 10vw;
+    h5 {
+      margin: 0;
+    }
+    img {
+      display: block;
+      width: 48px;
+    }
+  }
+  .first_orbit_mobile {
+    width: 90vw !important;
+    height: 90vw !important;
+  }
+
+  .second_orbit_mobile {
+    width: 60vw !important;
+    height: 60vw !important;
+    top: calc(25% - 6vw) !important;
+  }
+  .third_orbit_mobile {
+    width: 30vw !important;
+    height: 30vw !important;
+  }
+  .about {
+    height: 460px;
+    background: linear-gradient(to bottom, $light_gray 80%, $white 20%);
+  }
+  .description {
+    width: 100%;
+  }
+  p {
+    font-size: 16px;
+  }
+  b {
+    font-size: 96px;
+  }
+  span,
+  a {
+    font-size: 10px !important;
+  }
+  .rating-list {
+    columns: 1;
+  }
+  .command-card {
+    width: 100%;
+  }
+  .logo {
+    width: 75px;
+  }
+}
+
 /*
   стили орбит
 */
