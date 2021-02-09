@@ -75,7 +75,7 @@ span {
 header,
 footer {
   background: $primary_red;
-  height: 10vw;
+  height: 5vw;
   padding: 0 7vw;
   display: flex;
   justify-content: space-between;
@@ -86,7 +86,7 @@ footer {
 }
 
 nav {
-  padding: 3vw;
+  padding: 1.5vw;
   a {
     color: $white;
     font-size: 1vw;

@@ -9,7 +9,7 @@
             <a href="">Стать зрителем</a>
           </li>
           <li>
-            <a href="">Личный кабинет</a>
+            <a href="/login">Личный кабинет</a>
           </li>
         </ul>
       </nav>
@@ -340,14 +340,16 @@ window.addEventListener("mousemove", function (e) {
   let arrow = document.querySelector("#arrow");
   let glove1 = document.querySelector("#glove-1");
   let glove2 = document.querySelector("#glove-2");
+  if (arrow && glove1 && glove2) {
   let x = e.clientX / window.innerWidth;
   let y = e.clientY / window.innerHeight;
   arrow.style.transform = "translate(" + x * 10 + "px, -" + y * 10 + "px)";
   glove1.style.transform = "translate(" + x * 20 + "px, " + y * 20 + "px)";
   glove2.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
+  }
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/styles/colors.scss";
 $icon_width: 4vw;
 $icon_height: 2vw;

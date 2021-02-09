@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 text-center mb-4">
-      <h1>Log In</h1>
+      <h5>Вход</h5>
     </div>
     <div class="col-sm-5 m-auto">
       <div v-if="errorMessage !== ''" class="alert alert-danger" role="alert">
