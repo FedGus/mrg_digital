@@ -11,6 +11,26 @@
           </ul>
         </nav>
       </header>
+      <!-- модальное окно -->
+      <transition name="modal">
+        <modal v-if="showModal" @close="showModal = false">
+          <h3 slot="header">Вопрос</h3>
+          <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
+          <article slot="body">
+            Как называется сервис для поиска проверенных фондов, которые могут
+            помочь, являющийся частью Добро@mail.ru?
+          </article>
+
+          <div slot="footer">
+          <div class="wrapper">
+            <div class="timer">{{ timer }}</div>
+  <div class="pie spinner"></div>
+  <div class="pie filler"></div>
+  <div class="mask"></div>
+</div>  
+          </div>
+        </modal>
+      </transition>
       <!-- секция с кругом -->
       <div class="home">
         <div class="first_orbit first_orbit_mobile">
@@ -189,7 +209,12 @@
             </div>
           </div>
         </div>
-        <button class="btn circle_btn" @click="start()">Крутить!</button>
+        <button class="btn circle_btn" v-if="!state" @click="start()">
+          Крутить!
+        </button>
+        <button class="btn circle_btn" v-if="state" @click="stop()">
+          СТОП!
+        </button>
       </div>
       <footer>
         <nav>
@@ -210,12 +235,18 @@
 <script>
 import firebase from "firebase";
 import { db } from "../main";
+import modal from "@/views/Modal.vue";
 export default {
   name: "Dashboard",
+  components: {
+    modal,
+  },
   mounted() {
     this.setupFirebase();
   },
-  data() {},
+  data() {
+    return { state: false, showModal: false, timer: 60 };
+  },
   firestore() {
     return {
       products: db.collection("products"),
@@ -243,20 +274,44 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
+    rotation(time, odds) {
+      for (let i = 1; i <= 2; i++) {
+        time = time - odds;
+        for (let j = 1; j <= 10; j++) {
+          document.querySelector(".sector-" + i + "-" + j).style.animation =
+            "rotation-" + i + "-" + j + " " + time + "s infinite linear";
+
+          document.querySelector(".item-" + i + "-" + j).style.animation =
+            "myOrbit-" + i + "-" + j + " " + time + "s infinite linear";
+        }
+      }
+    },
     start() {
       /* Внешние скрипты для анимации выбора продукта */
-      let time = 1;
-      for (let i = 1; i <= 10; i++) {
-        document.querySelector(".sector-1-" + i).style.animation =
-          "rotation-1-" + i + " " + time + "s infinite linear";
+      this.state = true;
+      this.rotation(1.5, 0.5);
+    },
+    stop() {
+      this.state = false;
+      let x = Math.ceil(Math.random() * (8 - 1)) + 1;
+      // let y = Math.ceil(Math.random() * (5 - 1)) + 1;
+      // let z = Math.ceil(Math.random() * (4 - 1)) + 1;
+      console.log(x);
+      document.querySelector(".sector-1-" + x).style.background = "#e9e9e9";
+      setTimeout(() => {
+        document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
+        this.showModal = true;
 
-        document.querySelector(".item-1-" + i).style.animation =
-          "myOrbit-1-" + i + " " + time + "s infinite linear";
-
-        // document.querySelector(".sector-1-" + i).style.animationDuration = time + "s";
-        // document.querySelector(".sector-1-" + i).style.animationTimingFunction = "linear";
-        // document.querySelector(".sector-1-" + i).style.animationIterationCount = time + "s";
-      }
+        setInterval(() => {
+          if (this.timer != 0) {
+            this.timer--;
+          } else {
+            this.showModal = false;
+            this.timer = 60;
+          }
+        }, 1000);
+      }, 2000);
+      this.rotation(30, 10);
     },
   },
 };
@@ -471,9 +526,9 @@ li:nth-child(-n + 3) {
     animation: rotation-1-#{$i} 30s infinite linear;
     transition: 2s;
   }
-  .sector-1-#{$i}:nth-child(odd) {
-    background: #eeeeee;
-  }
+  // .sector-1-#{$i}:nth-child(odd) {
+  //   background: #eeeeee;
+  // }
   .sector-1-#{$i}:hover {
     background: #e4e4e4;
     transition: 0.5s;
@@ -503,9 +558,9 @@ li:nth-child(-n + 3) {
     height: 50%;
     z-index: (20 + $i);
     transform-origin: 100% 100%;
-    border: 2px solid #f3f7f4;
+    // border: 2px solid #f3f7f4;
     animation: rotation-2-#{$i} 20s infinite linear;
-    transition: 0.5s;
+    transition: 2s;
   }
   .sector-2-#{$i}:hover {
     background: #eeeeee;
@@ -600,4 +655,83 @@ li:nth-child(-n + 3) {
     }
   }
 }
+
+// Стили таймера для отсчета времени вопроса
+
+.wrapper {
+  position: relative;
+  margin: 40px auto;
+  background: white;
+}
+
+@mixin timer($item, $duration, $size, $color, $border, $hover: running) {
+ 
+  #{$item} { 
+    width: $size;
+    height: $size;
+  }
+
+  #{$item} .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    background: $color;
+    border: #{$border};
+  }
+
+  #{$item} .timer {
+    top: 25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 400;
+    font-size: 32px;
+    position: absolute;
+  }
+
+  #{$item} .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 200;
+    border-right: none;
+    animation: rota $duration + s linear infinite;
+  }
+
+  #{$item}:hover .spinner,
+  #{$item}:hover .filler, 
+  #{$item}:hover .mask {
+    animation-play-state: $hover;    
+  }
+
+  #{$item} .filler {
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0; 
+    left: 50%;
+    opacity: 0;
+    z-index: 100;
+    animation: opa $duration + s steps(1,end) infinite reverse;
+    border-left: none;
+  }
+
+  #{$item} .mask {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 1;
+    z-index: 300;
+    animation: opa $duration + s steps(1,end) infinite;
+  }
+
+  @keyframes rota {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes opa {
+    0% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+}
+
+@include timer('.wrapper', 60, 100px, transparent, '5px solid #BD0302');
 </style>
