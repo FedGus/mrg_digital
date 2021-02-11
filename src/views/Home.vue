@@ -9,7 +9,9 @@
             <a href="">Стать зрителем</a>
           </li>
           <li>
-            <a href="/login">Личный кабинет</a>
+            <router-link class="nav-link" to="/login" tag="a"
+              >Личный кабинет</router-link
+            >
           </li>
         </ul>
       </nav>
@@ -204,15 +206,47 @@
           <div class="sector sector-2-5"></div>
           <div class="third_orbit third_orbit_mobile">
             <!-- третья орбита -->
-            <div v-for="(product, idx) in products" :key="idx">
-              <div :class="`product item-3-${idx + 1}`">
-                <img
-                  class="image-product product-logo"
-                  :src="`/static/${product.image}`"
-                  @click="productInfo(product)"
-                />
-              </div>
+            <!-- <div v-for="(product, idx) in products" :key="idx">
+                <div :class="`product item-3-${idx + 1}`">
+                  <img
+                    class="image-product product-logo"
+                    :src="`/static/${product.image}`"
+                    @click="productInfo(product)"
+                  />
+                </div>
+              </div> -->
+            <div class="product item-3-1">
+              <img
+                src="@/assets/vk.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
             </div>
+            <div class="product item-3-2">
+              <img
+                src="@/assets/ok.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </div>
+            <div class="product item-3-3">
+              <img
+                src="@/assets/mail.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </div>
+            <div class="product item-3-4">
+              <img
+                src="@/assets/mygames.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </div>
+            <div class="sector sector-3-1"></div>
+            <div class="sector sector-3-2"></div>
+            <div class="sector sector-3-3"></div>
+            <div class="sector sector-3-4"></div>
           </div>
         </div>
       </div>
@@ -341,11 +375,11 @@ window.addEventListener("mousemove", function (e) {
   let glove1 = document.querySelector("#glove-1");
   let glove2 = document.querySelector("#glove-2");
   if (arrow && glove1 && glove2) {
-  let x = e.clientX / window.innerWidth;
-  let y = e.clientY / window.innerHeight;
-  arrow.style.transform = "translate(" + x * 10 + "px, -" + y * 10 + "px)";
-  glove1.style.transform = "translate(" + x * 20 + "px, " + y * 20 + "px)";
-  glove2.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
+    let x = e.clientX / window.innerWidth;
+    let y = e.clientY / window.innerHeight;
+    arrow.style.transform = "translate(" + x * 10 + "px, -" + y * 10 + "px)";
+    glove1.style.transform = "translate(" + x * 20 + "px, " + y * 20 + "px)";
+    glove2.style.transform = "translate(-" + x * 20 + "px, -" + y * 20 + "px)";
   }
 });
 </script>

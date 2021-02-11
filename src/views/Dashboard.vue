@@ -14,7 +14,10 @@
       <!-- модальное окно -->
       <transition name="modal">
         <modal v-if="showModal" @close="showModal = false">
-          <div slot="header"><h2>Вопрос</h2><h4>Тема: Классифайды</h4></div>
+          <div slot="header">
+            <h2>Вопрос</h2>
+            <h4>Тема: Классифайды</h4>
+          </div>
           <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
           <p slot="body">
             Как называется сервис для поиска проверенных фондов, которые могут
@@ -197,7 +200,7 @@
             <div class="sector sector-2-5"></div>
             <div class="third_orbit third_orbit_mobile">
               <!-- третья орбита -->
-              <div v-for="(product, idx) in products" :key="idx">
+              <!-- <div v-for="(product, idx) in products" :key="idx">
                 <div :class="`product item-3-${idx + 1}`">
                   <img
                     class="image-product product-logo"
@@ -205,7 +208,39 @@
                     @click="productInfo(product)"
                   />
                 </div>
+              </div> -->
+              <div class="product item-3-1">
+                <img
+                  src="@/assets/vk.png"
+                  @click="showModal = true"
+                  class="product-logo"
+                />
               </div>
+              <div class="product item-3-2">
+                <img
+                  src="@/assets/ok.png"
+                  @click="showModal = true"
+                  class="product-logo"
+                />
+              </div>
+              <div class="product item-3-3">
+                <img
+                  src="@/assets/mail.png"
+                  @click="showModal = true"
+                  class="product-logo"
+                />
+              </div>
+              <div class="product item-3-4">
+                <img
+                  src="@/assets/mygames.png"
+                  @click="showModal = true"
+                  class="product-logo"
+                />
+              </div>
+              <div class="sector sector-3-1"></div>
+              <div class="sector sector-3-2"></div>
+              <div class="sector sector-3-3"></div>
+              <div class="sector sector-3-4"></div>
             </div>
           </div>
         </div>
@@ -275,7 +310,7 @@ export default {
         });
     },
     rotation(time, odds) {
-      for (let i = 1; i <= 2; i++) {
+      for (let i = 1; i <= 3; i++) {
         time = time - odds;
         for (let j = 1; j <= 10; j++) {
           document.querySelector(".sector-" + i + "-" + j).style.animation =
@@ -289,7 +324,7 @@ export default {
     start() {
       /* Внешние скрипты для анимации выбора продукта */
       this.state = true;
-      this.rotation(1.5, 0.5);
+      this.rotation(2, 0.5);
     },
     stop() {
       this.state = false;
@@ -298,7 +333,7 @@ export default {
       // let z = Math.ceil(Math.random() * (4 - 1)) + 1;
       console.log(x);
       document.querySelector(".sector-1-" + x).style.background = "#FC9696";
-      setTimeout(() => { 
+      setTimeout(() => {
         document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
         this.showModal = true;
         this.timer = 60;
@@ -318,7 +353,7 @@ export default {
 </script>
 <style lang="scss">
 @import "@/styles/colors.scss";
-$icon_width: 4vw;
+$icon_width: 3vw;
 $icon_height: 2vw;
 
 $diameter_first_orbit: 40vw; //диаметр первой (внешней) орбиты
@@ -740,5 +775,5 @@ li:nth-child(-n + 3) {
   }
 }
 
-@include timer(".wrapper", 60, 100px, transparent, "5px solid #BD0302");
+@include timer(".wrapper", 60, 100px, transparent, "5px solid #E92D37");
 </style>
