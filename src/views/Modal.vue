@@ -3,8 +3,12 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header"></slot>
-          <slot name="logo-header"></slot>
+          <slot name="header">
+          </slot>
+          
+          <slot name="logo-header"><button class="modal-default-button" @click="$emit('close')">
+            x
+          </button></slot>
         </div>
 
         <div class="modal-body">
@@ -13,9 +17,7 @@
 
         <div class="modal-footer">
           <slot name="footer"> </slot>
-          <button class="modal-default-button btn" @click="$emit('close')">
-            OK
-          </button>
+          
         </div>
       </div>
     </div>
@@ -26,7 +28,9 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+@import "~@/assets/fonts/ProximaNova/stylesheet.css";
+@import "@/styles/colors.scss";
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -60,7 +64,7 @@ export default {};
     width: 80vw;
     font-size: 75%;
   }
-  h3 {
+  h2 {
     font-size: 20px;
   }
   .btn {
@@ -68,9 +72,21 @@ export default {};
   }
 }
 
-.modal-header h3 {
-  margin-top: 0;
-  color: #333333;
+.modal-footer {
+  border: 0;
+}
+
+.modal-header {
+  text-align: left;
+}
+.modal-header h2 {
+  font-family: "Proxima Nova Rg", Helvetica, Arial, sans-serif;
+  padding: 0;
+  color: $primary_red;
+}
+
+h4 {
+  color: $gray;
 }
 
 .logo-header {

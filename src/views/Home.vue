@@ -28,7 +28,7 @@
     <!-- модальное окно -->
     <transition name="modal">
       <modal v-if="showModal" @close="showModal = false">
-        <h3 slot="header">{{ name }}</h3>
+        <h2 slot="header">{{ name }}</h2>
         <img
           class="product-logo"
           slot="logo-header"

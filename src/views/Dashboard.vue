@@ -14,20 +14,20 @@
       <!-- модальное окно -->
       <transition name="modal">
         <modal v-if="showModal" @close="showModal = false">
-          <h3 slot="header">Вопрос</h3>
+          <div slot="header"><h2>Вопрос</h2><h4>Тема: Классифайды</h4></div>
           <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
-          <article slot="body">
+          <p slot="body">
             Как называется сервис для поиска проверенных фондов, которые могут
             помочь, являющийся частью Добро@mail.ru?
-          </article>
+          </p>
 
           <div slot="footer">
-          <div class="wrapper">
-            <div class="timer">{{ timer }}</div>
-  <div class="pie spinner"></div>
-  <div class="pie filler"></div>
-  <div class="mask"></div>
-</div>  
+            <div class="wrapper">
+              <div class="timer">{{ timer }}</div>
+              <div class="pie spinner"></div>
+              <div class="pie filler"></div>
+              <div class="mask"></div>
+            </div>
           </div>
         </modal>
       </transition>
@@ -297,17 +297,17 @@ export default {
       // let y = Math.ceil(Math.random() * (5 - 1)) + 1;
       // let z = Math.ceil(Math.random() * (4 - 1)) + 1;
       console.log(x);
-      document.querySelector(".sector-1-" + x).style.background = "#e9e9e9";
-      setTimeout(() => {
+      document.querySelector(".sector-1-" + x).style.background = "#FC9696";
+      setTimeout(() => { 
         document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
         this.showModal = true;
-
-        setInterval(() => {
+        this.timer = 60;
+        let time = setInterval(() => {
           if (this.timer != 0) {
             this.timer--;
           } else {
             this.showModal = false;
-            this.timer = 60;
+            clearInterval(time);
           }
         }, 1000);
       }, 2000);
@@ -660,13 +660,11 @@ li:nth-child(-n + 3) {
 
 .wrapper {
   position: relative;
-  margin: 40px auto;
   background: white;
 }
 
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {
- 
-  #{$item} { 
+  #{$item} {
     width: $size;
     height: $size;
   }
@@ -698,17 +696,17 @@ li:nth-child(-n + 3) {
   }
 
   #{$item}:hover .spinner,
-  #{$item}:hover .filler, 
+  #{$item}:hover .filler,
   #{$item}:hover .mask {
-    animation-play-state: $hover;    
+    animation-play-state: $hover;
   }
 
   #{$item} .filler {
-    border-radius: 0 100% 100% 0 / 0 50% 50% 0; 
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
     left: 50%;
     opacity: 0;
     z-index: 100;
-    animation: opa $duration + s steps(1,end) infinite reverse;
+    animation: opa $duration + s steps(1, end) infinite reverse;
     border-left: none;
   }
 
@@ -719,19 +717,28 @@ li:nth-child(-n + 3) {
     background: inherit;
     opacity: 1;
     z-index: 300;
-    animation: opa $duration + s steps(1,end) infinite;
+    animation: opa $duration + s steps(1, end) infinite;
   }
 
   @keyframes rota {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes opa {
-    0% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    0% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
   }
 }
 
-@include timer('.wrapper', 60, 100px, transparent, '5px solid #BD0302');
+@include timer(".wrapper", 60, 100px, transparent, "5px solid #BD0302");
 </style>
