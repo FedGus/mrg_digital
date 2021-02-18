@@ -277,7 +277,9 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">{{ university.id }}</p>
+            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">
+              {{ university.id }}
+            </p>
             <p>{{ university.command }}</p>
             <p>{{ university.points }}</p>
           </div>

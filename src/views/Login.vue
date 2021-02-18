@@ -91,7 +91,7 @@ export default {
             v.xhrRequest = false;
           }
         );
-    }
+    },
   },
 };
 </script>

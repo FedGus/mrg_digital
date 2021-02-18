@@ -6,22 +6,22 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-      path: "/",
-      name: "Home",
-      component: Home
+    path: "/",
+    name: "Home",
+    component: Home
   },
   {
-      path: "/login",
-      name: "Login", 
-      component: () => import("../views/Login.vue")
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/Login.vue")
   },
   {
-      path: "/dashboard",
-      name: "Dashboard", 
-      component: () => import("../views/Dashboard.vue"),
-      meta: {
-          requiresAuth: true
-      }
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 

@@ -20,7 +20,7 @@ var firebaseConfig = {
   appId: "1:821648971317:web:ae08135bee10a4587d037c"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig); 
+firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore()
 
 Vue.config.productionTip = false;

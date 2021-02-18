@@ -81,7 +81,7 @@ footer {
   justify-content: space-between;
 }
 footer a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .logo {

@@ -3,12 +3,13 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header">
-          </slot>
-          
-          <slot name="logo-header"><button class="modal-default-button" @click="$emit('close')">
-            x
-          </button></slot>
+          <slot name="header"> </slot>
+
+          <slot name="logo-header"
+            ><button class="modal-default-button" @click="$emit('close')">
+              x
+            </button></slot
+          >
         </div>
 
         <div class="modal-body">
@@ -17,7 +18,6 @@
 
         <div class="modal-footer">
           <slot name="footer"> </slot>
-          
         </div>
       </div>
     </div>
