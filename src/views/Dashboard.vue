@@ -41,14 +41,14 @@
           <div class="product item-1-1">
             <img
               class="non-block product-logo"
-              src="@/assets/delivery.png"
+              src="@/assets/delivery.svg"
               @click="showModal = true"
             /><img
               class="non-block product-logo"
-              src="@/assets/samokat.png"
+              src="@/assets/samokat.svg"
               @click="showModal = true"
             /><img
-              src="@/assets/kuhnia.png"
+              src="@/assets/kuhnia.svg"
               @click="showModal = true"
               class="product-logo"
             />

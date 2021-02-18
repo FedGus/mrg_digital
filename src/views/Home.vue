@@ -45,26 +45,31 @@
       <div class="first_orbit first_orbit_mobile">
         <!-- первая орбита -->
         <div class="product item-1-1">
-          <img
-            class="non-block product-logo"
-            src="@/assets/delivery.png"
-            @click="showModal = true"
-          /><img
-            class="non-block product-logo"
-            src="@/assets/samokat.png"
-            @click="showModal = true"
-          /><img
-            src="@/assets/kuhnia.png"
-            @click="showModal = true"
-            class="product-logo"
-          />
+          <span>B2B</span>
+          <ul class="bottom_right_side">
+            <li>
+              <img
+                src="@/assets/biz.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/mdt.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+          </ul>
         </div>
         <div class="product item-1-2">
           <img
-            src="@/assets/city_mobil.png"
+            src="@/assets/aliexpress.png"
             @click="showModal = true"
             class="product-logo"
           />
+          
         </div>
         <div class="product item-1-3">
           <img
@@ -78,55 +83,91 @@
           />
         </div>
         <div class="product item-1-4">
-          <img
-            src="@/assets/Esforce.png"
-            @click="showModal = true"
-            class="product-logo"
-          />
+          <ul class="bottom_left_side">
+            <li>
+              <img
+                src="@/assets/geekbrains.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/Skillbox.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/skillfactory.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/algoritmika.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+          </ul>
         </div>
         <div class="product item-1-5">
-          <img
-            src="@/assets/biz.svg"
-            @click="showModal = true"
-            class="product-logo"
-          />
+          <ul>
+            <li>
+              <img
+                src="@/assets/mediaproektyi.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/poisk.png"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+          </ul>
         </div>
         <div class="product item-1-6">
-          <img
-            src="@/assets/geekbrains.png"
-            @click="showModal = true"
-            class="product-logo"
-          /><img
-            src="@/assets/Skillbox.png"
-            @click="showModal = true"
-            class="product-logo"
-          /><img
-            src="@/assets/skillfactory.png"
-            @click="showModal = true"
-            class="product-logo"
-          />
+         <ul class="top_left_side">
+            <li>
+              <img
+                class="non-block product-logo"
+                src="@/assets/delivery.svg"
+                @click="showModal = true"
+              />
+            </li>
+            <li>
+              <img
+                class="non-block product-logo"
+                src="@/assets/samokat.svg"
+                @click="showModal = true"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/kuhnia.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+          </ul>
         </div>
         <div class="product item-1-7">
-          <img
-            src="@/assets/aliexpress.png"
+           <img
+            src="@/assets/ICQNew.png"
             @click="showModal = true"
             class="product-logo"
           />
         </div>
-        <div class="product item-1-8">
-          <img
-            src="@/assets/mediaproektyi.png"
-            @click="showModal = true"
-            class="product-logo"
-          /><img
-            src="@/assets/poisk.png"
-            @click="showModal = true"
-            class="product-logo"
-          />
-        </div>
+        <div class="product item-1-8"></div>
         <div class="product item-1-9">
           <img
-            src="@/assets/ICQNew.png"
+            src="@/assets/city_mobil.png"
             @click="showModal = true"
             class="product-logo"
           />
@@ -277,7 +318,9 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">{{ university.id }}</p>
+            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">
+              {{ university.id }}
+            </p>
             <p>{{ university.command }}</p>
             <p>{{ university.points }}</p>
           </div>
@@ -385,7 +428,7 @@ window.addEventListener("mousemove", function (e) {
 </script>
 <style lang="scss" scoped>
 @import "@/styles/colors.scss";
-$icon_width: 4vw;
+$icon_width: 4.5vw;
 $icon_height: 2vw;
 
 $diameter_first_orbit: 50vw; //диаметр первой (внешней) орбиты
@@ -604,7 +647,7 @@ li {
   width: $diameter_second_orbit;
   height: $diameter_second_orbit;
   position: relative;
-  top: calc(25% - 1.5vw);
+  top: calc(25% - 2vw);
   z-index: 200;
   border-radius: 50%;
   overflow: hidden;
@@ -638,8 +681,8 @@ li {
   margin-right: 1vw;
 }
 
-.image-product:hover {
-  max-height: 3.5vw;
+.product-logo:hover {
+  max-height: 5vw;
   max-width: 4vw;
   transition: 1s;
   cursor: pointer;
@@ -647,10 +690,42 @@ li {
 
 .product {
   position: absolute;
-  left: calc(50% - 1.5vw);
-  top: calc(50% - 1vw);
+  left: calc(50% - 2vw);
+  top: calc(50% - 1.5vw);
 }
 
+.top_left_side {
+  li:first-child {
+    margin-left: 3vw;
+  }
+  li:nth-child(2) {
+    margin-left: 0vw;
+  }
+  li:nth-child(3) {
+    margin-left: 0vw;
+  }
+}
+
+.bottom_left_side {
+  li:nth-child(2) {
+    margin-left: 1.5vw;
+  }
+  li:nth-child(3) {
+    margin-left: 3vw;
+  }
+  li:nth-child(4) {
+    margin-left: 4.5vw;
+  }
+}
+
+.bottom_right_side {
+  li:nth-child(2) {
+    margin-left: -1.5vw;
+  }
+  li:nth-child(3) {
+    margin-left: -3vw;
+  }
+}
 /*
   вращение секторов по орбите
 */
@@ -665,29 +740,31 @@ li {
     height: 50%;
     z-index: (20 + $i);
     transform-origin: 100% 100%;
-    animation: rotation-1-#{$i} 30s infinite linear;
+    transform: rotate(
+      ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+    );
     transition: 0.5s;
   }
-  .sector-1-#{$i}:nth-child(odd) {
-    background: #eeeeee;
-  }
-  .sector-1-#{$i}:hover {
-    background: #e4e4e4;
-    transition: 0.5s;
-  }
-  @keyframes rotation-1-#{$i} {
-    //вращение секторов ПЕРВОЙ орбиты
-    from {
-      transform: rotate(
-        ((360deg / $number_of_products_first_orbit) * $i) + 18deg
-      );
-    }
-    to {
-      transform: rotate(
-        360deg + ((360deg / $number_of_products_first_orbit) * $i) + 18deg
-      );
-    }
-  }
+  // .sector-1-#{$i}:nth-child(odd) {
+  //   background: #eeeeee;
+  // }
+  // .sector-1-#{$i}:hover {
+  //   background: #e4e4e4;
+  //   transition: 0.5s;
+  // }
+  // @keyframes rotation-1-#{$i} {
+  //   //вращение секторов ПЕРВОЙ орбиты
+  //   from {
+  //     transform: rotate(
+  //       ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+  //     );
+  //   }
+  //   to {
+  //     transform: rotate(
+  //       360deg + ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+  //     );
+  //   }
+  // }
 }
 
 @for $i from 1 through $number_of_products_second_orbit {
@@ -701,36 +778,38 @@ li {
     z-index: (20 + $i);
     transform-origin: 100% 100%;
     border: 2px solid #f3f7f4;
-    animation: rotation-2-#{$i} 20s infinite linear;
+    transform: rotate(
+      ((360deg / $number_of_products_second_orbit) * $i) + 72deg
+    );
     transition: 0.5s;
   }
-  .sector-2-#{$i}:hover {
-    background: #eeeeee;
-    transition: 0.5s;
-  }
-  @keyframes rotation-2-#{$i} {
-    //вращение секторов ВТОРОЙ орбиты
-    from {
-      transform: rotate(
-        ((360deg / $number_of_products_second_orbit) * $i) + 72deg
-      );
-    }
-    to {
-      transform: rotate(
-        360deg + ((360deg / $number_of_products_second_orbit) * $i) + 72deg
-      );
-    }
-  }
+  // .sector-2-#{$i}:hover {
+  //   background: #eeeeee;
+  //   transition: 0.5s;
+  // }
+  // @keyframes rotation-2-#{$i} {
+  //   //вращение секторов ВТОРОЙ орбиты
+  //   from {
+  //     transform: rotate(
+  //       ((360deg / $number_of_products_second_orbit) * $i) + 72deg
+  //     );
+  //   }
+  //   to {
+  //     transform: rotate(
+  //       360deg + ((360deg / $number_of_products_second_orbit) * $i) + 72deg
+  //     );
+  //   }
+  // }
 }
 
-.sector-end {
-  background: linear-gradient(36deg, #f3f7f4 43%, transparent 0);
-  transition: 0.5s;
-}
-.sector-end:hover {
-  background: linear-gradient(36deg, #e4e4e4 43%, transparent 0);
-  transition: 0.5s;
-}
+// .sector-end {
+//   background: linear-gradient(36deg, #f3f7f4 43%, transparent 0);
+//   transition: 0.5s;
+// }
+// .sector-end:hover {
+//   background: linear-gradient(36deg, #e4e4e4 43%, transparent 0);
+//   transition: 0.5s;
+// }
 
 /*
   вращение продуктов по орбите
@@ -739,62 +818,68 @@ li {
 @for $i from 1 through $number_of_products_first_orbit {
   .item-1-#{$i} {
     z-index: 100;
-    animation: myOrbit-1-#{$i} 30s linear infinite;
+    transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+      translateX($diameter_first_products)
+      rotate(-(360deg / $number_of_products_first_orbit) * $i);
   }
-  @keyframes myOrbit-1-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_first_orbit) * $i)
-        translateX($diameter_first_products)
-        rotate(-(360deg / $number_of_products_first_orbit) * $i);
-    }
-    to {
-      transform: rotate(
-          360deg + ((360deg / $number_of_products_first_orbit) * $i)
-        )
-        translateX($diameter_first_products)
-        rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
-    }
-  }
+  // @keyframes myOrbit-1-#{$i} {
+  //   from {
+  //     transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+  //       translateX($diameter_first_products)
+  //       rotate(-(360deg / $number_of_products_first_orbit) * $i);
+  //   }
+  //   to {
+  //     transform: rotate(
+  //         360deg + ((360deg / $number_of_products_first_orbit) * $i)
+  //       )
+  //       translateX($diameter_first_products)
+  //       rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
+  //   }
+  // }
 }
 
 @for $i from 1 through $number_of_products_second_orbit {
   .item-2-#{$i} {
     z-index: 200;
-    animation: myOrbit-2-#{$i} 20s linear infinite;
+    transform: rotate((360deg / $number_of_products_second_orbit) * $i)
+      translateX($diameter_second_products)
+      rotate(-(360deg / $number_of_products_second_orbit) * $i);
   }
-  @keyframes myOrbit-2-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_second_orbit) * $i)
-        translateX($diameter_second_products)
-        rotate(-(360deg / $number_of_products_second_orbit) * $i);
-    }
-    to {
-      transform: rotate(
-          360deg + ((360deg / $number_of_products_second_orbit) * $i)
-        )
-        translateX($diameter_second_products)
-        rotate(-360deg - ((360deg / $number_of_products_second_orbit) * $i));
-    }
-  }
+  // @keyframes myOrbit-2-#{$i} {
+  //   from {
+  //     transform: rotate((360deg / $number_of_products_second_orbit) * $i)
+  //       translateX($diameter_second_products)
+  //       rotate(-(360deg / $number_of_products_second_orbit) * $i);
+  //   }
+  //   to {
+  //     transform: rotate(
+  //         360deg + ((360deg / $number_of_products_second_orbit) * $i)
+  //       )
+  //       translateX($diameter_second_products)
+  //       rotate(-360deg - ((360deg / $number_of_products_second_orbit) * $i));
+  //   }
+  // }
 }
 
 @for $i from 1 through $number_of_products_third_orbit {
   .item-3-#{$i} {
-    animation: myOrbit-3-#{$i} 15s linear infinite;
+    transform: rotate((360deg / $number_of_products_third_orbit) * $i)
+      translateX($diameter_third_products)
+      rotate(-(360deg / $number_of_products_third_orbit) * $i);
   }
-  @keyframes myOrbit-3-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_third_orbit) * $i)
-        translateX($diameter_third_products)
-        rotate(-(360deg / $number_of_products_third_orbit) * $i);
-    }
-    to {
-      transform: rotate(
-          360deg + ((360deg / $number_of_products_third_orbit) * $i)
-        )
-        translateX($diameter_third_products)
-        rotate(-360deg - ((360deg / $number_of_products_third_orbit) * $i));
-    }
-  }
+  // @keyframes myOrbit-3-#{$i} {
+  //   from {
+  //     transform: rotate((360deg / $number_of_products_third_orbit) * $i)
+  //       translateX($diameter_third_products)
+  //       rotate(-(360deg / $number_of_products_third_orbit) * $i);
+  //   }
+  //   to {
+  //     transform: rotate(
+  //         360deg + ((360deg / $number_of_products_third_orbit) * $i)
+  //       )
+  //       translateX($diameter_third_products)
+  //       rotate(-360deg - ((360deg / $number_of_products_third_orbit) * $i));
+  //   }
+  // }
 }
 </style>
