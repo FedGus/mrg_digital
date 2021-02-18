@@ -80,6 +80,9 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+footer a {
+    text-decoration: underline;
+}
 
 .logo {
   width: 15vw;

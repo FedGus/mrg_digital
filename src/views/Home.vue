@@ -277,7 +277,7 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p>{{ university.id }}</p>
+            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">{{ university.id }}</p>
             <p>{{ university.command }}</p>
             <p>{{ university.points }}</p>
           </div>
@@ -443,7 +443,7 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
 .announce-date {
   background: $primary_red;
   color: $white;
-  padding: 3vw 3vw;
+  padding: 2vw 2vw 0 2vw;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -488,7 +488,7 @@ li {
   padding: 0 2vw 0 0;
 }
 
-li:nth-child(-n + 3) {
+.command_place {
   color: $primary_red;
 }
 
