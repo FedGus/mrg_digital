@@ -64,25 +64,16 @@
           </ul>
         </div>
         <div class="product item-1-2">
+          <span class="non-block">Музыка</span>
           <img
-            src="@/assets/aliexpress.png"
-            @click="showModal = true"
-            class="product-logo"
-          />
-          
-        </div>
-        <div class="product item-1-3">
-          <img
-            src="@/assets/youla.png"
-            @click="showModal = true"
-            class="product-logo"
-          /><img
-            src="@/assets/worki.png"
+            src="@/assets/boom.svg"
             @click="showModal = true"
             class="product-logo"
           />
         </div>
+        <div class="product item-1-3"></div>
         <div class="product item-1-4">
+          <span class="non-block left">Образование</span>
           <ul class="bottom_left_side">
             <li>
               <img
@@ -109,13 +100,26 @@
               <img
                 src="@/assets/algoritmika.svg"
                 @click="showModal = true"
+                class="product-logo non-block"
+              /><img
+                src="@/assets/tetrika.svg"
+                @click="showModal = true"
+                class="product-logo non-block"
+              />
+            </li>
+            <li></li>
+            <li>
+              <img
+                src="@/assets/uchi.svg"
+                @click="showModal = true"
                 class="product-logo"
               />
             </li>
           </ul>
         </div>
         <div class="product item-1-5">
-          <ul>
+          <span class="non-block">Информация</span>
+          <ul class="bottom_left_side">
             <li>
               <img
                 src="@/assets/mediaproektyi.png"
@@ -130,51 +134,99 @@
                 class="product-logo"
               />
             </li>
-          </ul>
-        </div>
-        <div class="product item-1-6">
-         <ul class="top_left_side">
             <li>
               <img
-                class="non-block product-logo"
-                src="@/assets/delivery.svg"
-                @click="showModal = true"
-              />
-            </li>
-            <li>
-              <img
-                class="non-block product-logo"
-                src="@/assets/samokat.svg"
-                @click="showModal = true"
-              />
-            </li>
-            <li>
-              <img
-                src="@/assets/kuhnia.svg"
+                src="@/assets/donations.svg"
                 @click="showModal = true"
                 class="product-logo"
               />
             </li>
           </ul>
         </div>
+        <div class="product item-1-6">
+          <span class="non-block">Мессенджеры</span>
+          <div>
+            <img
+              class="non-block product-logo"
+              src="@/assets/agent.svg"
+              @click="showModal = true"
+            />
+            <img
+              class="non-block product-logo"
+              src="@/assets/ICQNew.svg"
+              @click="showModal = true"
+            />
+          </div>
+          <img
+            src="@/assets/tamtam.svg"
+            @click="showModal = true"
+            class="product-logo non-block"
+          />
+        </div>
         <div class="product item-1-7">
-           <img
-            src="@/assets/ICQNew.png"
+          <span class="non-block">E-commerce</span><span>●</span>
+          <img
+            src="@/assets/aliexpress.svg"
             @click="showModal = true"
             class="product-logo"
           />
         </div>
-        <div class="product item-1-8"></div>
+        <div class="product item-1-8">
+          <span class="non-block">Еда</span><span>●</span><br />
+          <div class="non-block">
+            <img
+              src="@/assets/delivery.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/samokat.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/kuhnia.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+          </div>
+        </div>
         <div class="product item-1-9">
+          <span class="non-block">Киберспорт</span><br />
+          <img
+            src="@/assets/esforce.svg"
+            @click="showModal = true"
+            class="product-logo non-block"
+          />
+        </div>
+        <div class="product item-1-10">
+          <span class="non-block">Классифайды</span>
+          <ul class="top_right_side">
+            <li>
+              <img
+                src="@/assets/youla.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+            <li>
+              <img
+                src="@/assets/worki.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="product item-1-11">
+          <span class="non-block">Мобилити</span><span>●</span>
           <img
             src="@/assets/city_mobil.png"
             @click="showModal = true"
             class="product-logo"
           />
-        </div>
-        <div class="product item-1-10">
           <img
-            src="@/assets/boom.png"
+            src="@/assets/youdrive.svg"
             @click="showModal = true"
             class="product-logo"
           />
@@ -188,53 +240,73 @@
         <div class="sector sector-1-6"></div>
         <div class="sector sector-1-7"></div>
         <div class="sector sector-1-8"></div>
-        <div class="sector sector-1-9 sector-end"></div>
+        <div class="sector sector-1-9"></div>
         <div class="sector sector-1-10 sector-end"></div>
+        <div class="sector sector-1-11 sector-end"></div>
         <!-- вторая орбита -->
         <div class="second_orbit second_orbit_mobile">
           <div class="product item-2-1">
             <img
-              class="non-block product-logo"
-              src="@/assets/marusya.png"
+              src="@/assets/my.svg"
               @click="showModal = true"
-            /><img
-              class="non-block product-logo"
-              src="@/assets/vision.png"
-              @click="showModal = true"
-            /><img
-              src="@/assets/predict.png"
+              class="product-logo non-block"
+            /><span class="non-block">Adtech</span>
+            <img
+              src="@/assets/mytracker.svg"
               @click="showModal = true"
               class="product-logo"
             />
           </div>
           <div class="product item-2-2">
+            <span class="non-block">Data</span>
             <img
-              src="@/assets/tarantool.png"
+              src="@/assets/tarantool.svg"
               @click="showModal = true"
               class="product-logo"
             />
           </div>
           <div class="product item-2-3">
-            <img
-              src="@/assets/mytarget.png"
-              @click="showModal = true"
-              class="product-logo"
-            />
+            <span class="non-block">AL&ML</span>
+            <ul class="top_left_side">
+              <li>
+                <img
+                  class="non-block product-logo"
+                  src="@/assets/marusya.svg"
+                  @click="showModal = true"
+                />
+              </li>
+              <li>
+                <img
+                  class="non-block product-logo"
+                  src="@/assets/vision.svg"
+                  @click="showModal = true"
+                />
+              </li>
+              <li>
+                <img
+                  src="@/assets/predict.svg"
+                  @click="showModal = true"
+                  class="product-logo"
+                />
+              </li>
+            </ul>
           </div>
           <div class="product item-2-4">
+            <span class="non-block">Fintech</span>
             <img
-              src="@/assets/MCS.png"
-              @click="showModal = true"
-              class="product-logo"
-            /><img
-              src="@/assets/cloud.png"
+              src="@/assets/vkpay.svg"
               @click="showModal = true"
               class="product-logo"
             />
           </div>
           <div class="product item-2-5">
+            <span class="non-block">Cloud</span>
             <img
-              src="@/assets/vkpay.png"
+              src="@/assets/MCS.svg"
+              @click="showModal = true"
+              class="product-logo"
+            /><img
+              src="@/assets/cloud.png"
               @click="showModal = true"
               class="product-logo"
             />
@@ -256,45 +328,48 @@
                   />
                 </div>
               </div> -->
-            <div class="product item-3-1">
-              <img
-                src="@/assets/vk.png"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
+            <div class="product item-3-1"></div>
             <div class="product item-3-2">
-              <img
-                src="@/assets/ok.png"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <div class="product item-3-3">
-              <img
-                src="@/assets/mail.png"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <div class="product item-3-4">
+              <span>Коммуникации и соцсети</span>
+              <div>
+                <img
+                  src="@/assets/ok.svg"
+                  @click="showModal = true"
+                  class="product-logo non-block"
+                />
+                <img
+                  src="@/assets/mail.png"
+                  @click="showModal = true"
+                  class="product-logo non-block"
+                />
+                <img
+                  src="@/assets/vk.svg"
+                  @click="showModal = true"
+                  class="product-logo non-block"
+                />
+              </div>
+              <span class="non-block">Игры</span><br />
               <img
                 src="@/assets/mygames.png"
                 @click="showModal = true"
-                class="product-logo"
+                class="product-logo non-block"
               />
             </div>
+            <!-- <div class="product item-3-3">
+              
+            </div>
+            <div class="product item-3-4"></div>
             <div class="sector sector-3-1"></div>
             <div class="sector sector-3-2"></div>
             <div class="sector sector-3-3"></div>
-            <div class="sector sector-3-4"></div>
+            <div class="sector sector-3-4"></div> -->
           </div>
         </div>
       </div>
     </div>
     <!-- секция с описанием игры -->
     <section class="clarification">
-      <span>* Партнерства</span>
+      <span>Партнерства</span><span>●</span>
       <div><img id="glove-3" src="@/assets/boxing_glove_3.svg" /></div>
     </section>
     <section class="about">
@@ -439,14 +514,17 @@ $diameter_first_products: $diameter_first_orbit / 2.5; //диаметр вращ
 $diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
 $diameter_third_products: $diameter_third_orbit / 3.5; //диаметр вращения продуктов третьей орбиты (ядро)
 
-$number_of_products_first_orbit: 10; //кол-во продуктов на первой орбите
+$number_of_products_first_orbit: 11; //кол-во продуктов на первой орбите
 $number_of_products_second_orbit: 5; //кол-во продуктов на второй орбите
-$number_of_products_third_orbit: 4; //кол-во продуктов на третьей орбите
+$number_of_products_third_orbit: 2; //кол-во продуктов на третьей орбите
 
 .home {
   position: relative;
   transition: all 0.1s ease;
   background: linear-gradient(to top, $white 60%, $primary_red 40%);
+  span {
+    color: $dark_gray;
+  }
 }
 .present {
   height: 30vw;
@@ -681,9 +759,17 @@ li {
   margin-right: 1vw;
 }
 
+.left {
+  text-align: left;
+  width: 100%;
+}
+.right {
+  text-align: right;
+  width: 10vw;
+}
+
 .product-logo:hover {
-  max-height: 5vw;
-  max-width: 4vw;
+  transform: scale(1.5);
   transition: 1s;
   cursor: pointer;
 }
@@ -696,25 +782,40 @@ li {
 
 .top_left_side {
   li:first-child {
-    margin-left: 3vw;
+    margin-left: 0vw;
   }
   li:nth-child(2) {
-    margin-left: 0vw;
+    margin-left: -2vw;
   }
   li:nth-child(3) {
-    margin-left: 0vw;
+    margin-left: -1.5vw;
   }
 }
 
 .bottom_left_side {
   li:nth-child(2) {
-    margin-left: 1.5vw;
+    margin-left: 1vw;
   }
   li:nth-child(3) {
-    margin-left: 3vw;
+    margin-left: 2vw;
   }
   li:nth-child(4) {
-    margin-left: 4.5vw;
+    margin-left: 4vw;
+  }
+  li:nth-child(5) {
+    margin-left: 6vw;
+  }
+  li:nth-child(6) {
+    margin-left: 8vw;
+  }
+}
+
+.top_right_side {
+  li:first-child {
+    margin-left: -1.5vw;
+  }
+  li:nth-child(2) {
+    margin-left: 0vw;
   }
 }
 
@@ -777,7 +878,7 @@ li {
     height: 50%;
     z-index: (20 + $i);
     transform-origin: 100% 100%;
-    border: 2px solid #f3f7f4;
+    // border: 2px solid #f3f7f4;
     transform: rotate(
       ((360deg / $number_of_products_second_orbit) * $i) + 72deg
     );
@@ -863,9 +964,9 @@ li {
 
 @for $i from 1 through $number_of_products_third_orbit {
   .item-3-#{$i} {
-    transform: rotate((360deg / $number_of_products_third_orbit) * $i)
+    transform: rotate((240deg / $number_of_products_third_orbit) * $i)
       translateX($diameter_third_products)
-      rotate(-(360deg / $number_of_products_third_orbit) * $i);
+      rotate(-(240deg / $number_of_products_third_orbit) * $i);
   }
   // @keyframes myOrbit-3-#{$i} {
   //   from {

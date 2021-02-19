@@ -59,21 +59,26 @@
               @click="showModal = true"
               class="product-logo"
             />
+            <img
+            src="@/assets/youdrive.svg"
+            @click="showModal = true"
+            class="product-logo"
+          />
           </div>
           <div class="product item-1-3">
             <img
-              src="@/assets/youla.png"
+              src="@/assets/youla.svg"
               @click="showModal = true"
               class="product-logo"
             /><img
-              src="@/assets/worki.png"
+              src="@/assets/worki.svg"
               @click="showModal = true"
               class="product-logo"
             />
           </div>
           <div class="product item-1-4">
             <img
-              src="@/assets/Esforce.png"
+              src="@/assets/esforce.svg"
               @click="showModal = true"
               class="product-logo"
             />
@@ -84,6 +89,11 @@
               @click="showModal = true"
               class="product-logo"
             />
+            <img
+                src="@/assets/mdt.svg"
+                @click="showModal = true"
+                class="product-logo"
+              />
           </div>
           <div class="product item-1-6">
             <img
@@ -102,7 +112,7 @@
           </div>
           <div class="product item-1-7">
             <img
-              src="@/assets/aliexpress.png"
+              src="@/assets/aliexpress.svg"
               @click="showModal = true"
               class="product-logo"
             />
@@ -119,15 +129,27 @@
             />
           </div>
           <div class="product item-1-9">
+            <div>
             <img
-              src="@/assets/ICQNew.png"
+              class="non-block product-logo"
+              src="@/assets/agent.svg"
               @click="showModal = true"
-              class="product-logo"
             />
+            <img
+              class="non-block product-logo"
+              src="@/assets/ICQNew.svg"
+              @click="showModal = true"
+            />
+          </div>
+          <img
+            src="@/assets/tamtam.svg"
+            @click="showModal = true"
+            class="product-logo non-block"
+          />
           </div>
           <div class="product item-1-10">
             <img
-              src="@/assets/boom.png"
+              src="@/assets/boom.svg"
               @click="showModal = true"
               class="product-logo"
             />
@@ -148,35 +170,40 @@
             <div class="product item-2-1">
               <img
                 class="non-block product-logo"
-                src="@/assets/marusya.png"
+                src="@/assets/marusya.svg"
                 @click="showModal = true"
               /><img
-                class="non-block product-logo"
-                src="@/assets/vision.png"
+                class="product-logo"
+                src="@/assets/vision.svg"
                 @click="showModal = true"
               /><img
-                src="@/assets/predict.png"
+                src="@/assets/predict.svg"
                 @click="showModal = true"
                 class="product-logo"
               />
             </div>
             <div class="product item-2-2">
               <img
-                src="@/assets/tarantool.png"
+                src="@/assets/tarantool.svg"
                 @click="showModal = true"
                 class="product-logo"
               />
             </div>
             <div class="product item-2-3">
               <img
-                src="@/assets/mytarget.png"
-                @click="showModal = true"
-                class="product-logo"
-              />
+              src="@/assets/my.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/mytracker.svg"
+              @click="showModal = true"
+              class="product-logo"
+            />
             </div>
             <div class="product item-2-4">
               <img
-                src="@/assets/MCS.png"
+                src="@/assets/MCS.svg"
                 @click="showModal = true"
                 class="product-logo"
               /><img
@@ -187,7 +214,7 @@
             </div>
             <div class="product item-2-5">
               <img
-                src="@/assets/vkpay.png"
+                src="@/assets/vkpay.svg"
                 @click="showModal = true"
                 class="product-logo"
               />
@@ -211,14 +238,14 @@
               </div> -->
               <div class="product item-3-1">
                 <img
-                  src="@/assets/vk.png"
+                  src="@/assets/vk.svg"
                   @click="showModal = true"
                   class="product-logo"
                 />
               </div>
               <div class="product item-3-2">
                 <img
-                  src="@/assets/ok.png"
+                  src="@/assets/ok.svg"
                   @click="showModal = true"
                   class="product-logo"
                 />
@@ -353,7 +380,7 @@ export default {
 </script>
 <style lang="scss">
 @import "@/styles/colors.scss";
-$icon_width: 3vw;
+$icon_width: 3.5vw;
 $icon_height: 2vw;
 
 $diameter_first_orbit: 40vw; //диаметр первой (внешней) орбиты
@@ -540,7 +567,7 @@ li:nth-child(-n + 3) {
 
 .product {
   position: absolute;
-  left: calc(50% - 1.5vw);
+  left: calc(50% - 1.25vw);
   top: calc(50% - 1vw);
 }
 

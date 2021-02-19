@@ -69,7 +69,9 @@ p {
 }
 
 span {
+  font-family: "Proxima Nova Rg";
   font-size: 1vw;
+  margin-bottom: 0.5vw;
 }
 
 header,
@@ -81,7 +83,7 @@ footer {
   justify-content: space-between;
 }
 footer a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .logo {
