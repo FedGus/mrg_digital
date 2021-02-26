@@ -41,7 +41,6 @@ h5 {
   font-size: 1.75vw;
 }
 
-
 .btn {
   font-family: "Proxima Nova Rg";
   font-size: 17px;
