@@ -71,7 +71,7 @@
               @click="showModal = true"
               class="product-logo"
             /><img
-              src="@/assets/worki.svg"
+              src="@/assets/vkrabota.svg"
               @click="showModal = true"
               class="product-logo"
             />

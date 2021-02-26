@@ -6,7 +6,7 @@
       <nav>
         <ul>
           <li>
-            <a href="">Стать зрителем</a>
+            <a href=""><img id="icon" src="@/assets/vkgroup.svg" /> Стать зрителем</a>
           </li>
           <li>
             <router-link class="nav-link" to="/login" tag="a"
@@ -164,14 +164,6 @@
           />
         </div>
         <div class="product item-1-7">
-          <span class="non-block">E-commerce</span><span>●</span>
-          <img
-            src="@/assets/aliexpress.svg"
-            @click="showModal = true"
-            class="product-logo"
-          />
-        </div>
-        <div class="product item-1-8">
           <span class="non-block">Еда</span><span>●</span><br />
           <div class="non-block">
             <img
@@ -191,6 +183,22 @@
             />
           </div>
         </div>
+        <div class="product item-1-8">
+          
+          <span class="non-block">Классифайды</span><br>
+          <div class="non-block">
+              <img
+                src="@/assets/youla.svg"
+                @click="showModal = true"
+                class="product-logo non-block"
+              />
+              <img
+                src="@/assets/vkrabota.svg"
+                @click="showModal = true"
+                class="product-logo non-block"
+              />
+            </div>
+        </div>
         <div class="product item-1-9">
           <span class="non-block">Киберспорт</span><br />
           <img
@@ -200,23 +208,12 @@
           />
         </div>
         <div class="product item-1-10">
-          <span class="non-block">Классифайды</span>
-          <ul class="top_right_side">
-            <li>
-              <img
-                src="@/assets/youla.svg"
+          <span class="non-block">E-commerce</span><span>●</span><br>
+          <img
+                src="@/assets/aliexpress.svg"
                 @click="showModal = true"
-                class="product-logo"
+                class="product-logo non-block"
               />
-            </li>
-            <li>
-              <img
-                src="@/assets/worki.svg"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </li>
-          </ul>
         </div>
         <div class="product item-1-11">
           <span class="non-block">Мобилити</span><span>●</span>
@@ -387,6 +384,16 @@
           <span>марта</span>
         </div>
       </div>
+    </section>
+    <section>
+      <h2>Трансляции</h2>
+      <iframe class="broadcast" src="https://vk.com/video_ext.php?oid=-92204627&id=456239457&hash=b8ab880543307ad3&hd=1" frameborder="0" allowfullscreen></iframe>
+    <h3>Предыдущие выпуски</h3>
+    <div class="past_broadcasts">
+    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239549&hash=bccf93c9905b18bb&hd=2"  frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239548&hash=1b5cdde20253f1b6&hd=1"  frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239466&hash=1271a107e45761ab&hd=2"  frameborder="0" allowfullscreen></iframe>
+    </div>
     </section>
     <section class="rating">
       <h2>Рейтинг команд</h2>
@@ -620,6 +627,18 @@ li {
     display: inline;
   }
 }
+.broadcast {
+  width: 100%;
+  height: 45vw;
+}
+.past_broadcasts {
+  display: flex;
+  justify-content: space-between;
+  & iframe {
+  height: 15vw;
+  width: 25vw;
+}
+}
 
 @media screen and (max-device-width: 420px) {
   header,
@@ -705,6 +724,15 @@ li {
   .logo {
     width: 75px;
   }
+  .past_broadcasts {
+  flex-direction: column;
+  & iframe {
+  height: 35vw;
+  width: 100%;
+  margin-bottom: 10px;
+}
+}
+
 }
 
 /*
@@ -756,7 +784,7 @@ li {
 
 .non-block {
   display: inline-block;
-  margin-right: 1vw;
+  margin-right: 0.6vw;
 }
 
 .left {
@@ -769,14 +797,14 @@ li {
 }
 
 .product-logo:hover {
-  transform: scale(1.5);
+  transform: scale(1.25);
   transition: 1s;
   cursor: pointer;
 }
 
 .product {
   position: absolute;
-  left: calc(50% - 2vw);
+  left: calc(50% - 2.5vw);
   top: calc(50% - 1.5vw);
 }
 

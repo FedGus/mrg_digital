@@ -21,11 +21,6 @@
   color: #2c3e50;
 }
 
-h1,
-h3 {
-  font-family: "Prata", Helvetica, Arial, sans-serif;
-}
-
 h1 {
   color: $white;
   font-size: 7vw;
@@ -37,10 +32,15 @@ h2 {
   padding: 2vw 0;
 }
 
+h3 {
+  padding: 2vw 0;
+}
+
 h5 {
   color: $white;
   font-size: 1.75vw;
 }
+
 
 .btn {
   font-family: "Proxima Nova Rg";
