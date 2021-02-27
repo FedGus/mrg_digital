@@ -461,7 +461,7 @@ $number_of_products_third_orbit: 1; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 15vw;
+  height: 5vw;
   span {
     float: right;
   }

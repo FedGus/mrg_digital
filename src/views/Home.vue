@@ -600,7 +600,7 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 15vw;
+  height: 7vw;
   span {
     float: right;
   }
@@ -763,8 +763,8 @@ li {
   overflow: hidden;
   border-radius: 50%;
   margin: 0 auto;
-  background: #f3f7f4;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $light_gray;
+  border: 3px solid $light_gray_stroke;
 }
 .second_orbit {
   width: $diameter_second_orbit;
@@ -775,8 +775,8 @@ li {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  background: #f9fefb;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $light_gray_2;
+  border: 7px solid $light_gray_2_stroke;
 }
 
 .third_orbit {
@@ -787,8 +787,8 @@ li {
   z-index: 300;
   border-radius: 50%;
   margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $white;
+  border: 10px solid $light_gray_stroke;
 }
 
 .product-logo {
