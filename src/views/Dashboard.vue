@@ -249,7 +249,7 @@
             />
           </div>
           <!-- секторы первой орбиты -->
-          <div class="sector sector-1-1 static-sector"></div>
+          <div class="sector sector-1-1"></div>
           <div class="sector sector-1-2"></div>
           <div class="sector sector-1-3"></div>
           <div class="sector sector-1-4"></div>
@@ -266,15 +266,13 @@
           <div class="sector sector-1-15"></div>
           <div class="sector sector-1-16 sector-end"></div>
           <div class="sector sector-1-17 sector-end"></div>
+          <div class="sector static-sector"></div>
           <!-- вторая орбита -->
           <div class="second_orbit">
             <div class="third_orbit">
               <div class="product item-3-1">
-                <button class="btn circle_btn" v-if="!state" @click="start()">
+                <button class="btn circle_btn" @click="start()">
                   Крутить!
-                </button>
-                <button class="btn circle_btn" v-if="state" @click="stop()">
-                  СТОП!
                 </button>
               </div>
             </div>
@@ -336,34 +334,46 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
-    rotation(time, odds) {
-      for (let i = 1; i <= 1; i++) {
-        time = time - odds;
-        for (let j = 1; j <= 17; j++) {
-          document.querySelector(".sector-" + i + "-" + j).style.animation =
-            "rotation-" + i + "-" + j + " " + time + "s infinite linear";
+    rotation(time) {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animation =
+          "rotation-1-" + j + " " + time + "s infinite ease-in-out";
+        document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-          document.querySelector(".item-" + i + "-" + j).style.animation =
-            "myOrbit-" + i + "-" + j + " " + time + "s infinite linear";
-        }
+        document.querySelector(".item-1-" + j).style.animation =
+          "myOrbit-1-" + j + " " + time + "s infinite ease-in-out";
+
+        document.querySelector(".item-1-" + j).style.animationDelay = ".1s";
       }
     },
-    start() {
-      /* Внешние скрипты для анимации выбора продукта */
-      this.state = true;
-      this.rotation(2, 0.5);
+    paused() {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animationPlayState =
+          "paused";
+
+        document.querySelector(".item-1-" + j).style.animationPlayState =
+          "paused";
+      }
+    },
+    wheel(time) {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animation =
+          "rotation-1-" + j + " " + time + "s infinite linear";
+
+        document.querySelector(".item-1-" + j).style.animation =
+          "myOrbit-1-" + j + " " + time + "s infinite linear";
+      }
     },
     stop() {
       this.state = false;
       let x = Math.ceil(Math.random() * (8 - 1)) + 1;
-      // let y = Math.ceil(Math.random() * (5 - 1)) + 1;
-      // let z = Math.ceil(Math.random() * (4 - 1)) + 1;
+      this.paused();
       console.log(x);
       document.querySelector(".sector-1-" + x).style.background = "#FC9696";
       setTimeout(() => {
         document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
         this.showModal = true;
-        this.timer = 60;
+        this.timer = 10;
         let time = setInterval(() => {
           if (this.timer != 0) {
             this.timer--;
@@ -372,8 +382,16 @@ export default {
             clearInterval(time);
           }
         }, 1000);
-      }, 2000);
-      this.rotation(30, 10);
+        this.wheel(30);
+      }, 4000);
+    },
+    start() {
+      /* Внешние скрипты для анимации выбора продукта */
+      this.state = true;
+      this.rotation(8);
+      setTimeout(() => {
+        this.stop();
+      }, 6500);
     },
   },
 };
@@ -588,25 +606,25 @@ span {
     z-index: (20 + $i);
     transform-origin: 100% 100%;
     animation: rotation-1-#{$i} 30s infinite linear;
-    transition: 2s;
+    //transition: 2s;
   }
   // .sector-1-#{$i}:nth-child(odd) {
   //   background: #eeeeee;
   // }
-  .sector-1-#{$i}:hover {
-    background: #e4e4e4;
-    transition: 0.5s;
-  }
+  // .sector-1-#{$i}:hover {
+  //   background: #e4e4e4;
+  //   transition: 0.5s;
+  // }
   @keyframes rotation-1-#{$i} {
     //вращение секторов ПЕРВОЙ орбиты
     from {
       transform: rotate(
-        ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+        ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
       );
     }
     to {
       transform: rotate(
-        360deg + ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+        3600deg + ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
       );
     }
   }
@@ -620,6 +638,11 @@ span {
   background: linear-gradient(20deg, #81818170 30%, transparent 0);
   transition: 0.5s;
   z-index: 200;
+  overflow: hidden;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
   transform: rotate(170deg);
   animation: none;
 }
@@ -634,14 +657,14 @@ span {
     animation: myOrbit-1-#{$i} 30s linear infinite;
   }
   @keyframes myOrbit-1-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+    0% {
+      transform: rotate((3600deg / $number_of_products_first_orbit) * $i)
         translateX($diameter_first_products);
       //rotate(-(360deg / $number_of_products_first_orbit) * $i);
     }
-    to {
+    100% {
       transform: rotate(
-          360deg + ((360deg / $number_of_products_first_orbit) * $i)
+          3600deg + ((3600deg / $number_of_products_first_orbit) * $i)
         )
         translateX($diameter_first_products);
       //rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));

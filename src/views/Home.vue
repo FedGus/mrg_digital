@@ -52,7 +52,7 @@
             <li>
               <img
                 src="@/assets/biz.svg"
-                @click="showModal = true"
+                @click="productInfo(0)"
                 class="product-logo"
               />
             </li>
@@ -418,7 +418,7 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">
+            <p v-bind:class="[{ command_place: university.id <= 3 }, 'none']">
               {{ university.id }}
             </p>
             <p>{{ university.command }}</p>
@@ -453,8 +453,8 @@
 </template>
 
 <script>
-import { db } from "../main";
 import modal from "@/views/Modal.vue";
+import axios from "axios";
 
 export default {
   name: "Home",
@@ -464,7 +464,7 @@ export default {
   data() {
     return {
       showModal: false,
-      products: [],
+      item: [],
       universities: [
         {
           id: 1,
@@ -497,18 +497,24 @@ export default {
       site: "",
     };
   },
-  firestore() {
-    return {
-      products: db.collection("products"),
-    };
+  mounted() {
+    axios
+      .get("http://localhost:8085/api/products/")
+      .then((response) => {
+        console.log(response.data);
+        this.item = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
-    productInfo(item) {
+    productInfo(i) {
+      this.name = this.item[i].name;
+      this.image = this.item[i].image;
+      this.description = this.item[i].description;
+      this.site = this.item[i].site;
       this.showModal = true;
-      this.name = item.name;
-      this.image = item.image;
-      this.description = item.description;
-      this.site = item.site;
     },
   },
 };
