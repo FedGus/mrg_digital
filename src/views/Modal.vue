@@ -64,6 +64,11 @@ export default {};
   max-width: 31px;
 }
 
+#cross {
+  width: 5vw;
+  max-width: 31px;
+}
+
 @media screen and (max-width: 420px) {
   .modal-container {
     width: 80vw;
