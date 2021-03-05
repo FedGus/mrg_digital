@@ -59,7 +59,7 @@
             <li>
               <img
                 src="@/assets/mdt.svg"
-                @click="showModal = true"
+                @click="productInfo(1)"
                 class="product-logo"
               />
             </li>
@@ -69,7 +69,7 @@
           <span class="non-block">Музыка</span>
           <img
             src="@/assets/boom.svg"
-            @click="showModal = true"
+            @click="productInfo(2)"
             class="product-logo"
           />
         </div>
@@ -80,32 +80,32 @@
             <li>
               <img
                 src="@/assets/geekbrains.png"
-                @click="showModal = true"
+                @click="productInfo(3)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/Skillbox.png"
-                @click="showModal = true"
+                @click="productInfo(4)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/skillfactory.png"
-                @click="showModal = true"
+                @click="productInfo(5)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/algoritmika.svg"
-                @click="showModal = true"
+                @click="productInfo(6)"
                 class="product-logo non-block"
               /><img
                 src="@/assets/tetrika.svg"
-                @click="showModal = true"
+                @click="productInfo(7)"
                 class="product-logo non-block"
               />
             </li>
@@ -113,7 +113,7 @@
             <li>
               <img
                 src="@/assets/uchi.svg"
-                @click="showModal = true"
+                @click="productInfo(8)"
                 class="product-logo"
               />
             </li>
@@ -125,21 +125,21 @@
             <li>
               <img
                 src="@/assets/mediaproektyi.png"
-                @click="showModal = true"
+                @click="productInfo(9)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/poisk.png"
-                @click="showModal = true"
+                @click="productInfo(10)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/donations.svg"
-                @click="showModal = true"
+                @click="productInfo(11)"
                 class="product-logo"
               />
             </li>
@@ -151,17 +151,17 @@
             <img
               class="non-block product-logo"
               src="@/assets/agent.svg"
-              @click="showModal = true"
+              @click="productInfo(12)"
             />
             <img
               class="non-block product-logo"
               src="@/assets/ICQNew.svg"
-              @click="showModal = true"
+              @click="productInfo(13)"
             />
           </div>
           <img
             src="@/assets/tamtam.svg"
-            @click="showModal = true"
+            @click="productInfo(14)"
             class="product-logo non-block"
           />
         </div>
@@ -170,17 +170,17 @@
           <div class="non-block">
             <img
               src="@/assets/delivery.svg"
-              @click="showModal = true"
+              @click="productInfo(15)"
               class="product-logo non-block"
             />
             <img
               src="@/assets/samokat.svg"
-              @click="showModal = true"
+              @click="productInfo(16)"
               class="product-logo non-block"
             />
             <img
               src="@/assets/kuhnia.svg"
-              @click="showModal = true"
+              @click="productInfo(17)"
               class="product-logo non-block"
             />
           </div>
@@ -190,12 +190,12 @@
           <div class="non-block">
             <img
               src="@/assets/youla.svg"
-              @click="showModal = true"
+              @click="productInfo(18)"
               class="product-logo non-block"
             />
             <img
               src="@/assets/vkrabota.svg"
-              @click="showModal = true"
+              @click="productInfo(19)"
               class="product-logo non-block"
             />
           </div>
@@ -204,7 +204,7 @@
           <span class="non-block">Киберспорт</span><br />
           <img
             src="@/assets/esforce.svg"
-            @click="showModal = true"
+            @click="productInfo(20)"
             class="product-logo non-block"
           />
         </div>
@@ -212,7 +212,7 @@
           <span class="non-block">E-commerce</span><span>●</span><br />
           <img
             src="@/assets/aliexpress.svg"
-            @click="showModal = true"
+            @click="productInfo(21)"
             class="product-logo non-block"
           />
         </div>
@@ -220,12 +220,12 @@
           <span class="non-block">Мобилити</span><span>●</span>
           <img
             src="@/assets/city_mobil.png"
-            @click="showModal = true"
+            @click="productInfo(22)"
             class="product-logo"
           />
           <img
             src="@/assets/youdrive.svg"
-            @click="showModal = true"
+            @click="productInfo(23)"
             class="product-logo"
           />
         </div>
@@ -246,12 +246,12 @@
           <div class="product item-2-1">
             <img
               src="@/assets/my.svg"
-              @click="showModal = true"
+              @click="productInfo(24)"
               class="product-logo non-block"
             /><span class="non-block">Adtech</span>
             <img
               src="@/assets/mytracker.svg"
-              @click="showModal = true"
+              @click="productInfo(25)"
               class="product-logo"
             />
           </div>
@@ -259,7 +259,7 @@
             <span class="non-block">Data</span>
             <img
               src="@/assets/tarantool.svg"
-              @click="showModal = true"
+              @click="productInfo(26)"
               class="product-logo"
             />
           </div>
@@ -270,20 +270,20 @@
                 <img
                   class="non-block product-logo"
                   src="@/assets/marusya.svg"
-                  @click="showModal = true"
+                  @click="productInfo(27)"
                 />
               </li>
               <li>
                 <img
                   class="non-block product-logo"
                   src="@/assets/vision.svg"
-                  @click="showModal = true"
+                  @click="productInfo(28)"
                 />
               </li>
               <li>
                 <img
                   src="@/assets/predict.svg"
-                  @click="showModal = true"
+                  @click="productInfo(29)"
                   class="product-logo"
                 />
               </li>
@@ -293,7 +293,7 @@
             <span class="non-block">Fintech</span>
             <img
               src="@/assets/vkpay.svg"
-              @click="showModal = true"
+              @click="productInfo(30)"
               class="product-logo"
             />
           </div>
@@ -301,11 +301,11 @@
             <span class="non-block">Cloud</span>
             <img
               src="@/assets/MCS.svg"
-              @click="showModal = true"
+              @click="productInfo(31)"
               class="product-logo"
             /><img
               src="@/assets/cloud.png"
-              @click="showModal = true"
+              @click="productInfo(32)"
               class="product-logo"
             />
           </div>
@@ -332,24 +332,24 @@
               <div>
                 <img
                   src="@/assets/ok.svg"
-                  @click="showModal = true"
+                  @click="productInfo(33)"
                   class="product-logo non-block"
                 />
                 <img
                   src="@/assets/mail.png"
-                  @click="showModal = true"
+                  @click="productInfo(34)"
                   class="product-logo non-block"
                 />
                 <img
                   src="@/assets/vk.svg"
-                  @click="showModal = true"
+                  @click="productInfo(36)"
                   class="product-logo non-block"
                 />
               </div>
               <span class="non-block">Игры</span><br />
               <img
                 src="@/assets/mygames.png"
-                @click="showModal = true"
+                @click="productInfo(36)"
                 class="product-logo non-block"
               />
             </div>
