@@ -11,7 +11,7 @@
             >
           </li>
           <li>
-            <router-link class="nav-link" to="/login" tag="a"
+            <router-link class="nav-link" to="/login" tag="a" id="private"
               >Личный кабинет</router-link
             >
           </li>
@@ -32,14 +32,9 @@
     <!-- модальное окно -->
     <transition name="modal">
       <modal v-if="showModal" @close="showModal = false">
-        <h2 slot="header">{{ name }}</h2>
-        <img
-          class="product-logo"
-          slot="logo-header"
-          :src="`/static/${image}`"
-        />
+        <img slot="header" class="logo_modal" :src="`/static/${image}`" />
         <p slot="body">{{ description }}</p>
-        <a slot="footer" :href="site">Официальный сайт</a>
+        <a slot="footer" :href="site" class="link">УБЕДИСЬ САМ</a>
       </modal>
     </transition>
     <!-- секция с кругом -->
@@ -327,8 +322,8 @@
                 </div>
               </div> -->
             <div class="product item-3-1"></div>
-            <div class="product item-3-2">
-              <span>Коммуникации и соцсети</span>
+            <div class="product item-3-2" style="line-height: 0.7">
+              <span class="non-block">Коммуникации</span>
               <div>
                 <img
                   src="@/assets/ok.svg"
@@ -346,12 +341,14 @@
                   class="product-logo non-block"
                 />
               </div>
-              <span class="non-block">Игры</span><br />
-              <img
-                src="@/assets/mygames.png"
-                @click="productInfo(36)"
-                class="product-logo non-block"
-              />
+              <div>
+                <span class="non-block">Игры</span><br />
+                <img
+                  src="@/assets/mygames.png"
+                  @click="productInfo(36)"
+                  class="product-logo non-block"
+                />
+              </div>
             </div>
             <!-- <div class="product item-3-3">
               
@@ -556,6 +553,9 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   span {
     color: $dark_gray;
   }
+  li {
+    line-height: 0.3;
+  }
 }
 .present {
   height: 30vw;
@@ -592,10 +592,13 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   }
 }
 
+.logo_modal {
+  height: 50px;
+}
 .announce-date {
   background: $primary_red;
   color: $white;
-  padding: 2vw 2vw 0 2vw;
+  padding: 2vw 2vw 1vw 2vw;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -606,7 +609,8 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 7vw;
+  height: 8vw;
+  min-height: 50px;
   span {
     float: right;
   }
@@ -617,7 +621,7 @@ b {
 }
 
 .about {
-  height: 50vw;
+  height: 30vw;
   max-height: 700px;
   background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
   position: relative;
@@ -634,6 +638,9 @@ b {
 
 .rating-list {
   columns: 2;
+  li {
+    padding-bottom: 2vw;
+  }
 }
 li {
   list-style: none;
@@ -668,6 +675,12 @@ li {
   header,
   footer {
     height: 50px;
+  }
+  #icon {
+    width: 20px;
+  }
+  #private {
+    display: none;
   }
   h1 {
     font-size: 38px;
@@ -708,22 +721,62 @@ li {
       width: 48px;
     }
   }
+
+  .product-logo {
+    max-width: 8vw !important;
+    max-height: 15px !important;
+  }
+
   .first_orbit_mobile {
     width: 90vw !important;
     height: 90vw !important;
+    & .product {
+      position: absolute;
+      left: calc(46%) !important;
+      top: calc(45%) !important;
+    }
+    & span {
+      font-size: 5px !important;
+    }
   }
 
   .second_orbit_mobile {
     width: 60vw !important;
     height: 60vw !important;
     top: calc(25% - 6vw) !important;
+    & .product {
+      position: absolute;
+      left: calc(42%) !important;
+      top: calc(42%) !important;
+    }
   }
   .third_orbit_mobile {
     width: 30vw !important;
     height: 30vw !important;
+    & .product {
+      position: absolute;
+      left: calc(37%) !important;
+      top: calc(42%) !important;
+    }
   }
+  @for $i from 1 through $number_of_products_first_orbit {
+    .item-1-#{$i} {
+      transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+        translateX(37vw)
+        rotate(-(360deg / $number_of_products_first_orbit) * $i) !important;
+    }
+  }
+
+  @for $i from 1 through $number_of_products_second_orbit {
+    .item-2-#{$i} {
+      transform: rotate((360deg / $number_of_products_second_orbit) * $i)
+        translateX(21vw)
+        rotate(-(360deg / $number_of_products_second_orbit) * $i) !important;
+    }
+  }
+
   .about {
-    height: 460px;
+    height: 360px;
     background: linear-gradient(to bottom, $light_gray 80%, $white 20%);
   }
   .description {
@@ -770,7 +823,12 @@ li {
   border-radius: 50%;
   margin: 0 auto;
   background: $light_gray;
-  border: 3px solid $light_gray_stroke;
+  border: 5px solid $light_gray_stroke;
+  & .product {
+    position: absolute;
+    left: calc(44%);
+    top: calc(45%);
+  }
 }
 .second_orbit {
   width: $diameter_second_orbit;
@@ -782,7 +840,12 @@ li {
   overflow: hidden;
   margin: 0 auto;
   background: $light_gray_2;
-  border: 7px solid $light_gray_2_stroke;
+  border: 5px solid $light_gray_2_stroke;
+  & .product {
+    position: absolute;
+    left: calc(42%);
+    top: calc(45%);
+  }
 }
 
 .third_orbit {
@@ -794,7 +857,12 @@ li {
   border-radius: 50%;
   margin: 0 auto;
   background: $white;
-  border: 10px solid $light_gray_stroke;
+  border: 5px solid $light_gray_stroke;
+  & .product {
+    position: absolute;
+    left: calc(40%);
+    top: calc(45%);
+  }
 }
 
 .product-logo {
@@ -823,12 +891,6 @@ li {
   transform: scale(1.25);
   transition: 1s;
   cursor: pointer;
-}
-
-.product {
-  position: absolute;
-  left: calc(50% - 2.5vw);
-  top: calc(50% - 1.5vw);
 }
 
 .top_left_side {
