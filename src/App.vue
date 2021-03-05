@@ -64,6 +64,7 @@ h5 {
 p {
   text-align: left;
   font-size: 1.5vw;
+  line-height: 1.5;
 }
 
 

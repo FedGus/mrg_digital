@@ -364,7 +364,7 @@
     </div>
     <!-- секция с описанием игры -->
     <section class="clarification">
-      <span>Партнерства</span><span>●</span>
+      <span>Партнерства</span><span class="non-block">●</span>
       <div><img id="glove-3" src="@/assets/boxing_glove_3.svg" /></div>
     </section>
     <section class="about">
@@ -593,7 +593,7 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
 }
 
 .logo_modal {
-  height: 50px;
+  height: 45px;
 }
 .announce-date {
   background: $primary_red;
@@ -621,7 +621,7 @@ b {
 }
 
 .about {
-  height: 30vw;
+  height: 35vw;
   max-height: 700px;
   background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
   position: relative;
@@ -755,7 +755,7 @@ li {
     height: 30vw !important;
     & .product {
       position: absolute;
-      left: calc(37%) !important;
+      left: calc(35%) !important;
       top: calc(42%) !important;
     }
   }
