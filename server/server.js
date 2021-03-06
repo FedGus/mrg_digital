@@ -1,10 +1,24 @@
 const express = require("express");
-const bodyParser = require("body-parser"); //body-parser разбирает JSON-тело POST-запросов
+const bodyParser = require("body-parser");
 const mysql = require("mysql2");
 const dbConfig = require("./db.config.js");
+const fileUpload = require("express-fileupload");
+const uniqueFilename = require("unique-filename");
 const history = require("connect-history-api-fallback");
 const app = express();
 const port = process.env.PORT || 8085;
+const serveStatic = require("serve-static");
+const path = require("path"); 
+
+// Загрузка файлов
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
+
+// Обработка статических файлов
+app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
 
 // Парсинг json
 app.use(bodyParser.json());
@@ -33,8 +47,6 @@ app.use(function (req, res, next) {
 // Создание соединения с базой данных
 let connection;
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname + '/public/'));
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
   connection = mysql.createPool({
     host: dbConfig.PROD.HOST,
     user: dbConfig.PROD.USER,
@@ -76,17 +88,17 @@ connection.getConnection((err, connect) => {
   if (connect) connect.release();
 });
 
-//Обработка получения списка заметок
+// Получение списка
 app.get("/api/products", function (req, res) {
   try {
     connection.query(
-      `SELECT * FROM products`,
+      "SELECT * FROM `products`",
       function (error, results) {
         if (error) {
-          res.status(500).send("Ошибка сервера при получении информации");
+          res.status(500).send("Ошибка сервера при получении списка");
           console.log(error);
         }
-        console.log("Результаты получения информации о продукте");
+        console.log("Результаты получения списка");
         console.log(results);
         res.json(results);
       }
@@ -95,10 +107,18 @@ app.get("/api/products", function (req, res) {
     console.log(error);
   }
 });
+app.use(history());
 
-app.use(history()); 
-
-// Информирование о запуске сервера и его порте
-app.listen(port, () => {
-  console.log("Сервер запущен на http://localhost:" + port);
-});
+if (process.env.NODE_ENV === "production") {
+  // Информирование о запуске сервера и его порте
+  app
+    .use("/", serveStatic(path.join(__dirname, "../dist/project")))
+    .listen(port, () => {
+      console.log("Сервер запущен на http://localhost:" + port);
+    });
+} else {
+  // Информирование о запуске сервера и его порте
+  app.listen(port, () => {
+    console.log("Сервер запущен на http://localhost:" + port);
+  });
+}
