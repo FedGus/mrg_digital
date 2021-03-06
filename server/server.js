@@ -30,6 +30,9 @@ app.use(
   })
 );
 
+// Обработка статических файлов
+app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
+
 // Настройка CORS
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
