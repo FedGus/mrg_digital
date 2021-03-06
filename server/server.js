@@ -9,7 +9,7 @@ const serveStatic = require("serve-static");
 const path = require("path"); 
 
 // Обработка статических файлов
-app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
+app.use("/", serveStatic(path.join(__dirname, "../dist")));
 
 // Парсинг json
 app.use(bodyParser.json());
@@ -20,9 +20,6 @@ app.use(
     extended: true,
   })
 );
-
-// Обработка статических файлов
-app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
 
 // Настройка CORS
 app.use(function (req, res, next) {
@@ -106,7 +103,7 @@ app.use(history());
 if (process.env.NODE_ENV === "production") {
   // Информирование о запуске сервера и его порте
   app
-    .use("/", serveStatic(path.join(__dirname, "../dist/project")))
+    .use("/", serveStatic(path.join(__dirname, "../dist")))
     .listen(port, () => {
       console.log("Сервер запущен на http://localhost:" + port);
     });
