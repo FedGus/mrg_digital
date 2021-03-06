@@ -2,20 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql2");
 const dbConfig = require("./db.config.js");
-const fileUpload = require("express-fileupload");
-const uniqueFilename = require("unique-filename");
 const history = require("connect-history-api-fallback");
 const app = express();
 const port = process.env.PORT || 8085;
 const serveStatic = require("serve-static");
 const path = require("path"); 
-
-// Загрузка файлов
-app.use(
-  fileUpload({
-    createParentPath: true,
-  })
-);
 
 // Обработка статических файлов
 app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
