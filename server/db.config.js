@@ -5,4 +5,10 @@ module.exports = {
     PORT: 3306,
     PASSWORD: "12345678",
     DB: "std_714",
+    PROD: {
+      HOST: "std-mysql.ist.mospolytech.ru",
+      USER: "std_714",
+      PASSWORD: "12345678",
+      DB: "std_714",
+    },
   };
