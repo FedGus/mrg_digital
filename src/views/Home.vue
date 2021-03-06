@@ -496,7 +496,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:8085/api/products/")
+      .get("api/products/")
       .then((response) => {
         console.log(response.data);
         this.item = response.data;

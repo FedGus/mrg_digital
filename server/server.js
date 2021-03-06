@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 const dbConfig = require("./db.config.js");
 const history = require("connect-history-api-fallback");
 const app = express();
-const port = 8085;
+const port = process.env.PORT || 8085;
 
 // Парсинг json
 app.use(bodyParser.json());
@@ -32,15 +32,29 @@ app.use(function (req, res, next) {
 
 // Создание соединения с базой данных
 let connection;
-connection = mysql.createPool({
-  host: dbConfig.HOST,
-  user: dbConfig.USER,
-  password: dbConfig.PASSWORD,
-  database: dbConfig.DB,
-  port: dbConfig.PORT,
-  charset: "utf8_general_ci",
-  connectionLimit: 10,
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(__dirname + '/public/'));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+  connection = mysql.createPool({
+    host: dbConfig.PROD.HOST,
+    user: dbConfig.PROD.USER,
+    port: dbConfig.PROD.PORT,
+    password: dbConfig.PROD.PASSWORD,
+    database: dbConfig.PROD.DB,
+    charset: "utf8_general_ci",
+    connectionLimit: 10,
+  });
+} else {
+  connection = mysql.createPool({
+    host: dbConfig.HOST,
+    user: dbConfig.USER,
+    port: dbConfig.PORT,
+    password: dbConfig.PASSWORD,
+    database: dbConfig.DB,
+    charset: "utf8_general_ci",
+    connectionLimit: 10,
+  });
+}
 
 connection.getConnection((err, connect) => {
   if (err) {
@@ -63,7 +77,7 @@ connection.getConnection((err, connect) => {
 });
 
 //Обработка получения списка заметок
-app.get("/api/products/", function (req, res) {
+app.get("/api/products", function (req, res) {
   try {
     connection.query(
       `SELECT * FROM products`,
