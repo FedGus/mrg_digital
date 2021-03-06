@@ -98,7 +98,16 @@ app.get("/api/products", function (req, res) {
 
 app.use(history()); 
 
-// Информирование о запуске сервера и его порте
-app.listen(port, () => {
-  console.log("Сервер запущен на http://localhost:" + port);
-});
+if (process.env.NODE_ENV === "production") {
+  // Информирование о запуске сервера и его порте
+  app
+    .use("/", serveStatic(path.join(__dirname, "../dist/project")))
+    .listen(port, () => {
+      console.log("Сервер запущен на http://localhost:" + port);
+    });
+} else {
+  // Информирование о запуске сервера и его порте
+  app.listen(port, () => {
+    console.log("Сервер запущен на http://localhost:" + port);
+  });
+}
