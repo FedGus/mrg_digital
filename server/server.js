@@ -5,7 +5,7 @@ const dbConfig = require("./db.config.js");
 const history = require("connect-history-api-fallback");
 const app = express();
 const port = process.env.PORT || 8085;
-
+const serveStatic = require("serve-static");
 // Парсинг json
 app.use(bodyParser.json());
 
@@ -15,6 +15,9 @@ app.use(
     extended: true,
   })
 );
+
+// Обработка статических файлов
+app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
 
 // Настройка CORS
 app.use(function (req, res, next) {
@@ -33,8 +36,6 @@ app.use(function (req, res, next) {
 // Создание соединения с базой данных
 let connection;
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname + '/public/'));
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
   connection = mysql.createPool({
     host: dbConfig.PROD.HOST,
     user: dbConfig.PROD.USER,
