@@ -16,7 +16,7 @@
         <modal v-if="showModal" @close="showModal = false">
           <div slot="header">
             <h2>Вопрос</h2>
-            <h4>Тема: Классифайды</h4>
+            <h4>Тема: {{unit_name}}</h4>
           </div>
           <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
           <p slot="body">
@@ -38,7 +38,7 @@
       <div class="home">
         <div class="first_orbit first_orbit_mobile">
           <!-- первая орбита -->
-          <div class="product item-1-1">
+          <div class="product item-1">
             <span>Еда</span>
             <img
               class="non-block product-logo"
@@ -54,7 +54,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-2">
+          <div class="product item-2">
             <span>Мобилити</span>
             <img
               src="@/assets/city_mobil.png"
@@ -67,7 +67,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-3">
+          <div class="product item-3">
             <span>Классифайды</span>
             <img
               src="@/assets/youla.svg"
@@ -79,7 +79,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-4">
+          <div class="product item-4">
             <span>Киберспорт</span>
             <img
               src="@/assets/esforce.svg"
@@ -87,7 +87,7 @@
               class="product-logo"
             />
           </div>
-          <div class="product item-1-5">
+          <div class="product item-5">
             <span>В2В</span>
             <img
               src="@/assets/biz.svg"
@@ -100,7 +100,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-6">
+          <div class="product item-6">
             <span>Образование</span>
             <div>
               <img
@@ -118,7 +118,7 @@
               />
             </div>
           </div>
-          <div class="product item-1-7">
+          <div class="product item-7">
             <span>E-commerce</span>
             <img
               src="@/assets/aliexpress.svg"
@@ -126,7 +126,7 @@
               class="product-logo"
             />
           </div>
-          <div class="product item-1-8">
+          <div class="product item-8">
             <span>Информация</span>
             <img
               src="@/assets/mediaproektyi.png"
@@ -138,7 +138,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-9">
+          <div class="product item-9">
             <span>Мессенджеры</span>
             <img
               class="non-block product-logo"
@@ -155,7 +155,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-10">
+          <div class="product item-10">
             <span>Музыка</span>
             <img
               src="@/assets/boom.svg"
@@ -163,7 +163,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-11">
+          <div class="product item-11">
             <span>Adtech</span>
             <img
               src="@/assets/my.svg"
@@ -176,7 +176,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-12">
+          <div class="product item-12">
             <span>Data</span>
             <img
               src="@/assets/tarantool.svg"
@@ -184,7 +184,7 @@
               class="product-logo"
             />
           </div>
-          <div class="product item-1-13">
+          <div class="product item-13">
             <span>AL&ML</span>
             <img
               class="product-logo non-block"
@@ -202,7 +202,7 @@
               class="product-logo"
             />
           </div>
-          <div class="product item-1-14">
+          <div class="product item-14">
             <span>Fintech</span>
             <img
               src="@/assets/vkpay.svg"
@@ -210,7 +210,7 @@
               class="product-logo"
             />
           </div>
-          <div class="product item-1-15">
+          <div class="product item-15">
             <span>Cloud</span>
             <img
               src="@/assets/MCS.svg"
@@ -222,7 +222,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-16">
+          <div class="product item-16">
             <span>Коммуникации</span>
             <img
               src="@/assets/ok.svg"
@@ -240,7 +240,7 @@
               class="product-logo non-block"
             />
           </div>
-          <div class="product item-1-17">
+          <div class="product item-17">
             <span>Игры</span>
             <img
               src="@/assets/mygames.png"
@@ -297,20 +297,26 @@
 </template>
 <script>
 import firebase from "firebase";
-import { db } from "../main";
 import modal from "@/views/Modal.vue";
+import axios from "axios";
 export default {
   name: "Dashboard",
   components: {
     modal,
   },
   data() {
-    return { state: false, showModal: false, timer: 60 };
+    return { state: false, showModal: false, timer: 60, units: [], unit_name: "" };
   },
-  firestore() {
-    return {
-      products: db.collection("products"),
-    };
+  mounted() {
+     axios
+      .get("api/units/")
+      .then((response) => {
+        console.log(response.data);
+        this.units = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
     setupFirebase() {
@@ -340,10 +346,10 @@ export default {
           "rotation-1-" + j + " " + time + "s infinite ease-in-out";
         document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-        document.querySelector(".item-1-" + j).style.animation =
+        document.querySelector(".item-" + j).style.animation =
           "myOrbit-1-" + j + " " + time + "s infinite ease-in-out";
 
-        document.querySelector(".item-1-" + j).style.animationDelay = ".1s";
+        document.querySelector(".item-" + j).style.animationDelay = ".1s";
       }
     },
     paused() {
@@ -351,7 +357,7 @@ export default {
         document.querySelector(".sector-1-" + j).style.animationPlayState =
           "paused";
 
-        document.querySelector(".item-1-" + j).style.animationPlayState =
+        document.querySelector(".item-" + j).style.animationPlayState =
           "paused";
       }
     },
@@ -360,18 +366,22 @@ export default {
         document.querySelector(".sector-1-" + j).style.animation =
           "rotation-1-" + j + " " + time + "s infinite linear";
 
-        document.querySelector(".item-1-" + j).style.animation =
+        document.querySelector(".item-" + j).style.animation =
           "myOrbit-1-" + j + " " + time + "s infinite linear";
       }
     },
     stop() {
       this.state = false;
-      let x = Math.ceil(Math.random() * (8 - 1)) + 1;
       this.paused();
-      console.log(x);
-      document.querySelector(".sector-1-" + x).style.background = "#FC9696";
+      for (let i = 1; i <= 17; i++) {
+        let el = document.querySelector(".item-" + i);
+        let position = this.getRotationDegrees(el);
+        if ((position > 345 && position <= 360) || (position >= 0 && position < 5)) {
+        console.log(el.classList[1].slice(5, 7));
+        this.unit_name = this.units[(el.classList[1].slice(5, 7))-1].name
+        }
+      }
       setTimeout(() => {
-        document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
         this.showModal = true;
         this.timer = 10;
         let time = setInterval(() => {
@@ -393,6 +403,27 @@ export default {
         this.stop();
       }, 6500);
     },
+    getRotationDegrees(element) {
+    // get the computed style object for the element
+    var style = window.getComputedStyle(element);
+    // this string will be in the form 'matrix(a, b, c, d, tx, ty)'
+    var transformString = style['-webkit-transform']
+                       || style['-moz-transform']
+                       || style['transform'] ;
+    if (!transformString || transformString == 'none')
+        return 0;
+    var splits = transformString.split(',');
+    // parse the string to get a and b
+    var parenLoc = splits[0].indexOf('(');
+    var a = parseFloat(splits[0].substr(parenLoc+1));
+    var b = parseFloat(splits[1]);
+    // doing atan2 on b, a will give you the angle in radians
+    var rad = Math.atan2(b, a);
+    var deg = 180 * rad / Math.PI;
+    // instead of having values from -180 to 180, get 0 to 360
+    if (deg < 0) deg += 360;
+    return deg;
+}
   },
 };
 </script>
@@ -652,7 +683,7 @@ span {
 */
 
 @for $i from 1 through $number_of_products_first_orbit {
-  .item-1-#{$i} {
+  .item-#{$i} {
     z-index: 100;
     animation: myOrbit-1-#{$i} 30s linear infinite;
   }

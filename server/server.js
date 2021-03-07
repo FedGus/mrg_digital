@@ -98,6 +98,27 @@ app.get("/api/products", function (req, res) {
     console.log(error);
   }
 });
+
+// Получение списка
+app.get("/api/units", function (req, res) {
+  try {
+    connection.query(
+      "SELECT * FROM `business_unit`",
+      function (error, results) {
+        if (error) {
+          res.status(500).send("Ошибка сервера при получении списка");
+          console.log(error);
+        }
+        console.log("Результаты получения списка");
+        console.log(results);
+        res.json(results);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.use(history());
 
 if (process.env.NODE_ENV === "production") {
