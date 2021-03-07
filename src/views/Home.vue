@@ -6,10 +6,12 @@
       <nav>
         <ul>
           <li>
-            <a href=""><img id="icon" src="@/assets/vkgroup.svg" /> Стать зрителем</a>
+            <a href=""
+              ><img id="icon" src="@/assets/vkgroup.svg" /> Стать зрителем</a
+            >
           </li>
           <li>
-            <router-link class="nav-link" to="/login" tag="a"
+            <router-link class="nav-link" to="/login" tag="a" id="private"
               >Личный кабинет</router-link
             >
           </li>
@@ -30,14 +32,9 @@
     <!-- модальное окно -->
     <transition name="modal">
       <modal v-if="showModal" @close="showModal = false">
-        <h2 slot="header">{{ name }}</h2>
-        <img
-          class="product-logo"
-          slot="logo-header"
-          :src="`/static/${image}`"
-        />
+        <img slot="header" class="logo_modal" :src="`/static/${image}`" />
         <p slot="body">{{ description }}</p>
-        <a slot="footer" :href="site">Официальный сайт</a>
+        <a slot="footer" :href="site" class="link">УБЕДИСЬ САМ</a>
       </modal>
     </transition>
     <!-- секция с кругом -->
@@ -50,14 +47,14 @@
             <li>
               <img
                 src="@/assets/biz.svg"
-                @click="showModal = true"
+                @click="productInfo(0)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/mdt.svg"
-                @click="showModal = true"
+                @click="productInfo(1)"
                 class="product-logo"
               />
             </li>
@@ -67,7 +64,7 @@
           <span class="non-block">Музыка</span>
           <img
             src="@/assets/boom.svg"
-            @click="showModal = true"
+            @click="productInfo(2)"
             class="product-logo"
           />
         </div>
@@ -78,32 +75,32 @@
             <li>
               <img
                 src="@/assets/geekbrains.png"
-                @click="showModal = true"
+                @click="productInfo(3)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/Skillbox.png"
-                @click="showModal = true"
+                @click="productInfo(4)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/skillfactory.png"
-                @click="showModal = true"
+                @click="productInfo(5)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/algoritmika.svg"
-                @click="showModal = true"
+                @click="productInfo(6)"
                 class="product-logo non-block"
               /><img
                 src="@/assets/tetrika.svg"
-                @click="showModal = true"
+                @click="productInfo(7)"
                 class="product-logo non-block"
               />
             </li>
@@ -111,7 +108,7 @@
             <li>
               <img
                 src="@/assets/uchi.svg"
-                @click="showModal = true"
+                @click="productInfo(8)"
                 class="product-logo"
               />
             </li>
@@ -123,21 +120,21 @@
             <li>
               <img
                 src="@/assets/mediaproektyi.png"
-                @click="showModal = true"
+                @click="productInfo(9)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/poisk.png"
-                @click="showModal = true"
+                @click="productInfo(10)"
                 class="product-logo"
               />
             </li>
             <li>
               <img
                 src="@/assets/donations.svg"
-                @click="showModal = true"
+                @click="productInfo(11)"
                 class="product-logo"
               />
             </li>
@@ -149,17 +146,17 @@
             <img
               class="non-block product-logo"
               src="@/assets/agent.svg"
-              @click="showModal = true"
+              @click="productInfo(12)"
             />
             <img
               class="non-block product-logo"
               src="@/assets/ICQNew.svg"
-              @click="showModal = true"
+              @click="productInfo(13)"
             />
           </div>
           <img
             src="@/assets/tamtam.svg"
-            @click="showModal = true"
+            @click="productInfo(14)"
             class="product-logo non-block"
           />
         </div>
@@ -168,63 +165,62 @@
           <div class="non-block">
             <img
               src="@/assets/delivery.svg"
-              @click="showModal = true"
+              @click="productInfo(15)"
               class="product-logo non-block"
             />
             <img
               src="@/assets/samokat.svg"
-              @click="showModal = true"
+              @click="productInfo(16)"
               class="product-logo non-block"
             />
             <img
               src="@/assets/kuhnia.svg"
-              @click="showModal = true"
+              @click="productInfo(17)"
               class="product-logo non-block"
             />
           </div>
         </div>
         <div class="product item-1-8">
-          
-          <span class="non-block">Классифайды</span><br>
+          <span class="non-block">Классифайды</span><br />
           <div class="non-block">
-              <img
-                src="@/assets/youla.svg"
-                @click="showModal = true"
-                class="product-logo non-block"
-              />
-              <img
-                src="@/assets/vkrabota.svg"
-                @click="showModal = true"
-                class="product-logo non-block"
-              />
-            </div>
+            <img
+              src="@/assets/youla.svg"
+              @click="productInfo(18)"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/vkrabota.svg"
+              @click="productInfo(19)"
+              class="product-logo non-block"
+            />
+          </div>
         </div>
         <div class="product item-1-9">
           <span class="non-block">Киберспорт</span><br />
           <img
             src="@/assets/esforce.svg"
-            @click="showModal = true"
+            @click="productInfo(20)"
             class="product-logo non-block"
           />
         </div>
         <div class="product item-1-10">
-          <span class="non-block">E-commerce</span><span>●</span><br>
+          <span class="non-block">E-commerce</span><span>●</span><br />
           <img
-                src="@/assets/aliexpress.svg"
-                @click="showModal = true"
-                class="product-logo non-block"
-              />
+            src="@/assets/aliexpress.svg"
+            @click="productInfo(21)"
+            class="product-logo non-block"
+          />
         </div>
         <div class="product item-1-11">
           <span class="non-block">Мобилити</span><span>●</span>
           <img
             src="@/assets/city_mobil.png"
-            @click="showModal = true"
+            @click="productInfo(22)"
             class="product-logo"
           />
           <img
             src="@/assets/youdrive.svg"
-            @click="showModal = true"
+            @click="productInfo(23)"
             class="product-logo"
           />
         </div>
@@ -245,12 +241,12 @@
           <div class="product item-2-1">
             <img
               src="@/assets/my.svg"
-              @click="showModal = true"
+              @click="productInfo(24)"
               class="product-logo non-block"
             /><span class="non-block">Adtech</span>
             <img
               src="@/assets/mytracker.svg"
-              @click="showModal = true"
+              @click="productInfo(25)"
               class="product-logo"
             />
           </div>
@@ -258,7 +254,7 @@
             <span class="non-block">Data</span>
             <img
               src="@/assets/tarantool.svg"
-              @click="showModal = true"
+              @click="productInfo(26)"
               class="product-logo"
             />
           </div>
@@ -269,20 +265,20 @@
                 <img
                   class="non-block product-logo"
                   src="@/assets/marusya.svg"
-                  @click="showModal = true"
+                  @click="productInfo(27)"
                 />
               </li>
               <li>
                 <img
                   class="non-block product-logo"
                   src="@/assets/vision.svg"
-                  @click="showModal = true"
+                  @click="productInfo(28)"
                 />
               </li>
               <li>
                 <img
                   src="@/assets/predict.svg"
-                  @click="showModal = true"
+                  @click="productInfo(29)"
                   class="product-logo"
                 />
               </li>
@@ -292,7 +288,7 @@
             <span class="non-block">Fintech</span>
             <img
               src="@/assets/vkpay.svg"
-              @click="showModal = true"
+              @click="productInfo(30)"
               class="product-logo"
             />
           </div>
@@ -300,11 +296,11 @@
             <span class="non-block">Cloud</span>
             <img
               src="@/assets/MCS.svg"
-              @click="showModal = true"
+              @click="productInfo(31)"
               class="product-logo"
             /><img
               src="@/assets/cloud.png"
-              @click="showModal = true"
+              @click="productInfo(32)"
               class="product-logo"
             />
           </div>
@@ -326,31 +322,33 @@
                 </div>
               </div> -->
             <div class="product item-3-1"></div>
-            <div class="product item-3-2">
-              <span>Коммуникации и соцсети</span>
+            <div class="product item-3-2" style="line-height: 0.7">
+              <span class="non-block">Коммуникации</span>
               <div>
                 <img
                   src="@/assets/ok.svg"
-                  @click="showModal = true"
+                  @click="productInfo(33)"
                   class="product-logo non-block"
                 />
                 <img
                   src="@/assets/mail.png"
-                  @click="showModal = true"
+                  @click="productInfo(34)"
                   class="product-logo non-block"
                 />
                 <img
                   src="@/assets/vk.svg"
-                  @click="showModal = true"
+                  @click="productInfo(36)"
                   class="product-logo non-block"
                 />
               </div>
-              <span class="non-block">Игры</span><br />
-              <img
-                src="@/assets/mygames.png"
-                @click="showModal = true"
-                class="product-logo non-block"
-              />
+              <div>
+                <span class="non-block">Игры</span><br />
+                <img
+                  src="@/assets/mygames.png"
+                  @click="productInfo(36)"
+                  class="product-logo non-block"
+                />
+              </div>
             </div>
             <!-- <div class="product item-3-3">
               
@@ -366,7 +364,7 @@
     </div>
     <!-- секция с описанием игры -->
     <section class="clarification">
-      <span>Партнерства</span><span>●</span>
+      <span>Партнерства</span><span class="non-block">●</span>
       <div><img id="glove-3" src="@/assets/boxing_glove_3.svg" /></div>
     </section>
     <section class="about">
@@ -387,20 +385,37 @@
     </section>
     <section>
       <h2>Трансляции</h2>
-      <iframe class="broadcast" src="https://vk.com/video_ext.php?oid=-92204627&id=456239457&hash=b8ab880543307ad3&hd=1" frameborder="0" allowfullscreen></iframe>
-    <h3>Предыдущие выпуски</h3>
-    <div class="past_broadcasts">
-    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239549&hash=bccf93c9905b18bb&hd=2"  frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239548&hash=1b5cdde20253f1b6&hd=1"  frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://vk.com/video_ext.php?oid=-153502007&id=456239466&hash=1271a107e45761ab&hd=2"  frameborder="0" allowfullscreen></iframe>
-    </div>
+      <iframe
+        class="broadcast"
+        src="https://vk.com/video_ext.php?oid=-92204627&id=456239457&hash=b8ab880543307ad3&hd=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <h3>Предыдущие выпуски</h3>
+      <div class="past_broadcasts">
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-153502007&id=456239549&hash=bccf93c9905b18bb&hd=2"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-153502007&id=456239548&hash=1b5cdde20253f1b6&hd=1"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-153502007&id=456239466&hash=1271a107e45761ab&hd=2"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
     </section>
     <section class="rating">
       <h2>Рейтинг команд</h2>
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p v-bind:class="[{ command_place: university.id <= 3 }, none]">
+            <p v-bind:class="[{ command_place: university.id <= 3 }, 'none']">
               {{ university.id }}
             </p>
             <p>{{ university.command }}</p>
@@ -435,8 +450,8 @@
 </template>
 
 <script>
-import { db } from "../main";
 import modal from "@/views/Modal.vue";
+import axios from "axios";
 
 export default {
   name: "Home",
@@ -446,7 +461,7 @@ export default {
   data() {
     return {
       showModal: false,
-      products: [],
+      item: [],
       universities: [
         {
           id: 1,
@@ -479,18 +494,24 @@ export default {
       site: "",
     };
   },
-  firestore() {
-    return {
-      products: db.collection("products"),
-    };
+  mounted() {
+    axios
+      .get("api/products/")
+      .then((response) => {
+        console.log(response.data);
+        this.item = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
-    productInfo(item) {
+    productInfo(i) {
+      this.name = this.item[i].name;
+      this.image = this.item[i].image;
+      this.description = this.item[i].description;
+      this.site = this.item[i].site;
       this.showModal = true;
-      this.name = item.name;
-      this.image = item.image;
-      this.description = item.description;
-      this.site = item.site;
     },
   },
 };
@@ -532,6 +553,9 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   span {
     color: $dark_gray;
   }
+  li {
+    line-height: 0.3;
+  }
 }
 .present {
   height: 30vw;
@@ -568,10 +592,13 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   }
 }
 
+.logo_modal {
+  height: 45px;
+}
 .announce-date {
   background: $primary_red;
   color: $white;
-  padding: 2vw 2vw 0 2vw;
+  padding: 2vw 2vw 1vw 2vw;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -582,7 +609,8 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 15vw;
+  height: 8vw;
+  min-height: 50px;
   span {
     float: right;
   }
@@ -593,7 +621,7 @@ b {
 }
 
 .about {
-  height: 50vw;
+  height: 35vw;
   max-height: 700px;
   background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
   position: relative;
@@ -610,6 +638,9 @@ b {
 
 .rating-list {
   columns: 2;
+  li {
+    padding-bottom: 2vw;
+  }
 }
 li {
   list-style: none;
@@ -635,15 +666,21 @@ li {
   display: flex;
   justify-content: space-between;
   & iframe {
-  height: 15vw;
-  width: 25vw;
-}
+    height: 15vw;
+    width: 25vw;
+  }
 }
 
 @media screen and (max-device-width: 420px) {
   header,
   footer {
     height: 50px;
+  }
+  #icon {
+    width: 20px;
+  }
+  #private {
+    display: none;
   }
   h1 {
     font-size: 38px;
@@ -684,22 +721,62 @@ li {
       width: 48px;
     }
   }
+
+  .product-logo {
+    max-width: 8vw !important;
+    max-height: 15px !important;
+  }
+
   .first_orbit_mobile {
     width: 90vw !important;
     height: 90vw !important;
+    & .product {
+      position: absolute;
+      left: calc(46%) !important;
+      top: calc(45%) !important;
+    }
+    & span {
+      font-size: 5px !important;
+    }
   }
 
   .second_orbit_mobile {
     width: 60vw !important;
     height: 60vw !important;
     top: calc(25% - 6vw) !important;
+    & .product {
+      position: absolute;
+      left: calc(42%) !important;
+      top: calc(42%) !important;
+    }
   }
   .third_orbit_mobile {
     width: 30vw !important;
     height: 30vw !important;
+    & .product {
+      position: absolute;
+      left: calc(35%) !important;
+      top: calc(42%) !important;
+    }
   }
+  @for $i from 1 through $number_of_products_first_orbit {
+    .item-1-#{$i} {
+      transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+        translateX(37vw)
+        rotate(-(360deg / $number_of_products_first_orbit) * $i) !important;
+    }
+  }
+
+  @for $i from 1 through $number_of_products_second_orbit {
+    .item-2-#{$i} {
+      transform: rotate((360deg / $number_of_products_second_orbit) * $i)
+        translateX(21vw)
+        rotate(-(360deg / $number_of_products_second_orbit) * $i) !important;
+    }
+  }
+
   .about {
-    height: 460px;
+    height: 360px;
     background: linear-gradient(to bottom, $light_gray 80%, $white 20%);
   }
   .description {
@@ -725,14 +802,13 @@ li {
     width: 75px;
   }
   .past_broadcasts {
-  flex-direction: column;
-  & iframe {
-  height: 35vw;
-  width: 100%;
-  margin-bottom: 10px;
-}
-}
-
+    flex-direction: column;
+    & iframe {
+      height: 35vw;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 /*
@@ -746,8 +822,13 @@ li {
   overflow: hidden;
   border-radius: 50%;
   margin: 0 auto;
-  background: #f3f7f4;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $light_gray;
+  border: 5px solid $light_gray_stroke;
+  & .product {
+    position: absolute;
+    left: calc(44%);
+    top: calc(45%);
+  }
 }
 .second_orbit {
   width: $diameter_second_orbit;
@@ -758,8 +839,13 @@ li {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  background: #f9fefb;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $light_gray_2;
+  border: 5px solid $light_gray_2_stroke;
+  & .product {
+    position: absolute;
+    left: calc(42%);
+    top: calc(45%);
+  }
 }
 
 .third_orbit {
@@ -770,8 +856,13 @@ li {
   z-index: 300;
   border-radius: 50%;
   margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 0px 40px #e4e4e4;
+  background: $white;
+  border: 5px solid $light_gray_stroke;
+  & .product {
+    position: absolute;
+    left: calc(40%);
+    top: calc(45%);
+  }
 }
 
 .product-logo {
@@ -800,12 +891,6 @@ li {
   transform: scale(1.25);
   transition: 1s;
   cursor: pointer;
-}
-
-.product {
-  position: absolute;
-  left: calc(50% - 2.5vw);
-  top: calc(50% - 1.5vw);
 }
 
 .top_left_side {

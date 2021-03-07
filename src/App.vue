@@ -18,9 +18,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  line-height: 1;
 }
-
 h1 {
   color: $white;
   font-size: 7vw;
@@ -40,7 +39,6 @@ h5 {
   color: $white;
   font-size: 1.75vw;
 }
-
 
 .btn {
   font-family: "Proxima Nova Rg";
@@ -66,7 +64,9 @@ h5 {
 p {
   text-align: left;
   font-size: 1.5vw;
+  line-height: 1.5;
 }
+
 
 span {
   font-family: "Proxima Nova Rg";
@@ -112,7 +112,6 @@ section {
 
 .link {
   color: $black;
-  font-size: 1.5vw;
   text-decoration: none;
   border-bottom: 4px solid $primary_red;
 }

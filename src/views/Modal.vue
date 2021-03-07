@@ -7,7 +7,9 @@
           </slot>
           
           <slot name="logo-header"><button class="modal-default-button" @click="$emit('close')">
-            x
+            <img id="cross"
+                src="@/assets/cross.svg"
+              />
           </button></slot>
         </div>
 
@@ -17,7 +19,6 @@
 
         <div class="modal-footer">
           <slot name="footer"> </slot>
-          
         </div>
       </div>
     </div>
@@ -53,10 +54,14 @@ export default {};
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+}
+
+#cross {
+  width: 5vw;
+  max-width: 31px;
 }
 
 @media screen and (max-width: 420px) {
@@ -74,6 +79,7 @@ export default {};
 
 .modal-footer {
   border: 0;
+  justify-content: flex-start;
 }
 
 .modal-header {
@@ -99,7 +105,10 @@ h4 {
 
 .modal-default-button {
   float: right;
+  background: transparent;
+  border: 0;
 }
+.modal-default-button:focus { outline: none; }
 
 .modal-enter-active {
   opacity: 0;

@@ -39,6 +39,7 @@
         <div class="first_orbit first_orbit_mobile">
           <!-- первая орбита -->
           <div class="product item-1-1">
+            <span>Еда</span>
             <img
               class="non-block product-logo"
               src="@/assets/delivery.svg"
@@ -50,33 +51,36 @@
             /><img
               src="@/assets/kuhnia.svg"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             />
           </div>
           <div class="product item-1-2">
+            <span>Мобилити</span>
             <img
               src="@/assets/city_mobil.png"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             />
             <img
-            src="@/assets/youdrive.svg"
-            @click="showModal = true"
-            class="product-logo"
-          />
+              src="@/assets/youdrive.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
           </div>
           <div class="product item-1-3">
+            <span>Классифайды</span>
             <img
               src="@/assets/youla.svg"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             /><img
               src="@/assets/vkrabota.svg"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             />
           </div>
           <div class="product item-1-4">
+            <span>Киберспорт</span>
             <img
               src="@/assets/esforce.svg"
               @click="showModal = true"
@@ -84,33 +88,38 @@
             />
           </div>
           <div class="product item-1-5">
+            <span>В2В</span>
             <img
               src="@/assets/biz.svg"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             />
             <img
-                src="@/assets/mdt.svg"
-                @click="showModal = true"
-                class="product-logo"
-              />
+              src="@/assets/mdt.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
           </div>
           <div class="product item-1-6">
-            <img
-              src="@/assets/geekbrains.png"
-              @click="showModal = true"
-              class="product-logo"
-            /><img
-              src="@/assets/Skillbox.png"
-              @click="showModal = true"
-              class="product-logo"
-            /><img
-              src="@/assets/skillfactory.png"
-              @click="showModal = true"
-              class="product-logo"
-            />
+            <span>Образование</span>
+            <div>
+              <img
+                src="@/assets/geekbrains.png"
+                @click="showModal = true"
+                class="product-logo"
+              /><img
+                src="@/assets/Skillbox.png"
+                @click="showModal = true"
+                class="product-logo non-block"
+              /><img
+                src="@/assets/skillfactory.png"
+                @click="showModal = true"
+                class="product-logo non-block"
+              />
+            </div>
           </div>
           <div class="product item-1-7">
+            <span>E-commerce</span>
             <img
               src="@/assets/aliexpress.svg"
               @click="showModal = true"
@@ -118,18 +127,19 @@
             />
           </div>
           <div class="product item-1-8">
+            <span>Информация</span>
             <img
               src="@/assets/mediaproektyi.png"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             /><img
               src="@/assets/poisk.png"
               @click="showModal = true"
-              class="product-logo"
+              class="product-logo non-block"
             />
           </div>
           <div class="product item-1-9">
-            <div>
+            <span>Мессенджеры</span>
             <img
               class="non-block product-logo"
               src="@/assets/agent.svg"
@@ -139,17 +149,101 @@
               class="non-block product-logo"
               src="@/assets/ICQNew.svg"
               @click="showModal = true"
+            /><img
+              src="@/assets/tamtam.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
             />
           </div>
-          <img
-            src="@/assets/tamtam.svg"
-            @click="showModal = true"
-            class="product-logo non-block"
-          />
-          </div>
           <div class="product item-1-10">
+            <span>Музыка</span>
             <img
               src="@/assets/boom.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+          </div>
+          <div class="product item-1-11">
+            <span>Adtech</span>
+            <img
+              src="@/assets/my.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/mytracker.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+          </div>
+          <div class="product item-1-12">
+            <span>Data</span>
+            <img
+              src="@/assets/tarantool.svg"
+              @click="showModal = true"
+              class="product-logo"
+            />
+          </div>
+          <div class="product item-1-13">
+            <span>AL&ML</span>
+            <img
+              class="product-logo non-block"
+              src="@/assets/marusya.svg"
+              @click="showModal = true"
+            />
+            <img
+              class="product-logo non-block"
+              src="@/assets/vision.svg"
+              @click="showModal = true"
+            />
+            <img
+              src="@/assets/predict.svg"
+              @click="showModal = true"
+              class="product-logo"
+            />
+          </div>
+          <div class="product item-1-14">
+            <span>Fintech</span>
+            <img
+              src="@/assets/vkpay.svg"
+              @click="showModal = true"
+              class="product-logo"
+            />
+          </div>
+          <div class="product item-1-15">
+            <span>Cloud</span>
+            <img
+              src="@/assets/MCS.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            /><img
+              src="@/assets/cloud.png"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+          </div>
+          <div class="product item-1-16">
+            <span>Коммуникации</span>
+            <img
+              src="@/assets/ok.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/mail.png"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+            <img
+              src="@/assets/vk.svg"
+              @click="showModal = true"
+              class="product-logo non-block"
+            />
+          </div>
+          <div class="product item-1-17">
+            <span>Игры</span>
+            <img
+              src="@/assets/mygames.png"
               @click="showModal = true"
               class="product-logo"
             />
@@ -163,120 +257,27 @@
           <div class="sector sector-1-6"></div>
           <div class="sector sector-1-7"></div>
           <div class="sector sector-1-8"></div>
-          <div class="sector sector-1-9 sector-end"></div>
-          <div class="sector sector-1-10 sector-end"></div>
+          <div class="sector sector-1-9"></div>
+          <div class="sector sector-1-10"></div>
+          <div class="sector sector-1-11"></div>
+          <div class="sector sector-1-12"></div>
+          <div class="sector sector-1-13"></div>
+          <div class="sector sector-1-14"></div>
+          <div class="sector sector-1-15"></div>
+          <div class="sector sector-1-16 sector-end"></div>
+          <div class="sector sector-1-17 sector-end"></div>
+          <div class="sector static-sector"></div>
           <!-- вторая орбита -->
-          <div class="second_orbit second_orbit_mobile">
-            <div class="product item-2-1">
-              <img
-                class="non-block product-logo"
-                src="@/assets/marusya.svg"
-                @click="showModal = true"
-              /><img
-                class="product-logo"
-                src="@/assets/vision.svg"
-                @click="showModal = true"
-              /><img
-                src="@/assets/predict.svg"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <div class="product item-2-2">
-              <img
-                src="@/assets/tarantool.svg"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <div class="product item-2-3">
-              <img
-              src="@/assets/my.svg"
-              @click="showModal = true"
-              class="product-logo non-block"
-            />
-            <img
-              src="@/assets/mytracker.svg"
-              @click="showModal = true"
-              class="product-logo"
-            />
-            </div>
-            <div class="product item-2-4">
-              <img
-                src="@/assets/MCS.svg"
-                @click="showModal = true"
-                class="product-logo"
-              /><img
-                src="@/assets/cloud.png"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <div class="product item-2-5">
-              <img
-                src="@/assets/vkpay.svg"
-                @click="showModal = true"
-                class="product-logo"
-              />
-            </div>
-            <!-- секторы второй орбиты -->
-            <div class="sector sector-2-1"></div>
-            <div class="sector sector-2-2"></div>
-            <div class="sector sector-2-3"></div>
-            <div class="sector sector-2-4"></div>
-            <div class="sector sector-2-5"></div>
-            <div class="third_orbit third_orbit_mobile">
-              <!-- третья орбита -->
-              <!-- <div v-for="(product, idx) in products" :key="idx">
-                <div :class="`product item-3-${idx + 1}`">
-                  <img
-                    class="image-product product-logo"
-                    :src="`/static/${product.image}`"
-                    @click="productInfo(product)"
-                  />
-                </div>
-              </div> -->
+          <div class="second_orbit">
+            <div class="third_orbit">
               <div class="product item-3-1">
-                <img
-                  src="@/assets/vk.svg"
-                  @click="showModal = true"
-                  class="product-logo"
-                />
+                <button class="btn circle_btn" @click="start()">
+                  Крутить!
+                </button>
               </div>
-              <div class="product item-3-2">
-                <img
-                  src="@/assets/ok.svg"
-                  @click="showModal = true"
-                  class="product-logo"
-                />
-              </div>
-              <div class="product item-3-3">
-                <img
-                  src="@/assets/mail.png"
-                  @click="showModal = true"
-                  class="product-logo"
-                />
-              </div>
-              <div class="product item-3-4">
-                <img
-                  src="@/assets/mygames.png"
-                  @click="showModal = true"
-                  class="product-logo"
-                />
-              </div>
-              <div class="sector sector-3-1"></div>
-              <div class="sector sector-3-2"></div>
-              <div class="sector sector-3-3"></div>
-              <div class="sector sector-3-4"></div>
             </div>
           </div>
         </div>
-        <button class="btn circle_btn" v-if="!state" @click="start()">
-          Крутить!
-        </button>
-        <button class="btn circle_btn" v-if="state" @click="stop()">
-          СТОП!
-        </button>
       </div>
       <footer>
         <nav>
@@ -302,9 +303,6 @@ export default {
   name: "Dashboard",
   components: {
     modal,
-  },
-  mounted() {
-    this.setupFirebase();
   },
   data() {
     return { state: false, showModal: false, timer: 60 };
@@ -336,34 +334,46 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
-    rotation(time, odds) {
-      for (let i = 1; i <= 3; i++) {
-        time = time - odds;
-        for (let j = 1; j <= 10; j++) {
-          document.querySelector(".sector-" + i + "-" + j).style.animation =
-            "rotation-" + i + "-" + j + " " + time + "s infinite linear";
+    rotation(time) {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animation =
+          "rotation-1-" + j + " " + time + "s infinite ease-in-out";
+        document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-          document.querySelector(".item-" + i + "-" + j).style.animation =
-            "myOrbit-" + i + "-" + j + " " + time + "s infinite linear";
-        }
+        document.querySelector(".item-1-" + j).style.animation =
+          "myOrbit-1-" + j + " " + time + "s infinite ease-in-out";
+
+        document.querySelector(".item-1-" + j).style.animationDelay = ".1s";
       }
     },
-    start() {
-      /* Внешние скрипты для анимации выбора продукта */
-      this.state = true;
-      this.rotation(2, 0.5);
+    paused() {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animationPlayState =
+          "paused";
+
+        document.querySelector(".item-1-" + j).style.animationPlayState =
+          "paused";
+      }
+    },
+    wheel(time) {
+      for (let j = 1; j <= 17; j++) {
+        document.querySelector(".sector-1-" + j).style.animation =
+          "rotation-1-" + j + " " + time + "s infinite linear";
+
+        document.querySelector(".item-1-" + j).style.animation =
+          "myOrbit-1-" + j + " " + time + "s infinite linear";
+      }
     },
     stop() {
       this.state = false;
       let x = Math.ceil(Math.random() * (8 - 1)) + 1;
-      // let y = Math.ceil(Math.random() * (5 - 1)) + 1;
-      // let z = Math.ceil(Math.random() * (4 - 1)) + 1;
+      this.paused();
       console.log(x);
       document.querySelector(".sector-1-" + x).style.background = "#FC9696";
       setTimeout(() => {
         document.querySelector(".sector-1-" + x).style.background = "#f3f7f4";
         this.showModal = true;
-        this.timer = 60;
+        this.timer = 10;
         let time = setInterval(() => {
           if (this.timer != 0) {
             this.timer--;
@@ -372,43 +382,52 @@ export default {
             clearInterval(time);
           }
         }, 1000);
-      }, 2000);
-      this.rotation(30, 10);
+        this.wheel(30);
+      }, 4000);
+    },
+    start() {
+      /* Внешние скрипты для анимации выбора продукта */
+      this.state = true;
+      this.rotation(8);
+      setTimeout(() => {
+        this.stop();
+      }, 6500);
     },
   },
 };
 </script>
 <style lang="scss">
 @import "@/styles/colors.scss";
-$icon_width: 3.5vw;
-$icon_height: 2vw;
+$icon_width: 2vw;
+$icon_height: 1vw;
 
 $diameter_first_orbit: 40vw; //диаметр первой (внешней) орбиты
 $diameter_second_orbit: 24vw; //диаметр второй орбиты
 $diameter_third_orbit: 12.5vw; //диаметр третьей орбиты (ядро)
 
-$diameter_first_products: $diameter_first_orbit / 2.5; //диаметр вращения продуктов первой (внешней) орбиты
+$diameter_first_products: $diameter_first_orbit / 2.8; //диаметр вращения продуктов первой (внешней) орбиты
 $diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
 $diameter_third_products: $diameter_third_orbit / 3.5; //диаметр вращения продуктов третьей орбиты (ядро)
 
-$number_of_products_first_orbit: 10; //кол-во продуктов на первой орбите
+$number_of_products_first_orbit: 17; //кол-во продуктов на первой орбите
 $number_of_products_second_orbit: 5; //кол-во продуктов на второй орбите
-$number_of_products_third_orbit: 4; //кол-во продуктов на третьей орбите
+$number_of_products_third_orbit: 1; //кол-во продуктов на третьей орбите
 
 .home {
   position: relative;
   margin: 45px 0;
-  background: $white;
+  background: url(../assets/background.svg);
 }
 
 .circle_btn {
   height: 5vw;
   width: 5vw;
   border-radius: 2.5vw;
+  font-size: 1vw;
   padding: 0;
   position: absolute;
-  bottom: 50px;
-  left: 300px;
+  top: -2vw;
+  left: 2vw;
 }
 
 .present {
@@ -460,7 +479,7 @@ $number_of_products_third_orbit: 4; //кол-во продуктов на тре
   width: 50vw;
 }
 .clarification {
-  height: 15vw;
+  height: 5vw;
   span {
     float: right;
   }
@@ -529,8 +548,6 @@ li:nth-child(-n + 3) {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  background: #f9fefb;
-  box-shadow: 0px 0px 40px #e4e4e4;
 }
 
 .third_orbit {
@@ -541,14 +558,12 @@ li:nth-child(-n + 3) {
   z-index: 300;
   border-radius: 50%;
   margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 0px 40px #e4e4e4;
 }
 
 .product-logo {
   max-width: $icon_width;
   max-height: $icon_height;
-  display: block;
+  margin: auto;
   margin-bottom: 0.5vw;
   transition: 1s;
 }
@@ -567,8 +582,13 @@ li:nth-child(-n + 3) {
 
 .product {
   position: absolute;
-  left: calc(50% - 1.25vw);
+  width: 10vw;
+  left: calc(50% - 4.5vw);
   top: calc(50% - 1vw);
+}
+
+span {
+  display: block;
 }
 
 /*
@@ -586,58 +606,25 @@ li:nth-child(-n + 3) {
     z-index: (20 + $i);
     transform-origin: 100% 100%;
     animation: rotation-1-#{$i} 30s infinite linear;
-    transition: 2s;
+    //transition: 2s;
   }
   // .sector-1-#{$i}:nth-child(odd) {
   //   background: #eeeeee;
   // }
-  .sector-1-#{$i}:hover {
-    background: #e4e4e4;
-    transition: 0.5s;
-  }
+  // .sector-1-#{$i}:hover {
+  //   background: #e4e4e4;
+  //   transition: 0.5s;
+  // }
   @keyframes rotation-1-#{$i} {
     //вращение секторов ПЕРВОЙ орбиты
     from {
       transform: rotate(
-        ((360deg / $number_of_products_first_orbit) * $i) + 18deg
+        ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
       );
     }
     to {
       transform: rotate(
-        360deg + ((360deg / $number_of_products_first_orbit) * $i) + 18deg
-      );
-    }
-  }
-}
-
-@for $i from 1 through $number_of_products_second_orbit {
-  //стили секторов ВТОРОЙ орбиты
-  .sector-2-#{$i} {
-    background: #f9fefb;
-    overflow: hidden;
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    z-index: (20 + $i);
-    transform-origin: 100% 100%;
-    // border: 2px solid #f3f7f4;
-    animation: rotation-2-#{$i} 20s infinite linear;
-    transition: 2s;
-  }
-  .sector-2-#{$i}:hover {
-    background: #eeeeee;
-    transition: 0.5s;
-  }
-  @keyframes rotation-2-#{$i} {
-    //вращение секторов ВТОРОЙ орбиты
-    from {
-      transform: rotate(
-        ((360deg / $number_of_products_second_orbit) * $i) + 72deg
-      );
-    }
-    to {
-      transform: rotate(
-        360deg + ((360deg / $number_of_products_second_orbit) * $i) + 72deg
+        3600deg + ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
       );
     }
   }
@@ -647,9 +634,17 @@ li:nth-child(-n + 3) {
   background: linear-gradient(36deg, #f3f7f4 43%, transparent 0);
   transition: 0.5s;
 }
-.sector-end:hover {
-  background: linear-gradient(36deg, #e4e4e4 43%, transparent 0);
+.static-sector {
+  background: linear-gradient(20deg, #81818170 30%, transparent 0);
   transition: 0.5s;
+  z-index: 200;
+  overflow: hidden;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  transform: rotate(170deg);
+  animation: none;
 }
 
 /*
@@ -662,58 +657,17 @@ li:nth-child(-n + 3) {
     animation: myOrbit-1-#{$i} 30s linear infinite;
   }
   @keyframes myOrbit-1-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_first_orbit) * $i)
-        translateX($diameter_first_products)
-        rotate(-(360deg / $number_of_products_first_orbit) * $i);
+    0% {
+      transform: rotate((3600deg / $number_of_products_first_orbit) * $i)
+        translateX($diameter_first_products);
+      //rotate(-(360deg / $number_of_products_first_orbit) * $i);
     }
-    to {
+    100% {
       transform: rotate(
-          360deg + ((360deg / $number_of_products_first_orbit) * $i)
+          3600deg + ((3600deg / $number_of_products_first_orbit) * $i)
         )
-        translateX($diameter_first_products)
-        rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
-    }
-  }
-}
-
-@for $i from 1 through $number_of_products_second_orbit {
-  .item-2-#{$i} {
-    z-index: 200;
-    animation: myOrbit-2-#{$i} 20s linear infinite;
-  }
-  @keyframes myOrbit-2-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_second_orbit) * $i)
-        translateX($diameter_second_products)
-        rotate(-(360deg / $number_of_products_second_orbit) * $i);
-    }
-    to {
-      transform: rotate(
-          360deg + ((360deg / $number_of_products_second_orbit) * $i)
-        )
-        translateX($diameter_second_products)
-        rotate(-360deg - ((360deg / $number_of_products_second_orbit) * $i));
-    }
-  }
-}
-
-@for $i from 1 through $number_of_products_third_orbit {
-  .item-3-#{$i} {
-    animation: myOrbit-3-#{$i} 15s linear infinite;
-  }
-  @keyframes myOrbit-3-#{$i} {
-    from {
-      transform: rotate((360deg / $number_of_products_third_orbit) * $i)
-        translateX($diameter_third_products)
-        rotate(-(360deg / $number_of_products_third_orbit) * $i);
-    }
-    to {
-      transform: rotate(
-          360deg + ((360deg / $number_of_products_third_orbit) * $i)
-        )
-        translateX($diameter_third_products)
-        rotate(-360deg - ((360deg / $number_of_products_third_orbit) * $i));
+        translateX($diameter_first_products);
+      //rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
     }
   }
 }
