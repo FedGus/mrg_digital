@@ -16,13 +16,10 @@
         <modal v-if="showModal" @close="showModal = false">
           <div slot="header">
             <h2>Вопрос</h2>
-            <h4>Тема: {{unit_name}}</h4>
+            <h4>Тема: {{ unit_name }}</h4>
           </div>
           <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
-          <p slot="body">
-            Как называется сервис для поиска проверенных фондов, которые могут
-            помочь, являющийся частью Добро@mail.ru?
-          </p>
+          <p slot="body">{{ question }}</p>
 
           <div slot="footer">
             <div class="wrapper">
@@ -305,10 +302,17 @@ export default {
     modal,
   },
   data() {
-    return { state: false, showModal: false, timer: 60, units: [], unit_name: "" };
+    return {
+      state: false,
+      showModal: false,
+      timer: 60,
+      units: [],
+      unit_name: "",
+      question: "",
+    };
   },
   mounted() {
-     axios
+    axios
       .get("api/units/")
       .then((response) => {
         console.log(response.data);
@@ -376,9 +380,23 @@ export default {
       for (let i = 1; i <= 17; i++) {
         let el = document.querySelector(".item-" + i);
         let position = this.getRotationDegrees(el);
-        if ((position > 345 && position <= 360) || (position >= 0 && position < 5)) {
-        console.log(el.classList[1].slice(5, 7));
-        this.unit_name = this.units[(el.classList[1].slice(5, 7))-1].name
+        if (
+          (position > 345 && position <= 360) ||
+          (position >= 0 && position < 5)
+        ) {
+          let ind = el.classList[1].slice(5, 7);
+          console.log(ind);
+          this.unit_name = this.units[ind - 1].name;
+          axios
+            .get("api/question/" + ind)
+            .then((response) => {
+              console.log(response.data);
+              this.questions = response.data;
+              if (response.data) this.question = this.questions[0].question;
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }
       }
       setTimeout(() => {
@@ -404,26 +422,26 @@ export default {
       }, 6500);
     },
     getRotationDegrees(element) {
-    // get the computed style object for the element
-    var style = window.getComputedStyle(element);
-    // this string will be in the form 'matrix(a, b, c, d, tx, ty)'
-    var transformString = style['-webkit-transform']
-                       || style['-moz-transform']
-                       || style['transform'] ;
-    if (!transformString || transformString == 'none')
-        return 0;
-    var splits = transformString.split(',');
-    // parse the string to get a and b
-    var parenLoc = splits[0].indexOf('(');
-    var a = parseFloat(splits[0].substr(parenLoc+1));
-    var b = parseFloat(splits[1]);
-    // doing atan2 on b, a will give you the angle in radians
-    var rad = Math.atan2(b, a);
-    var deg = 180 * rad / Math.PI;
-    // instead of having values from -180 to 180, get 0 to 360
-    if (deg < 0) deg += 360;
-    return deg;
-}
+      // get the computed style object for the element
+      var style = window.getComputedStyle(element);
+      // this string will be in the form 'matrix(a, b, c, d, tx, ty)'
+      var transformString =
+        style["-webkit-transform"] ||
+        style["-moz-transform"] ||
+        style["transform"];
+      if (!transformString || transformString == "none") return 0;
+      var splits = transformString.split(",");
+      // parse the string to get a and b
+      var parenLoc = splits[0].indexOf("(");
+      var a = parseFloat(splits[0].substr(parenLoc + 1));
+      var b = parseFloat(splits[1]);
+      // doing atan2 on b, a will give you the angle in radians
+      var rad = Math.atan2(b, a);
+      var deg = (180 * rad) / Math.PI;
+      // instead of having values from -180 to 180, get 0 to 360
+      if (deg < 0) deg += 360;
+      return deg;
+    },
   },
 };
 </script>

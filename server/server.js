@@ -79,7 +79,7 @@ connection.getConnection((err, connect) => {
   if (connect) connect.release();
 });
 
-// Получение списка
+// Получение списка продуктов компании
 app.get("/api/products", function (req, res) {
   try {
     connection.query(
@@ -99,11 +99,31 @@ app.get("/api/products", function (req, res) {
   }
 });
 
-// Получение списка
+// Получение списка бизнес-юнитов
 app.get("/api/units", function (req, res) {
   try {
     connection.query(
       "SELECT * FROM `business_unit`",
+      function (error, results) {
+        if (error) {
+          res.status(500).send("Ошибка сервера при получении списка");
+          console.log(error);
+        }
+        console.log("Результаты получения списка");
+        console.log(results);
+        res.json(results);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Получение списка вопросов
+app.get("/api/question/:id", function (req, res) {
+  try {
+    connection.query(
+      `SELECT * FROM questions WHERE id_unit=${req.params.id}`,
       function (error, results) {
         if (error) {
           res.status(500).send("Ошибка сервера при получении списка");
