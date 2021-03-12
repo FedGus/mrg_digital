@@ -21,7 +21,7 @@
     <!-- заголовок -->
     <section class="present">
       <h1>Цифровой ринг</h1>
-      <h5>Командное онлайн шоу-игра от амбассадоров Mail.ru Group</h5>
+      <h5>Интеллектуальная шоу-игра от амбассадоров Mail.ru Group</h5>
       <div><img id="glove-1" src="@/assets/boxing_glove_1.svg" /></div>
       <div><img id="glove-2" src="@/assets/boxing_glove_2.svg" /></div>
       <div id="arrow">

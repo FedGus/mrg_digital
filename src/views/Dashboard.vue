@@ -18,7 +18,6 @@
             <h2>Вопрос</h2>
             <h4>Тема: {{ unit_name }}</h4>
           </div>
-          <img class="product-logo" slot="logo-header" src="@/assets/hmm.png" />
           <p slot="body">{{ question }}</p>
 
           <div slot="footer">
@@ -344,14 +343,14 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
-    rotation(time) {
+    rotation(time) { //быстрое вращение круга в режиме игры
       for (let j = 1; j <= 17; j++) {
         document.querySelector(".sector-1-" + j).style.animation =
-          "rotation-1-" + j + " " + time + "s infinite ease-in-out";
+          "rotation-1-" + j + " " + time + "s infinite ease-in-out backwards";
         document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
         document.querySelector(".item-" + j).style.animation =
-          "myOrbit-1-" + j + " " + time + "s infinite ease-in-out";
+          "myOrbit-1-" + j + " " + time + "s infinite ease-in-out backwards";
 
         document.querySelector(".item-" + j).style.animationDelay = ".1s";
       }
@@ -365,7 +364,7 @@ export default {
           "paused";
       }
     },
-    wheel(time) {
+    wheel(time) { //медленное вращение круга в режиме ожидания
       for (let j = 1; j <= 17; j++) {
         document.querySelector(".sector-1-" + j).style.animation =
           "rotation-1-" + j + " " + time + "s infinite linear";
@@ -403,14 +402,14 @@ export default {
         this.showModal = true;
         this.timer = 10;
         let time = setInterval(() => {
-          if (this.timer != 0) {
+          if (this.timer != 1) {
             this.timer--;
           } else {
             this.showModal = false;
             clearInterval(time);
           }
         }, 1000);
-        this.wheel(30);
+        this.wheel(100);
       }, 4000);
     },
     start() {
@@ -703,7 +702,7 @@ span {
 @for $i from 1 through $number_of_products_first_orbit {
   .item-#{$i} {
     z-index: 100;
-    animation: myOrbit-1-#{$i} 30s linear infinite;
+    animation: myOrbit-1-#{$i} 100s linear infinite;
   }
   @keyframes myOrbit-1-#{$i} {
     0% {
@@ -744,7 +743,7 @@ span {
   }
 
   #{$item} .timer {
-    top: 25px;
+    top: 35px;
     left: 0;
     width: 100%;
     text-align: center;
@@ -805,5 +804,5 @@ span {
   }
 }
 
-@include timer(".wrapper", 60, 100px, transparent, "5px solid #E92D37");
+@include timer(".wrapper", 10, 100px, transparent, "5px solid #E92D37");
 </style>
