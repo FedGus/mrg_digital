@@ -343,39 +343,35 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
-    rotation(time) { //быстрое вращение круга в режиме игры
+    rotation(time) {
+      //быстрое вращение круга в режиме игры
+      let extraDegree = Math.ceil(Math.random() * (3600 - 3240)) + 3240;
       for (let j = 1; j <= 17; j++) {
         document.querySelector(".sector-1-" + j).style.animation =
-          "rotation-1-" + j + " " + time + "s infinite ease-in-out backwards";
+          "rotation-1-" + j + " " + time + "s 1 ease-in-out backwards";
         document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-        document.querySelector(".item-" + j).style.animation =
-          "myOrbit-1-" + j + " " + time + "s infinite ease-in-out backwards";
+        let startDegree = (3600 / 17) * j;
+        let stopDegree = extraDegree + startDegree;
+        document
+          .querySelector(".item-" + j)
+          .animate(
+            [
+             { transform: "rotate(" + startDegree + "deg) translateX(275px)" },
+             { transform: "rotate(" + stopDegree + "deg) translateX(275px)" },
+            ],
+            {
+              duration: 10000,
+              easing: "ease-in-out",
+              iterations: 1,
+            }
+          );
 
         document.querySelector(".item-" + j).style.animationDelay = ".1s";
       }
     },
-    paused() {
-      for (let j = 1; j <= 17; j++) {
-        document.querySelector(".sector-1-" + j).style.animationPlayState =
-          "paused";
-
-        document.querySelector(".item-" + j).style.animationPlayState =
-          "paused";
-      }
-    },
-    wheel(time) { //медленное вращение круга в режиме ожидания
-      for (let j = 1; j <= 17; j++) {
-        document.querySelector(".sector-1-" + j).style.animation =
-          "rotation-1-" + j + " " + time + "s infinite linear";
-
-        document.querySelector(".item-" + j).style.animation =
-          "myOrbit-1-" + j + " " + time + "s infinite linear";
-      }
-    },
     stop() {
       this.state = false;
-      this.paused();
       for (let i = 1; i <= 17; i++) {
         let el = document.querySelector(".item-" + i);
         let position = this.getRotationDegrees(el);
@@ -409,18 +405,18 @@ export default {
             clearInterval(time);
           }
         }, 1000);
-        this.wheel(100);
-      }, 4000);
+      }, 2000);
     },
     start() {
       /* Внешние скрипты для анимации выбора продукта */
       this.state = true;
-      this.rotation(8);
+      this.rotation(10);
       setTimeout(() => {
         this.stop();
-      }, 6500);
+      }, 10000);
     },
     getRotationDegrees(element) {
+      //функция получения текущего сектора
       // get the computed style object for the element
       var style = window.getComputedStyle(element);
       // this string will be in the form 'matrix(a, b, c, d, tx, ty)'
@@ -653,7 +649,7 @@ span {
     height: 50%;
     z-index: (20 + $i);
     transform-origin: 100% 100%;
-    animation: rotation-1-#{$i} 30s infinite linear;
+    animation: rotation-1-#{$i} 100s infinite linear;
     //transition: 2s;
   }
   // .sector-1-#{$i}:nth-child(odd) {
