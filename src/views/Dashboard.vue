@@ -102,7 +102,7 @@
               <img
                 src="@/assets/geekbrains.png"
                 @click="showModal = true"
-                class="product-logo"
+                class="product-logo non-block"
               /><img
                 src="@/assets/Skillbox.png"
                 @click="showModal = true"
@@ -351,14 +351,14 @@ export default {
           "rotation-1-" + j + " " + time + "s 1 ease-in-out backwards";
         document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-        let startDegree = (3600 / 17) * j;
+        let startDegree = (360 / 17) * j;
         let stopDegree = extraDegree + startDegree;
         document
           .querySelector(".item-" + j)
           .animate(
             [
-             { transform: "rotate(" + startDegree + "deg) translateX(275px)" },
-             { transform: "rotate(" + stopDegree + "deg) translateX(275px)" },
+              { transform: "rotate(" + startDegree + "deg) translateX(275px)" },
+              { transform: "rotate(" + stopDegree + "deg) translateX(275px)" },
             ],
             {
               duration: 10000,
@@ -699,21 +699,23 @@ span {
   .item-#{$i} {
     z-index: 100;
     animation: myOrbit-1-#{$i} 100s linear infinite;
+    transform: rotate((360deg / $number_of_products_first_orbit) * $i)
+      translateX($diameter_first_products);
   }
-  @keyframes myOrbit-1-#{$i} {
-    0% {
-      transform: rotate((3600deg / $number_of_products_first_orbit) * $i)
-        translateX($diameter_first_products);
-      //rotate(-(360deg / $number_of_products_first_orbit) * $i);
-    }
-    100% {
-      transform: rotate(
-          3600deg + ((3600deg / $number_of_products_first_orbit) * $i)
-        )
-        translateX($diameter_first_products);
-      //rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
-    }
-  }
+  // @keyframes myOrbit-1-#{$i} {
+  //   0% {
+  //     transform: rotate((3600deg / $number_of_products_first_orbit) * $i)
+  //       translateX($diameter_first_products);
+  //     //rotate(-(360deg / $number_of_products_first_orbit) * $i);
+  //   }
+  //   100% {
+  //     transform: rotate(
+  //         3600deg + ((3600deg / $number_of_products_first_orbit) * $i)
+  //       )
+  //       translateX($diameter_first_products);
+  //     //rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
+  //   }
+  // }
 }
 
 // Стили таймера для отсчета времени вопроса

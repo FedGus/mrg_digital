@@ -50,7 +50,7 @@ export default {};
 }
 
 .modal-container {
-  width: 45vw;
+  width: 50vw;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;

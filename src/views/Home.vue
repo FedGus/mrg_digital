@@ -337,7 +337,7 @@
                 />
                 <img
                   src="@/assets/vk.svg"
-                  @click="productInfo(36)"
+                  @click="productInfo(35)"
                   class="product-logo non-block"
                 />
               </div>
