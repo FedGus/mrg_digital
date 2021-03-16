@@ -67,7 +67,6 @@ p {
   line-height: 1.5;
 }
 
-
 span {
   font-family: "Proxima Nova Rg";
   font-size: 1vw;

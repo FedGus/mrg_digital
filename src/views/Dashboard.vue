@@ -244,39 +244,15 @@
               class="product-logo"
             />
           </div>
-          <!-- секторы первой орбиты -->
-          <div class="sector sector-1-1"></div>
-          <div class="sector sector-1-2"></div>
-          <div class="sector sector-1-3"></div>
-          <div class="sector sector-1-4"></div>
-          <div class="sector sector-1-5"></div>
-          <div class="sector sector-1-6"></div>
-          <div class="sector sector-1-7"></div>
-          <div class="sector sector-1-8"></div>
-          <div class="sector sector-1-9"></div>
-          <div class="sector sector-1-10"></div>
-          <div class="sector sector-1-11"></div>
-          <div class="sector sector-1-12"></div>
-          <div class="sector sector-1-13"></div>
-          <div class="sector sector-1-14"></div>
-          <div class="sector sector-1-15"></div>
-          <div class="sector sector-1-16 sector-end"></div>
-          <div class="sector sector-1-17 sector-end"></div>
+          <!-- секторы -->
           <div class="sector static-sector"></div>
-          <!-- вторая орбита --><button
+          <!-- кнопка старта --><button
             class="btn circle_btn"
             :class="{ spin: state }"
             @click="start()"
           >
             Крутить!
           </button>
-          <!-- <div class="second_orbit">
-            <div class="third_orbit">
-              <div class="product item-3-1">
-                
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
       <footer>
@@ -348,15 +324,12 @@ export default {
           this.$router.replace({ name: "Login" });
         });
     },
-    rotation(time) {
+    rotation() {
       //быстрое вращение круга в режиме игры
       let stopDegree = this.stopDegree;
-      let extraDegree = Math.ceil(Math.random() * (3600 - 3240)) + 3240;
+      let extraDegree = Math.ceil(Math.random() * (3600 - 3240)) + 3240; //рандомный выбор угла остановки
       for (let j = 1; j <= 17; j++) {
-        document.querySelector(".sector-1-" + j).style.animation =
-          "rotation-1-" + j + " " + time + "s 1 ease-in-out backwards";
-
-        let startDegree = (360 / 17) * j + this.stopDegree;
+        let startDegree = (360 / 17) * j + this.stopDegree; //старт вращения с текущей точки
         stopDegree = extraDegree + startDegree;
         document
           .querySelector(".item-" + j)
@@ -366,13 +339,13 @@ export default {
               { transform: "rotate(" + stopDegree + "deg) translateX(275px)" },
             ],
             {
-              duration: 10000,
+              duration: 10000, //вращение - 10 секунд
               easing: "ease-in-out",
               iterations: 1,
             }
-          );
+          ); //применение анимации вращения к каждому блоку продуктов
       }
-      this.stopDegree = stopDegree;
+      this.stopDegree = stopDegree; //присвоение угла остановки вращения для следующего запуска
     },
     stop() {
       this.state = false;
@@ -381,25 +354,25 @@ export default {
         el.style.transform =
           "rotate(" +
           ((360 / 17) * i + this.stopDegree) +
-          "deg) translateX(275px)";
+          "deg) translateX(275px)"; //останавливаем блоки с продуктами в положении последнего кадра анимации
         document.querySelector(".static-sector").style.animation =
-          "pick .3s infinite ease-in-out";
+          "pick .3s infinite ease-in-out"; //сектором выбора выделяем выпавший сектор
         let position = this.getRotationDegrees(el);
         if (
           (position > 345 && position <= 360) ||
           (position >= 0 && position < 5)
         ) {
-          let ind = el.classList[1].slice(5, 7);
-          console.log(ind);
-          this.unit_name = this.units[ind - 1].name;
+          //если угол сектора попал в сектор выбора
+          let ind = el.classList[1].slice(5, 7); // получаем id сектора
+          this.unit_name = this.units[ind - 1].name; //
           axios
-            .get("api/question/" + ind)
+            .get("api/question/" + ind) //получаем список вопросов этого продукта
             .then((response) => {
-              console.log(response.data);
+              console.log(response.data); //TODO
               this.questions = response.data;
               let index = Math.ceil(
                 Math.random() * (this.questions.length - 1 - 0)
-              );
+              ); //выбор рандомного вопроса из списка
               if (response.data) this.question = this.questions[index].question;
             })
             .catch((error) => {
@@ -408,9 +381,9 @@ export default {
         }
       }
       setTimeout(() => {
-        this.showModal = true;
-        document.querySelector(".static-sector").style.animation = "none";
-        this.timer = 10;
+        this.showModal = true; //показываем попап с вопросом
+        document.querySelector(".static-sector").style.animation = "none"; //отключаем выделение выпавшего сектора
+        this.timer = 10; //включаем таймер на 10 секунд
         let time = setInterval(() => {
           if (this.timer != 1) {
             this.timer--;
@@ -419,35 +392,35 @@ export default {
             clearInterval(time);
           }
         }, 1000);
-      }, 2000);
+      }, 2000); //показываем только через 2 секунды после выпадания вопроса
     },
     start() {
-      /* Внешние скрипты для анимации выбора продукта */
+      // Внешние скрипты для анимации выбора продукта
       this.state = true;
-      this.rotation(10);
+      this.rotation();
       setTimeout(() => {
         this.stop();
-      }, 10000);
+      }, 10000); //через десять секунд колесо должно остановиться
     },
     getRotationDegrees(element) {
       //функция получения текущего сектора
-      // get the computed style object for the element
+      // получаем вычисленный объект стиля для элемента
       var style = window.getComputedStyle(element);
-      // this string will be in the form 'matrix(a, b, c, d, tx, ty)'
+      // эта строка будет иметь вид 'matrix(a, b, c, d, tx, ty)'
       var transformString =
         style["-webkit-transform"] ||
         style["-moz-transform"] ||
         style["transform"];
       if (!transformString || transformString == "none") return 0;
       var splits = transformString.split(",");
-      // parse the string to get a and b
+      // анализируем строку, чтобы получить a и b
       var parenLoc = splits[0].indexOf("(");
       var a = parseFloat(splits[0].substr(parenLoc + 1));
       var b = parseFloat(splits[1]);
-      // doing atan2 on b, a will give you the angle in radians
+      // выполняя atan2 от b, a даст угол в радианах
       var rad = Math.atan2(b, a);
       var deg = (180 * rad) / Math.PI;
-      // instead of having values from -180 to 180, get 0 to 360
+      // вместо значений от -180 до 180, получаем от 0 до 360
       if (deg < 0) deg += 360;
       return deg;
     },
@@ -460,16 +433,10 @@ $icon_width: 45px;
 $icon_height: 20px;
 
 $diameter_first_orbit: 777px; //диаметр первой (внешней) орбиты
-$diameter_second_orbit: 480px; //диаметр второй орбиты
-$diameter_third_orbit: 250px; //диаметр третьей орбиты (ядро)
 
 $diameter_first_products: $diameter_first_orbit / 2.8; //диаметр вращения продуктов первой (внешней) орбиты
-$diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
-$diameter_third_products: $diameter_third_orbit / 3.5; //диаметр вращения продуктов третьей орбиты (ядро)
 
 $number_of_products_first_orbit: 17; //кол-во продуктов на первой орбите
-$number_of_products_second_orbit: 5; //кол-во продуктов на второй орбите
-$number_of_products_third_orbit: 1; //кол-во продуктов на третьей орбите
 
 .home {
   position: relative;
@@ -514,101 +481,6 @@ $number_of_products_third_orbit: 1; //кол-во продуктов на тре
   }
 }
 
-.present {
-  height: 30vw;
-  background: $primary_red;
-}
-
-#glove-1 {
-  position: absolute;
-  width: 7vw;
-  left: 70vw;
-  top: 25vw;
-}
-
-#glove-2 {
-  position: absolute;
-  width: 7vw;
-  left: 80vw;
-  top: 20vw;
-}
-
-#glove-3 {
-  width: 5vw;
-}
-
-#arrow {
-  color: $white;
-  position: absolute;
-  z-index: 1000;
-  top: 40vw;
-  left: 10vw;
-  img {
-    display: block;
-    width: 7vw;
-  }
-}
-
-.announce-date {
-  background: $primary_red;
-  color: $white;
-  padding: 3vw 3vw;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  right: 10vw;
-}
-
-.description {
-  width: 50vw;
-}
-.clarification {
-  height: 5vw;
-  span {
-    float: right;
-  }
-}
-b {
-  font-size: 10vw;
-  font-weight: normal;
-}
-
-.about {
-  height: 50vw;
-  max-height: 700px;
-  background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
-  position: relative;
-}
-
-.command-card {
-  width: 30vw;
-  display: grid;
-  grid-template-columns: 0.25fr 3.5fr 0.25fr;
-  p {
-    margin: 0;
-  }
-}
-
-.rating-list {
-  columns: 2;
-}
-li {
-  list-style: none;
-  padding: 0 2vw 0 0;
-}
-
-li:nth-child(-n + 3) {
-  color: $primary_red;
-}
-
-.rounds {
-  text-align: right;
-  height: 20vw;
-  h2 {
-    display: inline;
-  }
-}
-
 /*
   стили орбит
 */
@@ -628,26 +500,6 @@ li:nth-child(-n + 3) {
     left: calc(44%);
     top: calc(44%);
   }
-}
-.second_orbit {
-  width: $diameter_second_orbit;
-  height: $diameter_second_orbit;
-  position: relative;
-  top: calc(25% - 1.5vw);
-  z-index: 200;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.third_orbit {
-  width: $diameter_third_orbit;
-  height: $diameter_third_orbit;
-  position: relative;
-  top: calc(25%);
-  z-index: 300;
-  border-radius: 50%;
-  margin: 0 auto;
 }
 
 .product-logo {
@@ -683,48 +535,9 @@ span {
 }
 
 /*
-  вращение секторов по орбите
+  стили секторов
 */
 
-@for $i from 1 through $number_of_products_first_orbit {
-  //стили секторов ПЕРВОЙ орбиты
-  .sector-1-#{$i} {
-    background: #f3f7f4;
-    overflow: hidden;
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    z-index: (20 + $i);
-    transform-origin: 100% 100%;
-    animation: rotation-1-#{$i} 100s infinite linear;
-    //transition: 2s;
-  }
-  // .sector-1-#{$i}:nth-child(odd) {
-  //   background: #eeeeee;
-  // }
-  // .sector-1-#{$i}:hover {
-  //   background: #e4e4e4;
-  //   transition: 0.5s;
-  // }
-  @keyframes rotation-1-#{$i} {
-    //вращение секторов ПЕРВОЙ орбиты
-    from {
-      transform: rotate(
-        ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
-      );
-    }
-    to {
-      transform: rotate(
-        3600deg + ((3600deg / $number_of_products_first_orbit) * $i) + 18deg
-      );
-    }
-  }
-}
-
-.sector-end {
-  background: linear-gradient(36deg, #f3f7f4 43%, transparent 0);
-  transition: 0.5s;
-}
 .static-sector {
   background: linear-gradient(20deg, #81818170 30%, transparent 0);
   transition: 0.5s;
@@ -748,20 +561,6 @@ span {
     transform: rotate((360deg / $number_of_products_first_orbit) * $i)
       translateX($diameter_first_products);
   }
-  // @keyframes myOrbit-1-#{$i} {
-  //   0% {
-  //     transform: rotate((3600deg / $number_of_products_first_orbit) * $i)
-  //       translateX($diameter_first_products);
-  //     //rotate(-(360deg / $number_of_products_first_orbit) * $i);
-  //   }
-  //   100% {
-  //     transform: rotate(
-  //         3600deg + ((3600deg / $number_of_products_first_orbit) * $i)
-  //       )
-  //       translateX($diameter_first_products);
-  //     //rotate(-360deg - ((360deg / $number_of_products_first_orbit) * $i));
-  //   }
-  // }
 }
 
 // Стили таймера для отсчета времени вопроса
@@ -848,5 +647,11 @@ span {
   }
 }
 
-@include timer(".wrapper", 10, 100px, transparent, "5px solid #E92D37");
+@include timer(
+  ".wrapper",
+  10,
+  100px,
+  transparent,
+  "5px solid #E92D37"
+); //настройка таймера, где второй параметр - время
 </style>

@@ -378,7 +378,7 @@
         <a href="" class="link">СТАТЬ ЗРИТЕЛЕМ</a>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
-          <b>22</b>
+          <b>26</b>
           <span>марта</span>
         </div>
       </div>
@@ -429,8 +429,8 @@
         </li>
       </ul>
       <div class="rounds">
-        <h2>1/5</h2>
-        <span> раундов</span>
+        <h2>1/4</h2>
+        <span> финала</span>
       </div>
     </section>
     <footer>
