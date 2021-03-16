@@ -387,7 +387,8 @@ export default {
             .then((response) => {
               console.log(response.data);
               this.questions = response.data;
-              if (response.data) this.question = this.questions[0].question;
+              let index = Math.ceil(Math.random() * ((this.questions.length - 1) - 0));
+              if (response.data) this.question = this.questions[index].question;
             })
             .catch((error) => {
               console.log(error);
