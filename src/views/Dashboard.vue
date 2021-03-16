@@ -263,16 +263,20 @@
           <div class="sector sector-1-16 sector-end"></div>
           <div class="sector sector-1-17 sector-end"></div>
           <div class="sector static-sector"></div>
-          <!-- вторая орбита -->
-          <div class="second_orbit">
+          <!-- вторая орбита --><button
+            class="btn circle_btn"
+            :class="{ spin: state }"
+            @click="start()"
+          >
+            Крутить!
+          </button>
+          <!-- <div class="second_orbit">
             <div class="third_orbit">
               <div class="product item-3-1">
-                <button class="btn circle_btn" @click="start()">
-                  Крутить!
-                </button>
+                
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <footer>
@@ -378,6 +382,8 @@ export default {
           "rotate(" +
           ((360 / 17) * i + this.stopDegree) +
           "deg) translateX(275px)";
+        document.querySelector(".static-sector").style.animation =
+          "pick .3s infinite ease-in-out";
         let position = this.getRotationDegrees(el);
         if (
           (position > 345 && position <= 360) ||
@@ -403,6 +409,7 @@ export default {
       }
       setTimeout(() => {
         this.showModal = true;
+        document.querySelector(".static-sector").style.animation = "none";
         this.timer = 10;
         let time = setInterval(() => {
           if (this.timer != 1) {
@@ -449,12 +456,12 @@ export default {
 </script>
 <style lang="scss">
 @import "@/styles/colors.scss";
-$icon_width: 2vw;
-$icon_height: 1vw;
+$icon_width: 45px;
+$icon_height: 20px;
 
-$diameter_first_orbit: 40vw; //диаметр первой (внешней) орбиты
-$diameter_second_orbit: 24vw; //диаметр второй орбиты
-$diameter_third_orbit: 12.5vw; //диаметр третьей орбиты (ядро)
+$diameter_first_orbit: 777px; //диаметр первой (внешней) орбиты
+$diameter_second_orbit: 480px; //диаметр второй орбиты
+$diameter_third_orbit: 250px; //диаметр третьей орбиты (ядро)
 
 $diameter_first_products: $diameter_first_orbit / 2.8; //диаметр вращения продуктов первой (внешней) орбиты
 $diameter_second_products: $diameter_second_orbit / 2.75; //диаметр вращения продуктов второй орбиты
@@ -471,14 +478,40 @@ $number_of_products_third_orbit: 1; //кол-во продуктов на тре
 }
 
 .circle_btn {
-  height: 5vw;
-  width: 5vw;
-  border-radius: 2.5vw;
-  font-size: 1vw;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  font-size: 18px;
   padding: 0;
   position: absolute;
   top: -2vw;
   left: 2vw;
+}
+
+.spin {
+  pointer-events: none;
+  animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    background: $light_gray;
+  }
+  to {
+    background: $primary_red;
+  }
+}
+
+@keyframes pick {
+  0% {
+    background: linear-gradient(20deg, #81818170 30%, transparent 0);
+  }
+  50% {
+    background: linear-gradient(20deg, #bd030270 30%, transparent 0);
+  }
+  100% {
+    background: linear-gradient(20deg, #81818170 30%, transparent 0);
+  }
 }
 
 .present {
@@ -589,6 +622,12 @@ li:nth-child(-n + 3) {
   margin: 0 auto;
   background: #f3f7f4;
   box-shadow: 0px 0px 40px #e4e4e4;
+  & button {
+    position: absolute;
+    z-index: 300;
+    left: calc(44%);
+    top: calc(44%);
+  }
 }
 .second_orbit {
   width: $diameter_second_orbit;
@@ -640,6 +679,7 @@ li:nth-child(-n + 3) {
 
 span {
   display: block;
+  font-size: 20px;
 }
 
 /*
