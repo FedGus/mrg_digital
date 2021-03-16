@@ -139,6 +139,26 @@ app.get("/api/question/:id", function (req, res) {
   }
 });
 
+// Получение рейтигна
+app.get("/api/universities", function (req, res) {
+  try {
+    connection.query(
+      "SELECT * FROM `universities` ORDER BY `points` DESC",
+      function (error, results) {
+        if (error) {
+          res.status(500).send("Ошибка сервера при получении списка");
+          console.log(error);
+        }
+        console.log("Результаты получения списка");
+        console.log(results);
+        res.json(results);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.use(history());
 
 if (process.env.NODE_ENV === "production") {

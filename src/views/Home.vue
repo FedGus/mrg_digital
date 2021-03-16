@@ -383,7 +383,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="video">
       <h2>Трансляции</h2>
       <iframe
         class="broadcast"
@@ -416,7 +416,7 @@
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
             <p v-bind:class="[{ command_place: university.id <= 3 }, 'none']">
-              {{ university.id }}
+              {{ idx + 1 }}
             </p>
             <p>{{ university.command }}</p>
             <p>{{ university.points }}</p>
@@ -462,32 +462,7 @@ export default {
     return {
       showModal: false,
       item: [],
-      universities: [
-        {
-          id: 1,
-          command: "Команда Крестовоздвиженских",
-          name: "Универстиет ИТМО",
-          points: 32,
-        },
-        {
-          id: 2,
-          command: "Фиксики",
-          name: "Московский Политех",
-          points: 30,
-        },
-        {
-          id: 3,
-          command: "Цветуёчки",
-          name: "КФУ",
-          points: 29,
-        },
-        {
-          id: 4,
-          command: "Лучшие на свете юристы",
-          name: "Московский Городской",
-          points: 28,
-        },
-      ],
+      universities: [],
       name: "",
       image: "",
       description: "",
@@ -500,6 +475,16 @@ export default {
       .then((response) => {
         console.log(response.data);
         this.item = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get("api/universities/")
+      .then((response) => {
+        console.log(response.data);
+        this.universities = response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -627,6 +612,10 @@ b {
   position: relative;
 }
 
+.video {
+  margin-bottom: 5vw;
+}
+
 .command-card {
   width: 30vw;
   display: grid;
@@ -653,7 +642,7 @@ li {
 
 .rounds {
   text-align: right;
-  height: 20vw;
+  height: 10vw;
   h2 {
     display: inline;
   }

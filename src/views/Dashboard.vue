@@ -474,7 +474,7 @@ $number_of_products_first_orbit: 17; //кол-во продуктов на пе�
     background: linear-gradient(20deg, #81818170 30%, transparent 0);
   }
   50% {
-    background: linear-gradient(20deg, #bd030270 30%, transparent 0);
+    background: linear-gradient(20deg, #00640070 30%, transparent 0);
   }
   100% {
     background: linear-gradient(20deg, #81818170 30%, transparent 0);
