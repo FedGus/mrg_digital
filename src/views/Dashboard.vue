@@ -308,6 +308,7 @@ export default {
       units: [],
       unit_name: "",
       question: "",
+      stopDegree: 0,
     };
   },
   mounted() {
@@ -345,14 +346,14 @@ export default {
     },
     rotation(time) {
       //быстрое вращение круга в режиме игры
+      let stopDegree = this.stopDegree;
       let extraDegree = Math.ceil(Math.random() * (3600 - 3240)) + 3240;
       for (let j = 1; j <= 17; j++) {
         document.querySelector(".sector-1-" + j).style.animation =
           "rotation-1-" + j + " " + time + "s 1 ease-in-out backwards";
-        document.querySelector(".sector-1-" + j).style.animationDelay = ".1s";
 
-        let startDegree = (360 / 17) * j;
-        let stopDegree = extraDegree + startDegree;
+        let startDegree = (360 / 17) * j + this.stopDegree;
+        stopDegree = extraDegree + startDegree;
         document
           .querySelector(".item-" + j)
           .animate(
@@ -366,14 +367,17 @@ export default {
               iterations: 1,
             }
           );
-
-        document.querySelector(".item-" + j).style.animationDelay = ".1s";
       }
+      this.stopDegree = stopDegree;
     },
     stop() {
       this.state = false;
       for (let i = 1; i <= 17; i++) {
         let el = document.querySelector(".item-" + i);
+        el.style.transform =
+          "rotate(" +
+          ((360 / 17) * i + this.stopDegree) +
+          "deg) translateX(275px)";
         let position = this.getRotationDegrees(el);
         if (
           (position > 345 && position <= 360) ||
@@ -387,7 +391,9 @@ export default {
             .then((response) => {
               console.log(response.data);
               this.questions = response.data;
-              let index = Math.ceil(Math.random() * ((this.questions.length - 1) - 0));
+              let index = Math.ceil(
+                Math.random() * (this.questions.length - 1 - 0)
+              );
               if (response.data) this.question = this.questions[index].question;
             })
             .catch((error) => {
@@ -699,7 +705,6 @@ span {
 @for $i from 1 through $number_of_products_first_orbit {
   .item-#{$i} {
     z-index: 100;
-    animation: myOrbit-1-#{$i} 100s linear infinite;
     transform: rotate((360deg / $number_of_products_first_orbit) * $i)
       translateX($diameter_first_products);
   }
