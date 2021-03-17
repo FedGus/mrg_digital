@@ -23,6 +23,7 @@
 h1 {
   color: $white;
   font-size: 7vw;
+  font-family: "Proxima Nova Semibold";
   padding: 3vw 0;
 }
 

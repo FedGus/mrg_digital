@@ -259,10 +259,14 @@
         <nav>
           <ul>
             <li>
-              <a href="">АМБАССАДОРЫ MRG</a>
+              <a href="https://ambassador.mail.ru/" class="nav-link"
+                >АМБАССАДОРЫ MRG</a
+              >
             </li>
             <li>
-              <a href="">ВКОНТАКТЕ</a>
+              <a href="https://vk.com/digitalringmrg" class="nav-link"
+                >ВКОНТАКТЕ</a
+              >
             </li>
           </ul>
         </nav>
@@ -383,7 +387,7 @@ export default {
       setTimeout(() => {
         this.showModal = true; //показываем попап с вопросом
         document.querySelector(".static-sector").style.animation = "none"; //отключаем выделение выпавшего сектора
-        this.timer = 10; //включаем таймер на 10 секунд
+        this.timer = 30; //включаем таймер на 10 секунд
         let time = setInterval(() => {
           if (this.timer != 1) {
             this.timer--;
@@ -474,7 +478,7 @@ $number_of_products_first_orbit: 17; //кол-во продуктов на пе�
     background: linear-gradient(20deg, #81818170 30%, transparent 0);
   }
   50% {
-    background: linear-gradient(20deg, #00640070 30%, transparent 0);
+    background: linear-gradient(20deg, #d8a90370 30%, transparent 0);
   }
   100% {
     background: linear-gradient(20deg, #81818170 30%, transparent 0);
@@ -649,7 +653,7 @@ span {
 
 @include timer(
   ".wrapper",
-  10,
+  30,
   100px,
   transparent,
   "5px solid #E92D37"

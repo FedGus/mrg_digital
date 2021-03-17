@@ -64,15 +64,10 @@ export default {};
   max-width: 31px;
 }
 
-#cross {
-  width: 5vw;
-  max-width: 31px;
-}
-
 @media screen and (max-width: 420px) {
   .modal-container {
-    width: 80vw;
-    font-size: 75%;
+    width: 95vw;
+    font-size: 16px;
   }
   h2 {
     font-size: 20px;

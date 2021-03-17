@@ -6,7 +6,7 @@
       <nav>
         <ul>
           <li>
-            <a href=""
+            <a href="https://vk.com/digitalringmrg"
               ><img id="icon" src="@/assets/vkgroup.svg" /> Стать зрителем</a
             >
           </li>
@@ -375,7 +375,7 @@
           новостями в группе ВКонтакте и получи возможность тоже выиграть призы
           от Mail.ru Group.
         </p>
-        <a href="" class="link">СТАТЬ ЗРИТЕЛЕМ</a>
+        <a href="https://vk.com/digitalringmrg" class="link">СТАТЬ ЗРИТЕЛЕМ</a>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
           <b>26</b>
@@ -393,7 +393,8 @@
       ></iframe>
       <h3>Предыдущие выпуски</h3>
       <div class="past_broadcasts">
-        <iframe
+        <span>Пока ты ничего не пропустил!</span>
+        <!-- <iframe
           src="https://vk.com/video_ext.php?oid=-153502007&id=456239549&hash=bccf93c9905b18bb&hd=2"
           frameborder="0"
           allowfullscreen
@@ -407,7 +408,7 @@
           src="https://vk.com/video_ext.php?oid=-153502007&id=456239466&hash=1271a107e45761ab&hd=2"
           frameborder="0"
           allowfullscreen
-        ></iframe>
+        ></iframe> -->
       </div>
     </section>
     <section class="rating">
@@ -415,7 +416,10 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p v-bind:class="[{ command_place: university.id <= 3 }, 'none']">
+            <p
+              class="command_place"
+              v-bind:class="[{ win: university.id <= 3 }, 'none']"
+            >
               {{ idx + 1 }}
             </p>
             <p>{{ university.command }}</p>
@@ -437,10 +441,10 @@
       <nav>
         <ul>
           <li>
-            <a href="">АМБАССАДОРЫ MRG</a>
+            <a href="https://ambassador.mail.ru/">АМБАССАДОРЫ MRG</a>
           </li>
           <li>
-            <a href="">ВКОНТАКТЕ</a>
+            <a href="https://vk.com/digitalringmrg">ВКОНТАКТЕ</a>
           </li>
         </ul>
       </nav>
@@ -578,13 +582,15 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
 }
 
 .logo_modal {
-  height: 45px;
+  max-height: 35px;
 }
+
 .announce-date {
   background: $primary_red;
   color: $white;
-  padding: 2vw 2vw 1vw 2vw;
+  padding: 30px 20px 10px 20px;
   box-sizing: border-box;
+  border-radius: 18px;
   position: absolute;
   bottom: 0;
   right: 10vw;
@@ -637,6 +643,10 @@ li {
 }
 
 .command_place {
+  font-family: "Proxima Nova Semibold";
+}
+
+.win {
   color: $primary_red;
 }
 
@@ -765,7 +775,7 @@ li {
   }
 
   .about {
-    height: 360px;
+    height: 400px;
     background: linear-gradient(to bottom, $light_gray 80%, $white 20%);
   }
   .description {
