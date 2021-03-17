@@ -24,12 +24,12 @@ h1 {
   color: $white;
   font-size: 7vw;
   font-family: "Proxima Nova Semibold";
-  padding: 3vw 0;
+  padding: 3vw 0 0 0;
 }
 
 h2 {
   font-size: 3vw;
-  padding: 2vw 0;
+  padding: 66px 0 2vw 0;
 }
 
 h3 {
@@ -39,6 +39,7 @@ h3 {
 h5 {
   color: $white;
   font-size: 1.75vw;
+  padding-left: 0.5vw;
 }
 
 .btn {
@@ -107,7 +108,7 @@ nav {
 
 section {
   text-align: left;
-  padding: 0 7vw;
+  padding: 0 99px;
 }
 
 .link {
@@ -117,5 +118,11 @@ section {
 }
 .link:hover {
   text-decoration: none;
+}
+
+@media screen and (max-device-width: 420px) {
+  section {
+    padding: 0 7vw !important;
+  }
 }
 </style>

@@ -614,7 +614,7 @@ b {
 .about {
   height: 35vw;
   max-height: 700px;
-  background: linear-gradient(to bottom, $light_gray 70%, $white 30%);
+  background: linear-gradient(to bottom, $light_gray 75%, $white 25%);
   position: relative;
 }
 
