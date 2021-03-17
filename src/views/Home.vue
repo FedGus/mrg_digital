@@ -369,13 +369,21 @@
     </section>
     <section class="about">
       <div class="description">
-        <h2>Стань зрителем и поддержи любимую команду</h2>
-        <p>
-          Игра проходит в ВК трансляции. Становись нашим зрителем, следи за
-          новостями в группе ВКонтакте и получи возможность тоже выиграть призы
-          от Mail.ru Group.
-        </p>
-        <a href="https://vk.com/digitalringmrg" class="link">СТАТЬ ЗРИТЕЛЕМ</a>
+        <div class="for_group">
+          <h2>Стань зрителем и поддержи любимую команду</h2>
+          <p>
+            Игра проходит в ВК трансляции. Становись нашим зрителем, следи за
+            новостями в группе ВКонтакте и получи возможность тоже выиграть
+            призы от Mail.ru Group.
+          </p>
+          <a href="https://vk.com/digitalringmrg" class="link"
+            >СТАТЬ ЗРИТЕЛЕМ</a
+          >
+        </div>
+      </div>
+    </section>
+    <section class="date">
+      <div>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
           <b>26</b>
@@ -592,12 +600,13 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
   box-sizing: border-box;
   border-radius: 18px;
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 10vw;
 }
 
 .description {
   width: 50vw;
+  background: $light_gray;
 }
 .clarification {
   height: 8vw;
@@ -612,10 +621,14 @@ b {
 }
 
 .about {
-  height: 35vw;
-  max-height: 700px;
-  background: linear-gradient(to bottom, $light_gray 75%, $white 25%);
+  background: $light_gray;
+  padding-bottom: 20px;
+}
+.date {
+  background: $light_gray;
   position: relative;
+  height: 66px;
+  margin-bottom: 7vw;
 }
 
 .video {
@@ -773,10 +786,8 @@ li {
         rotate(-(360deg / $number_of_products_second_orbit) * $i) !important;
     }
   }
-
-  .about {
-    height: 400px;
-    background: linear-gradient(to bottom, $light_gray 80%, $white 20%);
+  .date {
+    margin-bottom: 30vw;
   }
   .description {
     width: 100%;
