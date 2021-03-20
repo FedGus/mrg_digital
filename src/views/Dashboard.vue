@@ -277,6 +277,7 @@
 </template>
 <script>
 import firebase from "firebase";
+import 'firebase/auth'
 import modal from "@/views/Modal.vue";
 import axios from "axios";
 export default {
@@ -296,6 +297,7 @@ export default {
     };
   },
   mounted() {
+    this.setupFirebase();
     axios
       .get("api/units/")
       .then((response) => {

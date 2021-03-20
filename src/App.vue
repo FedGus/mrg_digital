@@ -22,7 +22,7 @@
 }
 h1 {
   color: $white;
-  font-size: 132px;
+  font-size: 8vw;
   font-family: "Proxima Nova Semibold";
   padding: 3vw 0 0 0;
 }
@@ -79,7 +79,7 @@ header,
 footer {
   background: $primary_red;
   height: 5vw;
-  padding: 0 7vw;
+  padding: 0 99px;
   display: flex;
   justify-content: space-between;
 }
@@ -121,6 +121,8 @@ section {
 }
 
 @media screen and (max-device-width: 420px) {
+  header,
+  footer,
   section {
     padding: 0 7vw !important;
   }

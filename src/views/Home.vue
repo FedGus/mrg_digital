@@ -554,6 +554,9 @@ $number_of_products_third_orbit: 2; //кол-во продуктов на тре
     line-height: 0.3;
   }
 }
+.logo {
+  padding-left: 1vw;
+}
 .present {
   height: 30vw;
   background: $primary_red;

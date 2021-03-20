@@ -4,10 +4,8 @@ import router from "./router";
 import store from "./store";
 
 import firebase from 'firebase/app';
-import 'firebase/firestore'
 
-import { firestorePlugin } from 'vuefire'
-Vue.use(firestorePlugin)
+
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -21,7 +19,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig); 
-export const db = firebase.firestore()
 
 Vue.config.productionTip = false;
 
