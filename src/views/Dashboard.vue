@@ -277,7 +277,7 @@
 </template>
 <script>
 import firebase from "firebase";
-import 'firebase/auth'
+import "firebase/auth";
 import modal from "@/views/Modal.vue";
 import axios from "axios";
 export default {
@@ -333,7 +333,8 @@ export default {
     rotation() {
       //быстрое вращение круга в режиме игры
       let stopDegree = this.stopDegree;
-      let extraDegree = Math.ceil(Math.random() * (3600 - 3240)) + 3240; //рандомный выбор угла остановки
+      let extraDegree =
+        (360 / 17) * Math.ceil(Math.random() * (17 - 1) + 1) + 3240; //рандомный выбор угла остановки
       for (let j = 1; j <= 17; j++) {
         let startDegree = (360 / 17) * j + this.stopDegree; //старт вращения с текущей точки
         stopDegree = extraDegree + startDegree;
@@ -660,4 +661,10 @@ span {
   transparent,
   "5px solid #E92D37"
 ); //настройка таймера, где второй параметр - время
+
+@media screen and (max-device-width: 420px) {
+  body {
+    display: none;
+  }
+ }
 </style>
