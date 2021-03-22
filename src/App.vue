@@ -22,10 +22,11 @@
 }
 h1 {
   color: $white;
-  font-size: 8vw;
-  font-family: "Proxima Nova Semibold", "Proxima Nova Rg", Helvetica, Arial,
+  font-size: 7vw;
+  font-family: "Proxima Nova Rg", Helvetica, Arial,
     sans-serif;
-  padding: 3vw 0 0 0;
+    font-weight: bold;
+  padding: 4vw 0 1vw 0;
 }
 
 h2 {
