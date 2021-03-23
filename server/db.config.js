@@ -6,7 +6,7 @@ module.exports = {
     PASSWORD: "12345678",
     DB: "std_714",
     PROD: {
-      HOST: "cv713549.vps.regruhosting.ru",
+      HOST: "localhost",
       USER: "std",
       PASSWORD: "7G0l3H6n",
       DB: "ring",
