@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 const dbConfig = require("./db.config.js");
 const history = require("connect-history-api-fallback");
 const app = express();
-const port = process.env.PORT || 8085;
+const port = process.env.PORT || 8080;
 const serveStatic = require("serve-static");
 const path = require("path"); 
 
