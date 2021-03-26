@@ -395,7 +395,7 @@
       <h2>Трансляции</h2>
       <iframe
         class="broadcast"
-        src="https://vk.com/video_ext.php?oid=-153502007&id=456239554&hash=ced9e10d53635b1b&hd=2"
+        src="https://vk.com/video_ext.php?oid=-203231390&id=456239017&hash=2ae200a5678b9723"
         frameborder="0"
         allowfullscreen
       ></iframe>
