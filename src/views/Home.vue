@@ -386,8 +386,8 @@
       <div>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
-          <b>26</b>
-          <span>марта</span>
+          <b>02</b>
+          <span>апреля</span>
         </div>
       </div>
     </section>
