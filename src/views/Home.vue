@@ -373,8 +373,8 @@
           <h2>Стань зрителем и поддержи любимую команду</h2>
           <p>
             Игра проходит в ВК трансляции. Становись нашим зрителем, следи за
-            новостями в группе ВКонтакте и получи возможность выиграть
-            призы от Mail.ru Group.
+            новостями в группе ВКонтакте и получи возможность выиграть призы от
+            Mail.ru Group.
           </p>
           <a href="https://vk.com/digitalringmrg" class="link"
             >СТАТЬ ЗРИТЕЛЕМ</a
@@ -386,7 +386,7 @@
       <div>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
-          <b>02</b>
+          <b>09</b>
           <span>апреля</span>
         </div>
       </div>
@@ -395,28 +395,22 @@
       <h2>Трансляции</h2>
       <iframe
         class="broadcast"
-        src="https://vk.com/video_ext.php?oid=-203231390&id=456239017&hash=2ae200a5678b9723"
+        src="https://vk.com/video_ext.php?oid=-203231390&id=456239021&hash=f183baa5292d4b3b"
         frameborder="0"
         allowfullscreen
       ></iframe>
       <h3>Предыдущие выпуски</h3>
       <div class="past_broadcasts">
-        <span>Пока ты ничего не пропустил!</span>
-        <!-- <iframe
-          src="https://vk.com/video_ext.php?oid=-153502007&id=456239549&hash=bccf93c9905b18bb&hd=2"
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-203231390&id=456239019&hash=60d40f26def74f74&hd=2"
           frameborder="0"
           allowfullscreen
         ></iframe>
         <iframe
-          src="https://vk.com/video_ext.php?oid=-153502007&id=456239548&hash=1b5cdde20253f1b6&hd=1"
+          src="https://vk.com/video_ext.php?oid=-203231390&id=456239017&hash=2ae200a5678b9723&hd=2"
           frameborder="0"
           allowfullscreen
         ></iframe>
-        <iframe
-          src="https://vk.com/video_ext.php?oid=-153502007&id=456239466&hash=1271a107e45761ab&hd=2"
-          frameborder="0"
-          allowfullscreen
-        ></iframe> -->
       </div>
     </section>
     <section class="rating">
@@ -424,10 +418,7 @@
       <ul class="rating-list">
         <li v-for="(university, idx) in universities" :key="idx">
           <div class="command-card">
-            <p
-              class="command_place"
-              v-bind:class="[{ win: university.id <= 3 }, 'none']"
-            >
+            <p class="command_place" v-bind:class="[{ win: idx <= 3 }, 'none']">
               {{ idx + 1 }}
             </p>
             <p>{{ university.command }}</p>
@@ -679,10 +670,11 @@ li {
 }
 .past_broadcasts {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   & iframe {
     height: 15vw;
     width: 25vw;
+    margin-right: 5%;
   }
 }
 
