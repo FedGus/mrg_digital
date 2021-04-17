@@ -386,7 +386,7 @@
       <div>
         <div class="announce-date">
           <h5>Следующий раунд</h5>
-          <b>16</b>
+          <b>22</b>
           <span>апреля</span>
         </div>
       </div>
@@ -394,6 +394,14 @@
     <section class="video">
       <h2>Трансляции</h2>
       <h3>Предыдущие выпуски</h3>
+      <div class="past_broadcasts">
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-203231390&id=456239024&hash=82dd612fe0098976&hd=2"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p></p>
       <div class="past_broadcasts">
         <iframe
           src="https://vk.com/video_ext.php?oid=-203231390&id=456239023&hash=edcef04b94551cc2&hd=2"
